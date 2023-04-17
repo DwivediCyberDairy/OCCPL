@@ -1,0 +1,114 @@
+﻿@{
+    ViewBag.Title = "PendingEnquiry";
+    Layout = "~/Views/Shared/SubAdminLayoutView.cshtml";
+}
+
+@using MVCEXE_OWL.Models
+@model IEnumerable<OWL_EnqueryMaster>
+
+@Html.Partial("_AdminBreadcrumbsPartialView")
+
+<section class="section">
+    <div class="row">
+        <div class="row">
+            <div class="col-lg-12 " style="text-align:right;">
+                Data :  <button class="btn btn-success text-white" id="CReportEx" style="">Export in Excel</button>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body" id="operation-response">
+                    <h3 class="card-title"> Enquiry List </h3>
+                    <p class="text-primary bg-danger-light">@TempData["Message"]</p>
+                    <!-- Table with hoverable rows -->
+                    <table class="table table-hover" id="yourHtmTable">
+                        <thead>
+                            <tr>
+                                <th scope="col"><input type="checkbox" /> </th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Subject</th>
+                                <th scope="col">Mobile</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Action </th>
+                                <th scope="col">Remark</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                //int x = 1;
+                                foreach (OWL_EnqueryMaster emp in Model)
+                                {
+                                    <tr>
+                                        <td><input type="checkbox" id="@emp.EnqId"></td>
+                                        <td>@emp.Name</td>
+                                        <td>@emp.Subject</td>
+                                        <td>@emp.MobileNo</td>
+                                        <td>@emp.Email</td>
+                                        <td>
+                                            <button type='button' class='btn btn-primary BtnMoreDetail' title="Show More" data-id="" value="@emp.EnqId"><i class='bi bi-info-square'></i>  </button>
+                                            <a href="/SubAdmin/DeleteEnquiry?EnqId=@emp.EnqId" id="@emp.EnqId" style="color:white;text-decoration:none;"> <button type='button' class='btn btn-danger' title="Delete"><i class='bi bi-backspace'></i> </button></a>
+                                        </td>
+                                        <td><textarea name="Remark" placeholder="write your comment here.." class="form-control" rows="2">@emp.Remark</textarea></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="8" class="ExtraDtlSec" data-id="@emp.EnqId" style="display: ;">
+                                            <p class="">
+                                                <b>Message:</b>@emp.Message
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    //x++
+                                }
+                            }
+                        </tbody>
+                    </table>
+                    <!-- End Table with hoverable rows -->
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<script>
+    $(document).ready(function () {
+        $(".BtnMoreDetail").click(function () {
+            var rowNo = $(this).val();
+            //alert(rowNo);
+            var rowData = $(".ExtraDtlSec").attr('data-id');
+            //alert(rowData);
+            if (rowNo == rowData) {
+                //alert("okay");
+                $(".ExtraDtlSec").toggle();
+            }
+        });
+
+        /* Message formatting Start */
+        if ('@TempData["Message"]' != '') {
+            var msg = '@TempData["Message"]';
+            var x = msg.indexOf('Success');
+            var str = " <div id='pmsg' class='alert alert-info alert-dismissible fade show' role='alert'>" +@TempData["Message"] +"<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
+
+            $("#operation-response h3").before(str);
+            setInterval(function () {
+                $("#pmsg").fadeOut(2000);
+            }, 5000);
+        }
+        /* Message Formatting End */
+
+
+        /* The code for download the data in excelSheet */
+        $("#CReportEx").click(function () {
+            $("#yourHtmTable").table2excel({
+                exclude: ".excludeThisClass",
+                name: "Worksheet Name",
+                filename: "jobApplicationSheet.xls", // do include extension
+                preserveColors: false // set to true if you want background colors and font colors preserved
+            });
+        });
+    });
+</script>
+
+
+

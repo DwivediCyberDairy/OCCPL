@@ -1,0 +1,2857 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="OswalNextGenModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="OWL_BusinessPlanMaster">
+          <Key>
+            <PropertyRef Name="PlanNo" />
+          </Key>
+          <Property Name="PlanNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PlanName" Type="varchar" MaxLength="100" />
+          <Property Name="SectorType" Type="int" />
+          <Property Name="Services" Type="varchar" MaxLength="255" />
+          <Property Name="Advantage" Type="varchar" MaxLength="255" />
+          <Property Name="AdditionalFeatuer" Type="varchar" MaxLength="255" />
+          <Property Name="Cost" Type="money" />
+          <Property Name="CurrencyType" Type="varchar" MaxLength="50" />
+          <Property Name="Duration" Type="varchar" MaxLength="50" />
+          <Property Name="PostStatus" Type="int" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="150" />
+          <Property Name="CreationDT" Type="datetime" />
+          <Property Name="UpdatedON" Type="datetime" />
+          <Property Name="IsDel" Type="bit" />
+        </EntityType>
+        <EntityType Name="OWL_BusinessServicesMaster">
+          <Key>
+            <PropertyRef Name="ServiceNo" />
+          </Key>
+          <Property Name="ServiceNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ServiceName" Type="varchar" MaxLength="100" />
+          <Property Name="ServiceCategory" Type="int" />
+          <Property Name="IsDel" Type="bit" />
+        </EntityType>
+        <EntityType Name="OWL_CareersMaster">
+          <Key>
+            <PropertyRef Name="ApplicationNo" />
+          </Key>
+          <Property Name="ApplicationNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ApplicaintName" Type="varchar" MaxLength="50" />
+          <Property Name="Gender" Type="varchar" MaxLength="20" />
+          <Property Name="ApplicaintEmail" Type="varchar" MaxLength="150" />
+          <Property Name="ApplicaintMobile" Type="varchar" MaxLength="20" />
+          <Property Name="DOB" Type="datetime" />
+          <Property Name="ApplicaintAddress" Type="varchar" MaxLength="255" />
+          <Property Name="ApplicaintLocation" Type="int" />
+          <Property Name="ApplicaintPreferedLocation" Type="int" />
+          <Property Name="Qualification" Type="int" />
+          <Property Name="DesignationName" Type="int" />
+          <Property Name="DepartmentName" Type="int" />
+          <Property Name="AttachmentFolderName" Type="varchar" MaxLength="50" />
+          <Property Name="AttachedResume" Type="nvarchar(max)" />
+          <Property Name="AttachmentExtension" Type="varchar" MaxLength="50" />
+          <Property Name="BusinessName" Type="varchar" MaxLength="255" />
+          <Property Name="RegDate" Type="datetime" />
+          <Property Name="Status" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="Remark" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="OWL_CityMaster">
+          <Key>
+            <PropertyRef Name="CityId" />
+          </Key>
+          <Property Name="CityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CityName" Type="varchar" MaxLength="50" />
+          <Property Name="RelatedStateId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OWL_ClientMaster">
+          <Key>
+            <PropertyRef Name="Email" />
+          </Key>
+          <Property Name="ClientId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClientName" Type="varchar" MaxLength="255" />
+          <Property Name="BelongResource" Type="int" />
+          <Property Name="SectorType" Type="int" />
+          <Property Name="AuthorizedPerson" Type="varchar" MaxLength="50" />
+          <Property Name="Designation" Type="int" />
+          <Property Name="Email" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="MobileNo" Type="varchar" MaxLength="20" />
+          <Property Name="Address" Type="varchar" MaxLength="255" />
+          <Property Name="RelatedState" Type="int" />
+          <Property Name="RelatedCity" Type="int" />
+          <Property Name="Url" Type="nvarchar(max)" />
+          <Property Name="BusinessPlan" Type="int" />
+          <Property Name="Status" Type="int" />
+          <Property Name="IsDel" Type="bit" />
+        </EntityType>
+        <EntityType Name="OWL_CountryMaster">
+          <Key>
+            <PropertyRef Name="CountryId" />
+          </Key>
+          <Property Name="CountryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CountryName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="OWL_DepartmentMaster">
+          <Key>
+            <PropertyRef Name="DepartmentId" />
+          </Key>
+          <Property Name="DepartmentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DepartmentName" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="OWL_DesignationMaster">
+          <Key>
+            <PropertyRef Name="DesignationId" />
+          </Key>
+          <Property Name="DesignationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DesignationName" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="OWL_DocCategoryMaster">
+          <Key>
+            <PropertyRef Name="DocCategoryNo" />
+          </Key>
+          <Property Name="DocCategoryNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DocCategoryName" Type="varchar" MaxLength="150" />
+          <Property Name="RelatedDocType_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="OWL_DocTypeMaster">
+          <Key>
+            <PropertyRef Name="DocTypeNo" />
+          </Key>
+          <Property Name="DocTypeNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DocType" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="OWL_DocumentMaster">
+          <Key>
+            <PropertyRef Name="DocNo" />
+          </Key>
+          <Property Name="DocNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DocTitle" Type="varchar" MaxLength="100" />
+          <Property Name="DocName" Type="varchar" MaxLength="255" />
+          <Property Name="DocUploadedBy" Type="varchar" MaxLength="150" />
+          <Property Name="DocCategoryName" Type="int" />
+          <Property Name="DocRelatedYear" Type="datetime" />
+          <Property Name="DocUploadedOn" Type="datetime" />
+          <Property Name="DocUpdatedOn" Type="datetime" />
+          <Property Name="Description" Type="varchar" MaxLength="150" />
+          <Property Name="FolderName" Type="varchar" MaxLength="255" />
+          <Property Name="DocFileType" Type="varchar" MaxLength="50" />
+          <Property Name="DocFileSizeIn_KB" Type="float" />
+          <Property Name="IsDel" Type="bit" />
+          <Property Name="Remark" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="OWL_EmployeeDetail">
+          <Key>
+            <PropertyRef Name="EmpEmail" />
+          </Key>
+          <Property Name="EmpEmail" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="ProfilePic" Type="varchar" MaxLength="255" />
+          <Property Name="About" Type="varchar" MaxLength="355" />
+          <Property Name="CompanyName" Type="varchar" MaxLength="150" />
+          <Property Name="JobDesignation" Type="int" />
+          <Property Name="Country" Type="int" />
+          <Property Name="Address" Type="varchar" MaxLength="255" />
+          <Property Name="Phone" Type="varchar" MaxLength="20" />
+          <Property Name="TwitterProfileUrl" Type="varchar" MaxLength="355" />
+          <Property Name="FacebookProfileUrl" Type="varchar" MaxLength="355" />
+          <Property Name="InstagramProfileUrl" Type="varchar" MaxLength="355" />
+          <Property Name="LinkedinProfileUrl" Type="varchar" MaxLength="355" />
+          <Property Name="LinkType" Type="varchar" MaxLength="50" />
+          <Property Name="UpdatedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="OWL_EmployeeMaster">
+          <Key>
+            <PropertyRef Name="EmpEmail" />
+          </Key>
+          <Property Name="EmpId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserType" Type="int" />
+          <Property Name="EmpName" Type="varchar" MaxLength="50" />
+          <Property Name="EmpEmail" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Gender" Type="varchar" MaxLength="20" />
+          <Property Name="EmpDept" Type="int" />
+          <Property Name="Qualification" Type="int" />
+          <Property Name="City" Type="int" />
+          <Property Name="UserPassword" Type="varchar" MaxLength="255" />
+          <Property Name="AddedOn" Type="datetime" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="IsDel" Type="bit" />
+        </EntityType>
+        <EntityType Name="OWL_EnqueryMaster">
+          <Key>
+            <PropertyRef Name="EnqId" />
+          </Key>
+          <Property Name="EnqId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="MobileNo" Type="varchar" MaxLength="20" />
+          <Property Name="Email" Type="varchar" MaxLength="150" />
+          <Property Name="SubmittedByEmpId" Type="varchar" MaxLength="150" />
+          <Property Name="OrganizationName" Type="varchar" MaxLength="50" />
+          <Property Name="Subject" Type="varchar" MaxLength="100" />
+          <Property Name="Message" Type="varchar" MaxLength="350" />
+          <Property Name="EnqDate" Type="datetime" />
+          <Property Name="IsDel" Type="bit" />
+          <Property Name="Remark" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="OWL_JobModeMaster">
+          <Key>
+            <PropertyRef Name="ModeId" />
+          </Key>
+          <Property Name="ModeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="JobMode" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="OWL_JobsPostMaster">
+          <Key>
+            <PropertyRef Name="JobId" />
+          </Key>
+          <Property Name="JobId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="JobTitle" Type="varchar" MaxLength="100" />
+          <Property Name="Qualification" Type="int" />
+          <Property Name="KeySkills" Type="varchar" MaxLength="150" />
+          <Property Name="Exp_InYears" Type="int" />
+          <Property Name="Available_NoOfPost" Type="int" />
+          <Property Name="JobType" Type="int" />
+          <Property Name="JobMode" Type="int" />
+          <Property Name="JobLocation" Type="int" />
+          <Property Name="PublishedBy" Type="varchar" MaxLength="150" />
+          <Property Name="PublishedOn" Type="datetime" />
+          <Property Name="Status" Type="int" />
+          <Property Name="IsDel" Type="bit" />
+        </EntityType>
+        <EntityType Name="OWL_JobTypeMaster">
+          <Key>
+            <PropertyRef Name="JobTypeId" />
+          </Key>
+          <Property Name="JobTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="JobType" Type="varchar" MaxLength="50" />
+          <Property Name="IsDel" Type="bit" />
+        </EntityType>
+        <EntityType Name="OWL_LoginMaster">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="UserPassword" Type="varchar" MaxLength="255" />
+          <Property Name="UserType" Type="int" />
+          <Property Name="UserStatus" Type="bit" />
+          <Property Name="LoginCount" Type="int" />
+          <Property Name="LastLogin_DT" Type="datetime" />
+          <Property Name="LastLogin_IP" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="OWL_PostsMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PostAuthor" Type="varchar" MaxLength="150" />
+          <Property Name="PostDate" Type="datetime" />
+          <Property Name="PostContent" Type="nvarchar(max)" />
+          <Property Name="FeaturedImg" Type="varchar" MaxLength="150" />
+          <Property Name="ThumbImg" Type="varchar" MaxLength="150" />
+          <Property Name="FileFolderName" Type="varchar" MaxLength="255" />
+          <Property Name="PostTitle" Type="varchar" MaxLength="150" />
+          <Property Name="PostExcerpt" Type="varchar" MaxLength="150" />
+          <Property Name="BulletPoint" Type="varchar" MaxLength="500" />
+          <Property Name="PostStatus" Type="int" />
+          <Property Name="CommentStatus" Type="int" />
+          <Property Name="PostPassword" Type="varchar" MaxLength="50" />
+          <Property Name="PostName" Type="varchar" MaxLength="355" />
+          <Property Name="ToPingTags" Type="varchar" MaxLength="150" />
+          <Property Name="Pinged" Type="varchar" MaxLength="150" />
+          <Property Name="PostUpdatedOn" Type="datetime" />
+          <Property Name="PostContentFiltered" Type="varchar(max)" />
+          <Property Name="PostParent" Type="int" />
+          <Property Name="Guid" Type="varchar" MaxLength="255" />
+          <Property Name="MenuOrder" Type="int" />
+          <Property Name="PostType" Type="int" />
+          <Property Name="PostMimeType" Type="varchar" MaxLength="100" />
+          <Property Name="CommentCount" Type="int" />
+          <Property Name="Url" Type="varchar" MaxLength="355" />
+          <Property Name="IsDel" Type="bit" />
+        </EntityType>
+        <EntityType Name="OWL_PostTypeMaster">
+          <Key>
+            <PropertyRef Name="PostTypeId" />
+          </Key>
+          <Property Name="PostTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PostType" Type="varchar" MaxLength="50" />
+          <Property Name="IsDel" Type="bit" />
+        </EntityType>
+        <EntityType Name="OWL_QualificationMaster">
+          <Key>
+            <PropertyRef Name="QualificationId" />
+          </Key>
+          <Property Name="QualificationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="QualificationName" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="OWL_QuestionMaster">
+          <Key>
+            <PropertyRef Name="QuestionNo" />
+          </Key>
+          <Property Name="QuestionNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SectorType" Type="int" />
+          <Property Name="Question" Type="varchar" MaxLength="355" />
+          <Property Name="Answer" Type="nvarchar(max)" />
+          <Property Name="CreationDT" Type="datetime" />
+          <Property Name="UpdationDT" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="150" />
+          <Property Name="IsDel" Type="bit" />
+        </EntityType>
+        <EntityType Name="OWL_ResourceMaster">
+          <Key>
+            <PropertyRef Name="ResourceId" />
+          </Key>
+          <Property Name="ResourceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ResourceName" Type="varchar" MaxLength="150" />
+          <Property Name="ResourceUrl" Type="nvarchar(max)" />
+          <Property Name="ResourceEmail" Type="varchar" MaxLength="150" />
+          <Property Name="AuthorizedPerson" Type="varchar" MaxLength="50" />
+          <Property Name="MobileNo" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="150" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="IsDel" Type="bit" />
+        </EntityType>
+        <EntityType Name="OWL_SectorTypeMaster">
+          <Key>
+            <PropertyRef Name="SectorTypeId" />
+          </Key>
+          <Property Name="SectorTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SectorType" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="OWL_ServicesCategoryMaster">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Category" Type="varchar" MaxLength="50" />
+          <Property Name="IsDel" Type="bit" />
+        </EntityType>
+        <EntityType Name="OWL_StateMaster">
+          <Key>
+            <PropertyRef Name="StateId" />
+          </Key>
+          <Property Name="StateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StateName" Type="varchar" MaxLength="50" />
+          <Property Name="RelatedCountryId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OWL_StatusListMaster">
+          <Key>
+            <PropertyRef Name="StatusId" />
+          </Key>
+          <Property Name="StatusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StatusValue" Type="varchar" MaxLength="50" />
+          <Property Name="IsDel" Type="bit" />
+        </EntityType>
+        <EntityType Name="OWL_TagsMaster">
+          <Key>
+            <PropertyRef Name="TagId" />
+          </Key>
+          <Property Name="TagId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TagName" Type="varchar" MaxLength="50" />
+          <Property Name="TagReleatedSector" Type="int" />
+          <Property Name="IsDel" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'OswalNextGen.dbo.OWL_TestTbl' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="OWL_TestTbl">
+          <Property Name="Id" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="City" Type="int" />
+          <Property Name="Address" Type="varchar" MaxLength="50" />
+        </EntityType>-->
+        <EntityType Name="OWL_UserMaster">
+          <Key>
+            <PropertyRef Name="UserTypeId" />
+          </Key>
+          <Property Name="UserTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserTypeName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK__OWL_CityM__Relat__32E0915F">
+          <End Role="OWL_StateMaster" Type="Self.OWL_StateMaster" Multiplicity="1" />
+          <End Role="OWL_CityMaster" Type="Self.OWL_CityMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_StateMaster">
+              <PropertyRef Name="StateId" />
+            </Principal>
+            <Dependent Role="OWL_CityMaster">
+              <PropertyRef Name="RelatedStateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OWL_Emplo__UserT__34C8D9D1">
+          <End Role="OWL_UserMaster" Type="Self.OWL_UserMaster" Multiplicity="0..1" />
+          <End Role="OWL_EmployeeMaster" Type="Self.OWL_EmployeeMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_UserMaster">
+              <PropertyRef Name="UserTypeId" />
+            </Principal>
+            <Dependent Role="OWL_EmployeeMaster">
+              <PropertyRef Name="UserType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OWL_State__Relat__35BCFE0A">
+          <End Role="OWL_CountryMaster" Type="Self.OWL_CountryMaster" Multiplicity="1" />
+          <End Role="OWL_StateMaster" Type="Self.OWL_StateMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_CountryMaster">
+              <PropertyRef Name="CountryId" />
+            </Principal>
+            <Dependent Role="OWL_StateMaster">
+              <PropertyRef Name="RelatedCountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_BusinessPlanMaster_OWL_EmployeeMaster">
+          <End Role="OWL_EmployeeMaster" Type="Self.OWL_EmployeeMaster" Multiplicity="0..1" />
+          <End Role="OWL_BusinessPlanMaster" Type="Self.OWL_BusinessPlanMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_EmployeeMaster">
+              <PropertyRef Name="EmpEmail" />
+            </Principal>
+            <Dependent Role="OWL_BusinessPlanMaster">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_BusinessPlanMaster_OWL_SectorTypeMaster">
+          <End Role="OWL_SectorTypeMaster" Type="Self.OWL_SectorTypeMaster" Multiplicity="0..1" />
+          <End Role="OWL_BusinessPlanMaster" Type="Self.OWL_BusinessPlanMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_SectorTypeMaster">
+              <PropertyRef Name="SectorTypeId" />
+            </Principal>
+            <Dependent Role="OWL_BusinessPlanMaster">
+              <PropertyRef Name="SectorType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_BusinessPlanMaster_OWL_StatusListMaster">
+          <End Role="OWL_StatusListMaster" Type="Self.OWL_StatusListMaster" Multiplicity="0..1" />
+          <End Role="OWL_BusinessPlanMaster" Type="Self.OWL_BusinessPlanMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_StatusListMaster">
+              <PropertyRef Name="StatusId" />
+            </Principal>
+            <Dependent Role="OWL_BusinessPlanMaster">
+              <PropertyRef Name="PostStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_BusinessServicesMaster_OWL_ServicesCategoryMaster">
+          <End Role="OWL_ServicesCategoryMaster" Type="Self.OWL_ServicesCategoryMaster" Multiplicity="0..1" />
+          <End Role="OWL_BusinessServicesMaster" Type="Self.OWL_BusinessServicesMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_ServicesCategoryMaster">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="OWL_BusinessServicesMaster">
+              <PropertyRef Name="ServiceCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_CareersMaster_OWL_CareersMaster">
+          <End Role="OWL_CityMaster" Type="Self.OWL_CityMaster" Multiplicity="0..1" />
+          <End Role="OWL_CareersMaster" Type="Self.OWL_CareersMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_CityMaster">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="OWL_CareersMaster">
+              <PropertyRef Name="ApplicaintLocation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_CareersMaster_OWL_CityMaster">
+          <End Role="OWL_CityMaster" Type="Self.OWL_CityMaster" Multiplicity="0..1" />
+          <End Role="OWL_CareersMaster" Type="Self.OWL_CareersMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_CityMaster">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="OWL_CareersMaster">
+              <PropertyRef Name="ApplicaintPreferedLocation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_CareersMaster_OWL_DepartmentMaster">
+          <End Role="OWL_DepartmentMaster" Type="Self.OWL_DepartmentMaster" Multiplicity="0..1" />
+          <End Role="OWL_CareersMaster" Type="Self.OWL_CareersMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_DepartmentMaster">
+              <PropertyRef Name="DepartmentId" />
+            </Principal>
+            <Dependent Role="OWL_CareersMaster">
+              <PropertyRef Name="DepartmentName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_CareersMaster_OWL_DesignationMaster">
+          <End Role="OWL_DesignationMaster" Type="Self.OWL_DesignationMaster" Multiplicity="0..1" />
+          <End Role="OWL_CareersMaster" Type="Self.OWL_CareersMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_DesignationMaster">
+              <PropertyRef Name="DesignationId" />
+            </Principal>
+            <Dependent Role="OWL_CareersMaster">
+              <PropertyRef Name="DesignationName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_CareersMaster_OWL_QualificationMaster">
+          <End Role="OWL_QualificationMaster" Type="Self.OWL_QualificationMaster" Multiplicity="0..1" />
+          <End Role="OWL_CareersMaster" Type="Self.OWL_CareersMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_QualificationMaster">
+              <PropertyRef Name="QualificationId" />
+            </Principal>
+            <Dependent Role="OWL_CareersMaster">
+              <PropertyRef Name="Qualification" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_CareersMaster_OWL_StatusListMaster">
+          <End Role="OWL_StatusListMaster" Type="Self.OWL_StatusListMaster" Multiplicity="0..1" />
+          <End Role="OWL_CareersMaster" Type="Self.OWL_CareersMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_StatusListMaster">
+              <PropertyRef Name="StatusId" />
+            </Principal>
+            <Dependent Role="OWL_CareersMaster">
+              <PropertyRef Name="Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_ClientMaster_OWL_BusinessPlanMaster">
+          <End Role="OWL_BusinessPlanMaster" Type="Self.OWL_BusinessPlanMaster" Multiplicity="0..1" />
+          <End Role="OWL_ClientMaster" Type="Self.OWL_ClientMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_BusinessPlanMaster">
+              <PropertyRef Name="PlanNo" />
+            </Principal>
+            <Dependent Role="OWL_ClientMaster">
+              <PropertyRef Name="BusinessPlan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_ClientMaster_OWL_CityMaster">
+          <End Role="OWL_StatusListMaster" Type="Self.OWL_StatusListMaster" Multiplicity="0..1" />
+          <End Role="OWL_ClientMaster" Type="Self.OWL_ClientMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_StatusListMaster">
+              <PropertyRef Name="StatusId" />
+            </Principal>
+            <Dependent Role="OWL_ClientMaster">
+              <PropertyRef Name="Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_ClientMaster_OWL_ClientMaster">
+          <End Role="OWL_ClientMaster" Type="Self.OWL_ClientMaster" Multiplicity="1" />
+          <End Role="OWL_ClientMaster1" Type="Self.OWL_ClientMaster" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_ClientMaster">
+              <PropertyRef Name="Email" />
+            </Principal>
+            <Dependent Role="OWL_ClientMaster1">
+              <PropertyRef Name="Email" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_ClientMaster_OWL_DesignationMaster">
+          <End Role="OWL_DesignationMaster" Type="Self.OWL_DesignationMaster" Multiplicity="0..1" />
+          <End Role="OWL_ClientMaster" Type="Self.OWL_ClientMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_DesignationMaster">
+              <PropertyRef Name="DesignationId" />
+            </Principal>
+            <Dependent Role="OWL_ClientMaster">
+              <PropertyRef Name="Designation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_ClientMaster_OWL_ResourceMaster">
+          <End Role="OWL_ResourceMaster" Type="Self.OWL_ResourceMaster" Multiplicity="0..1" />
+          <End Role="OWL_ClientMaster" Type="Self.OWL_ClientMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_ResourceMaster">
+              <PropertyRef Name="ResourceId" />
+            </Principal>
+            <Dependent Role="OWL_ClientMaster">
+              <PropertyRef Name="BelongResource" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_ClientMaster_OWL_SectorTypeMaster">
+          <End Role="OWL_SectorTypeMaster" Type="Self.OWL_SectorTypeMaster" Multiplicity="0..1" />
+          <End Role="OWL_ClientMaster" Type="Self.OWL_ClientMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_SectorTypeMaster">
+              <PropertyRef Name="SectorTypeId" />
+            </Principal>
+            <Dependent Role="OWL_ClientMaster">
+              <PropertyRef Name="SectorType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_ClientMaster_OWL_StateMaster">
+          <End Role="OWL_StateMaster" Type="Self.OWL_StateMaster" Multiplicity="0..1" />
+          <End Role="OWL_ClientMaster" Type="Self.OWL_ClientMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_StateMaster">
+              <PropertyRef Name="StateId" />
+            </Principal>
+            <Dependent Role="OWL_ClientMaster">
+              <PropertyRef Name="RelatedState" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_DocCategoryMaster_OWL_DocTypeMaster">
+          <End Role="OWL_DocTypeMaster" Type="Self.OWL_DocTypeMaster" Multiplicity="0..1" />
+          <End Role="OWL_DocCategoryMaster" Type="Self.OWL_DocCategoryMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_DocTypeMaster">
+              <PropertyRef Name="DocTypeNo" />
+            </Principal>
+            <Dependent Role="OWL_DocCategoryMaster">
+              <PropertyRef Name="RelatedDocType_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_DocumentMaster_OWL_DocCategoryMaster1">
+          <End Role="OWL_DocCategoryMaster" Type="Self.OWL_DocCategoryMaster" Multiplicity="0..1" />
+          <End Role="OWL_DocumentMaster" Type="Self.OWL_DocumentMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_DocCategoryMaster">
+              <PropertyRef Name="DocCategoryNo" />
+            </Principal>
+            <Dependent Role="OWL_DocumentMaster">
+              <PropertyRef Name="DocCategoryName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_DocumentMaster_OWL_EmployeeMaster1">
+          <End Role="OWL_EmployeeMaster" Type="Self.OWL_EmployeeMaster" Multiplicity="0..1" />
+          <End Role="OWL_DocumentMaster" Type="Self.OWL_DocumentMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_EmployeeMaster">
+              <PropertyRef Name="EmpEmail" />
+            </Principal>
+            <Dependent Role="OWL_DocumentMaster">
+              <PropertyRef Name="DocUploadedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_EmployeeDetail_OWL_EmployeeMaster">
+          <End Role="OWL_EmployeeMaster" Type="Self.OWL_EmployeeMaster" Multiplicity="1" />
+          <End Role="OWL_EmployeeDetail" Type="Self.OWL_EmployeeDetail" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_EmployeeMaster">
+              <PropertyRef Name="EmpEmail" />
+            </Principal>
+            <Dependent Role="OWL_EmployeeDetail">
+              <PropertyRef Name="EmpEmail" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_EmployeeMaster_OWL_CityMaster">
+          <End Role="OWL_CityMaster" Type="Self.OWL_CityMaster" Multiplicity="0..1" />
+          <End Role="OWL_EmployeeMaster" Type="Self.OWL_EmployeeMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_CityMaster">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="OWL_EmployeeMaster">
+              <PropertyRef Name="City" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_EmployeeMaster_OWL_DepartmentMaster">
+          <End Role="OWL_DepartmentMaster" Type="Self.OWL_DepartmentMaster" Multiplicity="0..1" />
+          <End Role="OWL_EmployeeMaster" Type="Self.OWL_EmployeeMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_DepartmentMaster">
+              <PropertyRef Name="DepartmentId" />
+            </Principal>
+            <Dependent Role="OWL_EmployeeMaster">
+              <PropertyRef Name="EmpDept" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_EmployeeMaster_OWL_QualificationMaster">
+          <End Role="OWL_QualificationMaster" Type="Self.OWL_QualificationMaster" Multiplicity="0..1" />
+          <End Role="OWL_EmployeeMaster" Type="Self.OWL_EmployeeMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_QualificationMaster">
+              <PropertyRef Name="QualificationId" />
+            </Principal>
+            <Dependent Role="OWL_EmployeeMaster">
+              <PropertyRef Name="Qualification" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_EnqueryMaster_OWL_EmployeeMaster">
+          <End Role="OWL_EmployeeMaster" Type="Self.OWL_EmployeeMaster" Multiplicity="0..1" />
+          <End Role="OWL_EnqueryMaster" Type="Self.OWL_EnqueryMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_EmployeeMaster">
+              <PropertyRef Name="EmpEmail" />
+            </Principal>
+            <Dependent Role="OWL_EnqueryMaster">
+              <PropertyRef Name="SubmittedByEmpId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_JobsPostMaster_OWL_CityMaster">
+          <End Role="OWL_CityMaster" Type="Self.OWL_CityMaster" Multiplicity="0..1" />
+          <End Role="OWL_JobsPostMaster" Type="Self.OWL_JobsPostMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_CityMaster">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="OWL_JobsPostMaster">
+              <PropertyRef Name="JobLocation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_JobsPostMaster_OWL_EmployeeMaster">
+          <End Role="OWL_EmployeeMaster" Type="Self.OWL_EmployeeMaster" Multiplicity="0..1" />
+          <End Role="OWL_JobsPostMaster" Type="Self.OWL_JobsPostMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_EmployeeMaster">
+              <PropertyRef Name="EmpEmail" />
+            </Principal>
+            <Dependent Role="OWL_JobsPostMaster">
+              <PropertyRef Name="PublishedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_JobsPostMaster_OWL_JobModeMaster">
+          <End Role="OWL_JobModeMaster" Type="Self.OWL_JobModeMaster" Multiplicity="0..1" />
+          <End Role="OWL_JobsPostMaster" Type="Self.OWL_JobsPostMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_JobModeMaster">
+              <PropertyRef Name="ModeId" />
+            </Principal>
+            <Dependent Role="OWL_JobsPostMaster">
+              <PropertyRef Name="JobMode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_JobsPostMaster_OWL_JobTypeMaster">
+          <End Role="OWL_JobTypeMaster" Type="Self.OWL_JobTypeMaster" Multiplicity="0..1" />
+          <End Role="OWL_JobsPostMaster" Type="Self.OWL_JobsPostMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_JobTypeMaster">
+              <PropertyRef Name="JobTypeId" />
+            </Principal>
+            <Dependent Role="OWL_JobsPostMaster">
+              <PropertyRef Name="JobType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_JobsPostMaster_OWL_QualificationMaster">
+          <End Role="OWL_QualificationMaster" Type="Self.OWL_QualificationMaster" Multiplicity="0..1" />
+          <End Role="OWL_JobsPostMaster" Type="Self.OWL_JobsPostMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_QualificationMaster">
+              <PropertyRef Name="QualificationId" />
+            </Principal>
+            <Dependent Role="OWL_JobsPostMaster">
+              <PropertyRef Name="Qualification" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_JobsPostMaster_OWL_StatusListMaster">
+          <End Role="OWL_StatusListMaster" Type="Self.OWL_StatusListMaster" Multiplicity="0..1" />
+          <End Role="OWL_JobsPostMaster" Type="Self.OWL_JobsPostMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_StatusListMaster">
+              <PropertyRef Name="StatusId" />
+            </Principal>
+            <Dependent Role="OWL_JobsPostMaster">
+              <PropertyRef Name="Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_LoginMaster_OWL_EmployeeMaster">
+          <End Role="OWL_EmployeeMaster" Type="Self.OWL_EmployeeMaster" Multiplicity="1" />
+          <End Role="OWL_LoginMaster" Type="Self.OWL_LoginMaster" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_EmployeeMaster">
+              <PropertyRef Name="EmpEmail" />
+            </Principal>
+            <Dependent Role="OWL_LoginMaster">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_PostsMaster_OWL_EmployeeMaster">
+          <End Role="OWL_EmployeeMaster" Type="Self.OWL_EmployeeMaster" Multiplicity="0..1" />
+          <End Role="OWL_PostsMaster" Type="Self.OWL_PostsMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_EmployeeMaster">
+              <PropertyRef Name="EmpEmail" />
+            </Principal>
+            <Dependent Role="OWL_PostsMaster">
+              <PropertyRef Name="PostAuthor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_PostsMaster_OWL_PostsMaster">
+          <End Role="OWL_PostsMaster" Type="Self.OWL_PostsMaster" Multiplicity="0..1" />
+          <End Role="OWL_PostsMaster1" Type="Self.OWL_PostsMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_PostsMaster">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OWL_PostsMaster1">
+              <PropertyRef Name="PostParent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_PostsMaster_OWL_PostsMaster1">
+          <End Role="OWL_PostTypeMaster" Type="Self.OWL_PostTypeMaster" Multiplicity="0..1" />
+          <End Role="OWL_PostsMaster" Type="Self.OWL_PostsMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_PostTypeMaster">
+              <PropertyRef Name="PostTypeId" />
+            </Principal>
+            <Dependent Role="OWL_PostsMaster">
+              <PropertyRef Name="PostType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_PostsMaster_OWL_StatusListMaster">
+          <End Role="OWL_StatusListMaster" Type="Self.OWL_StatusListMaster" Multiplicity="0..1" />
+          <End Role="OWL_PostsMaster" Type="Self.OWL_PostsMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_StatusListMaster">
+              <PropertyRef Name="StatusId" />
+            </Principal>
+            <Dependent Role="OWL_PostsMaster">
+              <PropertyRef Name="PostStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_PostsMaster_OWL_StatusListMaster1">
+          <End Role="OWL_StatusListMaster" Type="Self.OWL_StatusListMaster" Multiplicity="0..1" />
+          <End Role="OWL_PostsMaster" Type="Self.OWL_PostsMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_StatusListMaster">
+              <PropertyRef Name="StatusId" />
+            </Principal>
+            <Dependent Role="OWL_PostsMaster">
+              <PropertyRef Name="CommentStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_QuestionMaster_OWL_EmployeeMaster">
+          <End Role="OWL_EmployeeMaster" Type="Self.OWL_EmployeeMaster" Multiplicity="0..1" />
+          <End Role="OWL_QuestionMaster" Type="Self.OWL_QuestionMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_EmployeeMaster">
+              <PropertyRef Name="EmpEmail" />
+            </Principal>
+            <Dependent Role="OWL_QuestionMaster">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_QuestionMaster_OWL_SectorTypeMaster">
+          <End Role="OWL_SectorTypeMaster" Type="Self.OWL_SectorTypeMaster" Multiplicity="0..1" />
+          <End Role="OWL_QuestionMaster" Type="Self.OWL_QuestionMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_SectorTypeMaster">
+              <PropertyRef Name="SectorTypeId" />
+            </Principal>
+            <Dependent Role="OWL_QuestionMaster">
+              <PropertyRef Name="SectorType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_ResourceMaster_OWL_EmployeeMaster">
+          <End Role="OWL_EmployeeMaster" Type="Self.OWL_EmployeeMaster" Multiplicity="0..1" />
+          <End Role="OWL_ResourceMaster" Type="Self.OWL_ResourceMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_EmployeeMaster">
+              <PropertyRef Name="EmpEmail" />
+            </Principal>
+            <Dependent Role="OWL_ResourceMaster">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_TagsMaster_OWL_SectorTypeMaster">
+          <End Role="OWL_SectorTypeMaster" Type="Self.OWL_SectorTypeMaster" Multiplicity="0..1" />
+          <End Role="OWL_TagsMaster" Type="Self.OWL_TagsMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_SectorTypeMaster">
+              <PropertyRef Name="SectorTypeId" />
+            </Principal>
+            <Dependent Role="OWL_TagsMaster">
+              <PropertyRef Name="TagReleatedSector" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="EmployeeMasterOperation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="EmpId" Type="int" Mode="In" />
+          <Parameter Name="UserType" Type="int" Mode="In" />
+          <Parameter Name="EmpName" Type="varchar" Mode="In" />
+          <Parameter Name="EmpEmail" Type="varchar" Mode="In" />
+          <Parameter Name="EmpDept" Type="int" Mode="In" />
+          <Parameter Name="Qualification" Type="int" Mode="In" />
+          <Parameter Name="City" Type="int" Mode="In" />
+          <Parameter Name="AddedOn" Type="datetime" Mode="In" />
+          <Parameter Name="UpdatedOn" Type="datetime" Mode="In" />
+          <Parameter Name="IsDel" Type="bit" Mode="In" />
+          <Parameter Name="Operation" Type="int" Mode="In" />
+          <Parameter Name="Response" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="OswalNextGenModelStoreContainer">
+          <EntitySet Name="OWL_BusinessPlanMaster" EntityType="Self.OWL_BusinessPlanMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OWL_BusinessServicesMaster" EntityType="Self.OWL_BusinessServicesMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OWL_CareersMaster" EntityType="Self.OWL_CareersMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OWL_CityMaster" EntityType="Self.OWL_CityMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OWL_ClientMaster" EntityType="Self.OWL_ClientMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OWL_CountryMaster" EntityType="Self.OWL_CountryMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OWL_DepartmentMaster" EntityType="Self.OWL_DepartmentMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OWL_DesignationMaster" EntityType="Self.OWL_DesignationMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OWL_DocCategoryMaster" EntityType="Self.OWL_DocCategoryMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OWL_DocTypeMaster" EntityType="Self.OWL_DocTypeMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OWL_DocumentMaster" EntityType="Self.OWL_DocumentMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OWL_EmployeeDetail" EntityType="Self.OWL_EmployeeDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OWL_EmployeeMaster" EntityType="Self.OWL_EmployeeMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OWL_EnqueryMaster" EntityType="Self.OWL_EnqueryMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OWL_JobModeMaster" EntityType="Self.OWL_JobModeMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OWL_JobsPostMaster" EntityType="Self.OWL_JobsPostMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OWL_JobTypeMaster" EntityType="Self.OWL_JobTypeMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OWL_LoginMaster" EntityType="Self.OWL_LoginMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OWL_PostsMaster" EntityType="Self.OWL_PostsMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OWL_PostTypeMaster" EntityType="Self.OWL_PostTypeMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OWL_QualificationMaster" EntityType="Self.OWL_QualificationMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OWL_QuestionMaster" EntityType="Self.OWL_QuestionMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OWL_ResourceMaster" EntityType="Self.OWL_ResourceMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OWL_SectorTypeMaster" EntityType="Self.OWL_SectorTypeMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OWL_ServicesCategoryMaster" EntityType="Self.OWL_ServicesCategoryMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OWL_StateMaster" EntityType="Self.OWL_StateMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OWL_StatusListMaster" EntityType="Self.OWL_StatusListMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OWL_TagsMaster" EntityType="Self.OWL_TagsMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OWL_UserMaster" EntityType="Self.OWL_UserMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__OWL_CityM__Relat__32E0915F" Association="Self.FK__OWL_CityM__Relat__32E0915F">
+            <End Role="OWL_StateMaster" EntitySet="OWL_StateMaster" />
+            <End Role="OWL_CityMaster" EntitySet="OWL_CityMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OWL_Emplo__UserT__34C8D9D1" Association="Self.FK__OWL_Emplo__UserT__34C8D9D1">
+            <End Role="OWL_UserMaster" EntitySet="OWL_UserMaster" />
+            <End Role="OWL_EmployeeMaster" EntitySet="OWL_EmployeeMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OWL_State__Relat__35BCFE0A" Association="Self.FK__OWL_State__Relat__35BCFE0A">
+            <End Role="OWL_CountryMaster" EntitySet="OWL_CountryMaster" />
+            <End Role="OWL_StateMaster" EntitySet="OWL_StateMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_BusinessPlanMaster_OWL_EmployeeMaster" Association="Self.FK_OWL_BusinessPlanMaster_OWL_EmployeeMaster">
+            <End Role="OWL_EmployeeMaster" EntitySet="OWL_EmployeeMaster" />
+            <End Role="OWL_BusinessPlanMaster" EntitySet="OWL_BusinessPlanMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_BusinessPlanMaster_OWL_SectorTypeMaster" Association="Self.FK_OWL_BusinessPlanMaster_OWL_SectorTypeMaster">
+            <End Role="OWL_SectorTypeMaster" EntitySet="OWL_SectorTypeMaster" />
+            <End Role="OWL_BusinessPlanMaster" EntitySet="OWL_BusinessPlanMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_BusinessPlanMaster_OWL_StatusListMaster" Association="Self.FK_OWL_BusinessPlanMaster_OWL_StatusListMaster">
+            <End Role="OWL_StatusListMaster" EntitySet="OWL_StatusListMaster" />
+            <End Role="OWL_BusinessPlanMaster" EntitySet="OWL_BusinessPlanMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_BusinessServicesMaster_OWL_ServicesCategoryMaster" Association="Self.FK_OWL_BusinessServicesMaster_OWL_ServicesCategoryMaster">
+            <End Role="OWL_ServicesCategoryMaster" EntitySet="OWL_ServicesCategoryMaster" />
+            <End Role="OWL_BusinessServicesMaster" EntitySet="OWL_BusinessServicesMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_CareersMaster_OWL_CareersMaster" Association="Self.FK_OWL_CareersMaster_OWL_CareersMaster">
+            <End Role="OWL_CityMaster" EntitySet="OWL_CityMaster" />
+            <End Role="OWL_CareersMaster" EntitySet="OWL_CareersMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_CareersMaster_OWL_CityMaster" Association="Self.FK_OWL_CareersMaster_OWL_CityMaster">
+            <End Role="OWL_CityMaster" EntitySet="OWL_CityMaster" />
+            <End Role="OWL_CareersMaster" EntitySet="OWL_CareersMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_CareersMaster_OWL_DepartmentMaster" Association="Self.FK_OWL_CareersMaster_OWL_DepartmentMaster">
+            <End Role="OWL_DepartmentMaster" EntitySet="OWL_DepartmentMaster" />
+            <End Role="OWL_CareersMaster" EntitySet="OWL_CareersMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_CareersMaster_OWL_DesignationMaster" Association="Self.FK_OWL_CareersMaster_OWL_DesignationMaster">
+            <End Role="OWL_DesignationMaster" EntitySet="OWL_DesignationMaster" />
+            <End Role="OWL_CareersMaster" EntitySet="OWL_CareersMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_CareersMaster_OWL_QualificationMaster" Association="Self.FK_OWL_CareersMaster_OWL_QualificationMaster">
+            <End Role="OWL_QualificationMaster" EntitySet="OWL_QualificationMaster" />
+            <End Role="OWL_CareersMaster" EntitySet="OWL_CareersMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_CareersMaster_OWL_StatusListMaster" Association="Self.FK_OWL_CareersMaster_OWL_StatusListMaster">
+            <End Role="OWL_StatusListMaster" EntitySet="OWL_StatusListMaster" />
+            <End Role="OWL_CareersMaster" EntitySet="OWL_CareersMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_ClientMaster_OWL_BusinessPlanMaster" Association="Self.FK_OWL_ClientMaster_OWL_BusinessPlanMaster">
+            <End Role="OWL_BusinessPlanMaster" EntitySet="OWL_BusinessPlanMaster" />
+            <End Role="OWL_ClientMaster" EntitySet="OWL_ClientMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_ClientMaster_OWL_CityMaster" Association="Self.FK_OWL_ClientMaster_OWL_CityMaster">
+            <End Role="OWL_StatusListMaster" EntitySet="OWL_StatusListMaster" />
+            <End Role="OWL_ClientMaster" EntitySet="OWL_ClientMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_ClientMaster_OWL_ClientMaster" Association="Self.FK_OWL_ClientMaster_OWL_ClientMaster">
+            <End Role="OWL_ClientMaster" EntitySet="OWL_ClientMaster" />
+            <End Role="OWL_ClientMaster1" EntitySet="OWL_ClientMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_ClientMaster_OWL_DesignationMaster" Association="Self.FK_OWL_ClientMaster_OWL_DesignationMaster">
+            <End Role="OWL_DesignationMaster" EntitySet="OWL_DesignationMaster" />
+            <End Role="OWL_ClientMaster" EntitySet="OWL_ClientMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_ClientMaster_OWL_ResourceMaster" Association="Self.FK_OWL_ClientMaster_OWL_ResourceMaster">
+            <End Role="OWL_ResourceMaster" EntitySet="OWL_ResourceMaster" />
+            <End Role="OWL_ClientMaster" EntitySet="OWL_ClientMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_ClientMaster_OWL_SectorTypeMaster" Association="Self.FK_OWL_ClientMaster_OWL_SectorTypeMaster">
+            <End Role="OWL_SectorTypeMaster" EntitySet="OWL_SectorTypeMaster" />
+            <End Role="OWL_ClientMaster" EntitySet="OWL_ClientMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_ClientMaster_OWL_StateMaster" Association="Self.FK_OWL_ClientMaster_OWL_StateMaster">
+            <End Role="OWL_StateMaster" EntitySet="OWL_StateMaster" />
+            <End Role="OWL_ClientMaster" EntitySet="OWL_ClientMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_DocCategoryMaster_OWL_DocTypeMaster" Association="Self.FK_OWL_DocCategoryMaster_OWL_DocTypeMaster">
+            <End Role="OWL_DocTypeMaster" EntitySet="OWL_DocTypeMaster" />
+            <End Role="OWL_DocCategoryMaster" EntitySet="OWL_DocCategoryMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_DocumentMaster_OWL_DocCategoryMaster1" Association="Self.FK_OWL_DocumentMaster_OWL_DocCategoryMaster1">
+            <End Role="OWL_DocCategoryMaster" EntitySet="OWL_DocCategoryMaster" />
+            <End Role="OWL_DocumentMaster" EntitySet="OWL_DocumentMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_DocumentMaster_OWL_EmployeeMaster1" Association="Self.FK_OWL_DocumentMaster_OWL_EmployeeMaster1">
+            <End Role="OWL_EmployeeMaster" EntitySet="OWL_EmployeeMaster" />
+            <End Role="OWL_DocumentMaster" EntitySet="OWL_DocumentMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_EmployeeDetail_OWL_EmployeeMaster" Association="Self.FK_OWL_EmployeeDetail_OWL_EmployeeMaster">
+            <End Role="OWL_EmployeeMaster" EntitySet="OWL_EmployeeMaster" />
+            <End Role="OWL_EmployeeDetail" EntitySet="OWL_EmployeeDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_EmployeeMaster_OWL_CityMaster" Association="Self.FK_OWL_EmployeeMaster_OWL_CityMaster">
+            <End Role="OWL_CityMaster" EntitySet="OWL_CityMaster" />
+            <End Role="OWL_EmployeeMaster" EntitySet="OWL_EmployeeMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_EmployeeMaster_OWL_DepartmentMaster" Association="Self.FK_OWL_EmployeeMaster_OWL_DepartmentMaster">
+            <End Role="OWL_DepartmentMaster" EntitySet="OWL_DepartmentMaster" />
+            <End Role="OWL_EmployeeMaster" EntitySet="OWL_EmployeeMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_EmployeeMaster_OWL_QualificationMaster" Association="Self.FK_OWL_EmployeeMaster_OWL_QualificationMaster">
+            <End Role="OWL_QualificationMaster" EntitySet="OWL_QualificationMaster" />
+            <End Role="OWL_EmployeeMaster" EntitySet="OWL_EmployeeMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_EnqueryMaster_OWL_EmployeeMaster" Association="Self.FK_OWL_EnqueryMaster_OWL_EmployeeMaster">
+            <End Role="OWL_EmployeeMaster" EntitySet="OWL_EmployeeMaster" />
+            <End Role="OWL_EnqueryMaster" EntitySet="OWL_EnqueryMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_JobsPostMaster_OWL_CityMaster" Association="Self.FK_OWL_JobsPostMaster_OWL_CityMaster">
+            <End Role="OWL_CityMaster" EntitySet="OWL_CityMaster" />
+            <End Role="OWL_JobsPostMaster" EntitySet="OWL_JobsPostMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_JobsPostMaster_OWL_EmployeeMaster" Association="Self.FK_OWL_JobsPostMaster_OWL_EmployeeMaster">
+            <End Role="OWL_EmployeeMaster" EntitySet="OWL_EmployeeMaster" />
+            <End Role="OWL_JobsPostMaster" EntitySet="OWL_JobsPostMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_JobsPostMaster_OWL_JobModeMaster" Association="Self.FK_OWL_JobsPostMaster_OWL_JobModeMaster">
+            <End Role="OWL_JobModeMaster" EntitySet="OWL_JobModeMaster" />
+            <End Role="OWL_JobsPostMaster" EntitySet="OWL_JobsPostMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_JobsPostMaster_OWL_JobTypeMaster" Association="Self.FK_OWL_JobsPostMaster_OWL_JobTypeMaster">
+            <End Role="OWL_JobTypeMaster" EntitySet="OWL_JobTypeMaster" />
+            <End Role="OWL_JobsPostMaster" EntitySet="OWL_JobsPostMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_JobsPostMaster_OWL_QualificationMaster" Association="Self.FK_OWL_JobsPostMaster_OWL_QualificationMaster">
+            <End Role="OWL_QualificationMaster" EntitySet="OWL_QualificationMaster" />
+            <End Role="OWL_JobsPostMaster" EntitySet="OWL_JobsPostMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_JobsPostMaster_OWL_StatusListMaster" Association="Self.FK_OWL_JobsPostMaster_OWL_StatusListMaster">
+            <End Role="OWL_StatusListMaster" EntitySet="OWL_StatusListMaster" />
+            <End Role="OWL_JobsPostMaster" EntitySet="OWL_JobsPostMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_LoginMaster_OWL_EmployeeMaster" Association="Self.FK_OWL_LoginMaster_OWL_EmployeeMaster">
+            <End Role="OWL_EmployeeMaster" EntitySet="OWL_EmployeeMaster" />
+            <End Role="OWL_LoginMaster" EntitySet="OWL_LoginMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_PostsMaster_OWL_EmployeeMaster" Association="Self.FK_OWL_PostsMaster_OWL_EmployeeMaster">
+            <End Role="OWL_EmployeeMaster" EntitySet="OWL_EmployeeMaster" />
+            <End Role="OWL_PostsMaster" EntitySet="OWL_PostsMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_PostsMaster_OWL_PostsMaster" Association="Self.FK_OWL_PostsMaster_OWL_PostsMaster">
+            <End Role="OWL_PostsMaster" EntitySet="OWL_PostsMaster" />
+            <End Role="OWL_PostsMaster1" EntitySet="OWL_PostsMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_PostsMaster_OWL_PostsMaster1" Association="Self.FK_OWL_PostsMaster_OWL_PostsMaster1">
+            <End Role="OWL_PostTypeMaster" EntitySet="OWL_PostTypeMaster" />
+            <End Role="OWL_PostsMaster" EntitySet="OWL_PostsMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_PostsMaster_OWL_StatusListMaster" Association="Self.FK_OWL_PostsMaster_OWL_StatusListMaster">
+            <End Role="OWL_StatusListMaster" EntitySet="OWL_StatusListMaster" />
+            <End Role="OWL_PostsMaster" EntitySet="OWL_PostsMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_PostsMaster_OWL_StatusListMaster1" Association="Self.FK_OWL_PostsMaster_OWL_StatusListMaster1">
+            <End Role="OWL_StatusListMaster" EntitySet="OWL_StatusListMaster" />
+            <End Role="OWL_PostsMaster" EntitySet="OWL_PostsMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_QuestionMaster_OWL_EmployeeMaster" Association="Self.FK_OWL_QuestionMaster_OWL_EmployeeMaster">
+            <End Role="OWL_EmployeeMaster" EntitySet="OWL_EmployeeMaster" />
+            <End Role="OWL_QuestionMaster" EntitySet="OWL_QuestionMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_QuestionMaster_OWL_SectorTypeMaster" Association="Self.FK_OWL_QuestionMaster_OWL_SectorTypeMaster">
+            <End Role="OWL_SectorTypeMaster" EntitySet="OWL_SectorTypeMaster" />
+            <End Role="OWL_QuestionMaster" EntitySet="OWL_QuestionMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_ResourceMaster_OWL_EmployeeMaster" Association="Self.FK_OWL_ResourceMaster_OWL_EmployeeMaster">
+            <End Role="OWL_EmployeeMaster" EntitySet="OWL_EmployeeMaster" />
+            <End Role="OWL_ResourceMaster" EntitySet="OWL_ResourceMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_TagsMaster_OWL_SectorTypeMaster" Association="Self.FK_OWL_TagsMaster_OWL_SectorTypeMaster">
+            <End Role="OWL_SectorTypeMaster" EntitySet="OWL_SectorTypeMaster" />
+            <End Role="OWL_TagsMaster" EntitySet="OWL_TagsMaster" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OswalNextGenModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="OWL_BusinessPlanMaster">
+          <Key>
+            <PropertyRef Name="PlanNo" />
+          </Key>
+          <Property Name="PlanNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PlanName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SectorType" Type="Int32" />
+          <Property Name="Services" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Advantage" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="AdditionalFeatuer" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Cost" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CurrencyType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Duration" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PostStatus" Type="Int32" />
+          <Property Name="CreatedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="CreationDT" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedON" Type="DateTime" Precision="3" />
+          <Property Name="IsDel" Type="Boolean" />
+          <NavigationProperty Name="OWL_EmployeeMaster" Relationship="Self.FK_OWL_BusinessPlanMaster_OWL_EmployeeMaster" FromRole="OWL_BusinessPlanMaster" ToRole="OWL_EmployeeMaster" />
+          <NavigationProperty Name="OWL_SectorTypeMaster" Relationship="Self.FK_OWL_BusinessPlanMaster_OWL_SectorTypeMaster" FromRole="OWL_BusinessPlanMaster" ToRole="OWL_SectorTypeMaster" />
+          <NavigationProperty Name="OWL_StatusListMaster" Relationship="Self.FK_OWL_BusinessPlanMaster_OWL_StatusListMaster" FromRole="OWL_BusinessPlanMaster" ToRole="OWL_StatusListMaster" />
+          <NavigationProperty Name="OWL_ClientMaster" Relationship="Self.FK_OWL_ClientMaster_OWL_BusinessPlanMaster" FromRole="OWL_BusinessPlanMaster" ToRole="OWL_ClientMaster" />
+        </EntityType>
+        <EntityType Name="OWL_BusinessServicesMaster">
+          <Key>
+            <PropertyRef Name="ServiceNo" />
+          </Key>
+          <Property Name="ServiceNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ServiceName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ServiceCategory" Type="Int32" />
+          <Property Name="IsDel" Type="Boolean" />
+          <NavigationProperty Name="OWL_ServicesCategoryMaster" Relationship="Self.FK_OWL_BusinessServicesMaster_OWL_ServicesCategoryMaster" FromRole="OWL_BusinessServicesMaster" ToRole="OWL_ServicesCategoryMaster" />
+        </EntityType>
+        <EntityType Name="OWL_CareersMaster">
+          <Key>
+            <PropertyRef Name="ApplicationNo" />
+          </Key>
+          <Property Name="ApplicationNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ApplicaintName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ApplicaintEmail" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ApplicaintMobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DOB" Type="DateTime" Precision="3" />
+          <Property Name="ApplicaintAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ApplicaintLocation" Type="Int32" />
+          <Property Name="ApplicaintPreferedLocation" Type="Int32" />
+          <Property Name="Qualification" Type="Int32" />
+          <Property Name="DesignationName" Type="Int32" />
+          <Property Name="DepartmentName" Type="Int32" />
+          <Property Name="AttachmentFolderName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AttachedResume" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AttachmentExtension" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BusinessName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="RegDate" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="Remark" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="OWL_CityMaster" Relationship="Self.FK_OWL_CareersMaster_OWL_CareersMaster" FromRole="OWL_CareersMaster" ToRole="OWL_CityMaster" />
+          <NavigationProperty Name="OWL_CityMaster1" Relationship="Self.FK_OWL_CareersMaster_OWL_CityMaster" FromRole="OWL_CareersMaster" ToRole="OWL_CityMaster" />
+          <NavigationProperty Name="OWL_DepartmentMaster" Relationship="Self.FK_OWL_CareersMaster_OWL_DepartmentMaster" FromRole="OWL_CareersMaster" ToRole="OWL_DepartmentMaster" />
+          <NavigationProperty Name="OWL_DesignationMaster" Relationship="Self.FK_OWL_CareersMaster_OWL_DesignationMaster" FromRole="OWL_CareersMaster" ToRole="OWL_DesignationMaster" />
+          <NavigationProperty Name="OWL_QualificationMaster" Relationship="Self.FK_OWL_CareersMaster_OWL_QualificationMaster" FromRole="OWL_CareersMaster" ToRole="OWL_QualificationMaster" />
+          <NavigationProperty Name="OWL_StatusListMaster" Relationship="Self.FK_OWL_CareersMaster_OWL_StatusListMaster" FromRole="OWL_CareersMaster" ToRole="OWL_StatusListMaster" />
+        </EntityType>
+        <EntityType Name="OWL_CityMaster">
+          <Key>
+            <PropertyRef Name="CityId" />
+          </Key>
+          <Property Name="CityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CityName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RelatedStateId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="OWL_CareersMaster" Relationship="Self.FK_OWL_CareersMaster_OWL_CareersMaster" FromRole="OWL_CityMaster" ToRole="OWL_CareersMaster" />
+          <NavigationProperty Name="OWL_CareersMaster1" Relationship="Self.FK_OWL_CareersMaster_OWL_CityMaster" FromRole="OWL_CityMaster" ToRole="OWL_CareersMaster" />
+          <NavigationProperty Name="OWL_StateMaster" Relationship="Self.FK__OWL_CityM__Relat__32E0915F" FromRole="OWL_CityMaster" ToRole="OWL_StateMaster" />
+          <NavigationProperty Name="OWL_EmployeeMaster" Relationship="Self.FK_OWL_EmployeeMaster_OWL_CityMaster" FromRole="OWL_CityMaster" ToRole="OWL_EmployeeMaster" />
+          <NavigationProperty Name="OWL_JobsPostMaster" Relationship="Self.FK_OWL_JobsPostMaster_OWL_CityMaster" FromRole="OWL_CityMaster" ToRole="OWL_JobsPostMaster" />
+        </EntityType>
+        <EntityType Name="OWL_ClientMaster">
+          <Key>
+            <PropertyRef Name="Email" />
+          </Key>
+          <Property Name="ClientId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClientName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="BelongResource" Type="Int32" />
+          <Property Name="SectorType" Type="Int32" />
+          <Property Name="AuthorizedPerson" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Designation" Type="Int32" />
+          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MobileNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="RelatedState" Type="Int32" />
+          <Property Name="RelatedCity" Type="Int32" />
+          <Property Name="Url" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BusinessPlan" Type="Int32" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="IsDel" Type="Boolean" />
+          <NavigationProperty Name="OWL_BusinessPlanMaster" Relationship="Self.FK_OWL_ClientMaster_OWL_BusinessPlanMaster" FromRole="OWL_ClientMaster" ToRole="OWL_BusinessPlanMaster" />
+          <NavigationProperty Name="OWL_StatusListMaster" Relationship="Self.FK_OWL_ClientMaster_OWL_CityMaster" FromRole="OWL_ClientMaster" ToRole="OWL_StatusListMaster" />
+          <NavigationProperty Name="OWL_ClientMaster1" Relationship="Self.FK_OWL_ClientMaster_OWL_ClientMaster" FromRole="OWL_ClientMaster" ToRole="OWL_ClientMaster1" />
+          <NavigationProperty Name="OWL_ClientMaster2" Relationship="Self.FK_OWL_ClientMaster_OWL_ClientMaster" FromRole="OWL_ClientMaster1" ToRole="OWL_ClientMaster" />
+          <NavigationProperty Name="OWL_DesignationMaster" Relationship="Self.FK_OWL_ClientMaster_OWL_DesignationMaster" FromRole="OWL_ClientMaster" ToRole="OWL_DesignationMaster" />
+          <NavigationProperty Name="OWL_ResourceMaster" Relationship="Self.FK_OWL_ClientMaster_OWL_ResourceMaster" FromRole="OWL_ClientMaster" ToRole="OWL_ResourceMaster" />
+          <NavigationProperty Name="OWL_SectorTypeMaster" Relationship="Self.FK_OWL_ClientMaster_OWL_SectorTypeMaster" FromRole="OWL_ClientMaster" ToRole="OWL_SectorTypeMaster" />
+          <NavigationProperty Name="OWL_StateMaster" Relationship="Self.FK_OWL_ClientMaster_OWL_StateMaster" FromRole="OWL_ClientMaster" ToRole="OWL_StateMaster" />
+        </EntityType>
+        <EntityType Name="OWL_CountryMaster">
+          <Key>
+            <PropertyRef Name="CountryId" />
+          </Key>
+          <Property Name="CountryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="OWL_StateMaster" Relationship="Self.FK__OWL_State__Relat__35BCFE0A" FromRole="OWL_CountryMaster" ToRole="OWL_StateMaster" />
+        </EntityType>
+        <EntityType Name="OWL_DepartmentMaster">
+          <Key>
+            <PropertyRef Name="DepartmentId" />
+          </Key>
+          <Property Name="DepartmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepartmentName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="OWL_CareersMaster" Relationship="Self.FK_OWL_CareersMaster_OWL_DepartmentMaster" FromRole="OWL_DepartmentMaster" ToRole="OWL_CareersMaster" />
+          <NavigationProperty Name="OWL_EmployeeMaster" Relationship="Self.FK_OWL_EmployeeMaster_OWL_DepartmentMaster" FromRole="OWL_DepartmentMaster" ToRole="OWL_EmployeeMaster" />
+        </EntityType>
+        <EntityType Name="OWL_DesignationMaster">
+          <Key>
+            <PropertyRef Name="DesignationId" />
+          </Key>
+          <Property Name="DesignationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DesignationName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="OWL_CareersMaster" Relationship="Self.FK_OWL_CareersMaster_OWL_DesignationMaster" FromRole="OWL_DesignationMaster" ToRole="OWL_CareersMaster" />
+          <NavigationProperty Name="OWL_ClientMaster" Relationship="Self.FK_OWL_ClientMaster_OWL_DesignationMaster" FromRole="OWL_DesignationMaster" ToRole="OWL_ClientMaster" />
+        </EntityType>
+        <EntityType Name="OWL_DocCategoryMaster">
+          <Key>
+            <PropertyRef Name="DocCategoryNo" />
+          </Key>
+          <Property Name="DocCategoryNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DocCategoryName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="RelatedDocType_Id" Type="Int32" />
+          <NavigationProperty Name="OWL_DocTypeMaster" Relationship="Self.FK_OWL_DocCategoryMaster_OWL_DocTypeMaster" FromRole="OWL_DocCategoryMaster" ToRole="OWL_DocTypeMaster" />
+          <NavigationProperty Name="OWL_DocumentMaster" Relationship="Self.FK_OWL_DocumentMaster_OWL_DocCategoryMaster1" FromRole="OWL_DocCategoryMaster" ToRole="OWL_DocumentMaster" />
+        </EntityType>
+        <EntityType Name="OWL_DocTypeMaster">
+          <Key>
+            <PropertyRef Name="DocTypeNo" />
+          </Key>
+          <Property Name="DocTypeNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DocType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="OWL_DocCategoryMaster" Relationship="Self.FK_OWL_DocCategoryMaster_OWL_DocTypeMaster" FromRole="OWL_DocTypeMaster" ToRole="OWL_DocCategoryMaster" />
+        </EntityType>
+        <EntityType Name="OWL_DocumentMaster">
+          <Key>
+            <PropertyRef Name="DocNo" />
+          </Key>
+          <Property Name="DocNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DocTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DocName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="DocUploadedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="DocCategoryName" Type="Int32" />
+          <Property Name="DocRelatedYear" Type="DateTime" Precision="3" />
+          <Property Name="DocUploadedOn" Type="DateTime" Precision="3" />
+          <Property Name="DocUpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="Description" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="FolderName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="DocFileType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DocFileSizeIn_KB" Type="Double" />
+          <Property Name="IsDel" Type="Boolean" />
+          <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="OWL_DocCategoryMaster" Relationship="Self.FK_OWL_DocumentMaster_OWL_DocCategoryMaster1" FromRole="OWL_DocumentMaster" ToRole="OWL_DocCategoryMaster" />
+          <NavigationProperty Name="OWL_EmployeeMaster" Relationship="Self.FK_OWL_DocumentMaster_OWL_EmployeeMaster1" FromRole="OWL_DocumentMaster" ToRole="OWL_EmployeeMaster" />
+        </EntityType>
+        <EntityType Name="OWL_EmployeeDetail">
+          <Key>
+            <PropertyRef Name="EmpEmail" />
+          </Key>
+          <Property Name="EmpEmail" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProfilePic" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="About" Type="String" MaxLength="355" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="JobDesignation" Type="Int32" />
+          <Property Name="Country" Type="Int32" />
+          <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TwitterProfileUrl" Type="String" MaxLength="355" FixedLength="false" Unicode="false" />
+          <Property Name="FacebookProfileUrl" Type="String" MaxLength="355" FixedLength="false" Unicode="false" />
+          <Property Name="InstagramProfileUrl" Type="String" MaxLength="355" FixedLength="false" Unicode="false" />
+          <Property Name="LinkedinProfileUrl" Type="String" MaxLength="355" FixedLength="false" Unicode="false" />
+          <Property Name="LinkType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="OWL_EmployeeMaster" Relationship="Self.FK_OWL_EmployeeDetail_OWL_EmployeeMaster" FromRole="OWL_EmployeeDetail" ToRole="OWL_EmployeeMaster" />
+        </EntityType>
+        <EntityType Name="OWL_EmployeeMaster">
+          <Key>
+            <PropertyRef Name="EmpEmail" />
+          </Key>
+          <Property Name="EmpId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserType" Type="Int32" />
+          <Property Name="EmpName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmpEmail" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Gender" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="EmpDept" Type="Int32" />
+          <Property Name="Qualification" Type="Int32" />
+          <Property Name="City" Type="Int32" />
+          <Property Name="UserPassword" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="AddedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="IsDel" Type="Boolean" />
+          <NavigationProperty Name="OWL_BusinessPlanMaster" Relationship="Self.FK_OWL_BusinessPlanMaster_OWL_EmployeeMaster" FromRole="OWL_EmployeeMaster" ToRole="OWL_BusinessPlanMaster" />
+          <NavigationProperty Name="OWL_CityMaster" Relationship="Self.FK_OWL_EmployeeMaster_OWL_CityMaster" FromRole="OWL_EmployeeMaster" ToRole="OWL_CityMaster" />
+          <NavigationProperty Name="OWL_DepartmentMaster" Relationship="Self.FK_OWL_EmployeeMaster_OWL_DepartmentMaster" FromRole="OWL_EmployeeMaster" ToRole="OWL_DepartmentMaster" />
+          <NavigationProperty Name="OWL_DocumentMaster" Relationship="Self.FK_OWL_DocumentMaster_OWL_EmployeeMaster1" FromRole="OWL_EmployeeMaster" ToRole="OWL_DocumentMaster" />
+          <NavigationProperty Name="OWL_EmployeeDetail" Relationship="Self.FK_OWL_EmployeeDetail_OWL_EmployeeMaster" FromRole="OWL_EmployeeMaster" ToRole="OWL_EmployeeDetail" />
+          <NavigationProperty Name="OWL_UserMaster" Relationship="Self.FK__OWL_Emplo__UserT__34C8D9D1" FromRole="OWL_EmployeeMaster" ToRole="OWL_UserMaster" />
+          <NavigationProperty Name="OWL_QualificationMaster" Relationship="Self.FK_OWL_EmployeeMaster_OWL_QualificationMaster" FromRole="OWL_EmployeeMaster" ToRole="OWL_QualificationMaster" />
+          <NavigationProperty Name="OWL_EnqueryMaster" Relationship="Self.FK_OWL_EnqueryMaster_OWL_EmployeeMaster" FromRole="OWL_EmployeeMaster" ToRole="OWL_EnqueryMaster" />
+          <NavigationProperty Name="OWL_JobsPostMaster" Relationship="Self.FK_OWL_JobsPostMaster_OWL_EmployeeMaster" FromRole="OWL_EmployeeMaster" ToRole="OWL_JobsPostMaster" />
+          <NavigationProperty Name="OWL_LoginMaster" Relationship="Self.FK_OWL_LoginMaster_OWL_EmployeeMaster" FromRole="OWL_EmployeeMaster" ToRole="OWL_LoginMaster" />
+          <NavigationProperty Name="OWL_PostsMaster" Relationship="Self.FK_OWL_PostsMaster_OWL_EmployeeMaster" FromRole="OWL_EmployeeMaster" ToRole="OWL_PostsMaster" />
+          <NavigationProperty Name="OWL_QuestionMaster" Relationship="Self.FK_OWL_QuestionMaster_OWL_EmployeeMaster" FromRole="OWL_EmployeeMaster" ToRole="OWL_QuestionMaster" />
+          <NavigationProperty Name="OWL_ResourceMaster" Relationship="Self.FK_OWL_ResourceMaster_OWL_EmployeeMaster" FromRole="OWL_EmployeeMaster" ToRole="OWL_ResourceMaster" />
+        </EntityType>
+        <EntityType Name="OWL_EnqueryMaster">
+          <Key>
+            <PropertyRef Name="EnqId" />
+          </Key>
+          <Property Name="EnqId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MobileNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="SubmittedByEmpId" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="OrganizationName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Subject" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Message" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="EnqDate" Type="DateTime" Precision="3" />
+          <Property Name="IsDel" Type="Boolean" />
+          <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="OWL_EmployeeMaster" Relationship="Self.FK_OWL_EnqueryMaster_OWL_EmployeeMaster" FromRole="OWL_EnqueryMaster" ToRole="OWL_EmployeeMaster" />
+        </EntityType>
+        <EntityType Name="OWL_JobModeMaster">
+          <Key>
+            <PropertyRef Name="ModeId" />
+          </Key>
+          <Property Name="ModeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JobMode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="OWL_JobsPostMaster" Relationship="Self.FK_OWL_JobsPostMaster_OWL_JobModeMaster" FromRole="OWL_JobModeMaster" ToRole="OWL_JobsPostMaster" />
+        </EntityType>
+        <EntityType Name="OWL_JobsPostMaster">
+          <Key>
+            <PropertyRef Name="JobId" />
+          </Key>
+          <Property Name="JobId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JobTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Qualification" Type="Int32" />
+          <Property Name="KeySkills" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Exp_InYears" Type="Int32" />
+          <Property Name="Available_NoOfPost" Type="Int32" />
+          <Property Name="JobType" Type="Int32" />
+          <Property Name="JobMode" Type="Int32" />
+          <Property Name="JobLocation" Type="Int32" />
+          <Property Name="PublishedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="PublishedOn" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="IsDel" Type="Boolean" />
+          <NavigationProperty Name="OWL_CityMaster" Relationship="Self.FK_OWL_JobsPostMaster_OWL_CityMaster" FromRole="OWL_JobsPostMaster" ToRole="OWL_CityMaster" />
+          <NavigationProperty Name="OWL_EmployeeMaster" Relationship="Self.FK_OWL_JobsPostMaster_OWL_EmployeeMaster" FromRole="OWL_JobsPostMaster" ToRole="OWL_EmployeeMaster" />
+          <NavigationProperty Name="OWL_JobModeMaster" Relationship="Self.FK_OWL_JobsPostMaster_OWL_JobModeMaster" FromRole="OWL_JobsPostMaster" ToRole="OWL_JobModeMaster" />
+          <NavigationProperty Name="OWL_JobTypeMaster" Relationship="Self.FK_OWL_JobsPostMaster_OWL_JobTypeMaster" FromRole="OWL_JobsPostMaster" ToRole="OWL_JobTypeMaster" />
+          <NavigationProperty Name="OWL_QualificationMaster" Relationship="Self.FK_OWL_JobsPostMaster_OWL_QualificationMaster" FromRole="OWL_JobsPostMaster" ToRole="OWL_QualificationMaster" />
+          <NavigationProperty Name="OWL_StatusListMaster" Relationship="Self.FK_OWL_JobsPostMaster_OWL_StatusListMaster" FromRole="OWL_JobsPostMaster" ToRole="OWL_StatusListMaster" />
+        </EntityType>
+        <EntityType Name="OWL_JobTypeMaster">
+          <Key>
+            <PropertyRef Name="JobTypeId" />
+          </Key>
+          <Property Name="JobTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JobType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsDel" Type="Boolean" />
+          <NavigationProperty Name="OWL_JobsPostMaster" Relationship="Self.FK_OWL_JobsPostMaster_OWL_JobTypeMaster" FromRole="OWL_JobTypeMaster" ToRole="OWL_JobsPostMaster" />
+        </EntityType>
+        <EntityType Name="OWL_LoginMaster">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserPassword" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="UserType" Type="Int32" />
+          <Property Name="UserStatus" Type="Boolean" />
+          <Property Name="LoginCount" Type="Int32" />
+          <Property Name="LastLogin_DT" Type="DateTime" Precision="3" />
+          <Property Name="LastLogin_IP" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="OWL_EmployeeMaster" Relationship="Self.FK_OWL_LoginMaster_OWL_EmployeeMaster" FromRole="OWL_LoginMaster" ToRole="OWL_EmployeeMaster" />
+        </EntityType>
+        <EntityType Name="OWL_PostsMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PostAuthor" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="PostDate" Type="DateTime" Precision="3" />
+          <Property Name="PostContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FeaturedImg" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ThumbImg" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="FileFolderName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PostTitle" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="PostExcerpt" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="BulletPoint" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="PostStatus" Type="Int32" />
+          <Property Name="CommentStatus" Type="Int32" />
+          <Property Name="PostPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PostName" Type="String" MaxLength="355" FixedLength="false" Unicode="false" />
+          <Property Name="ToPingTags" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Pinged" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="PostUpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="PostContentFiltered" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PostParent" Type="Int32" />
+          <Property Name="Guid" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="MenuOrder" Type="Int32" />
+          <Property Name="PostType" Type="Int32" />
+          <Property Name="PostMimeType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CommentCount" Type="Int32" />
+          <Property Name="Url" Type="String" MaxLength="355" FixedLength="false" Unicode="false" />
+          <Property Name="IsDel" Type="Boolean" />
+          <NavigationProperty Name="OWL_EmployeeMaster" Relationship="Self.FK_OWL_PostsMaster_OWL_EmployeeMaster" FromRole="OWL_PostsMaster" ToRole="OWL_EmployeeMaster" />
+          <NavigationProperty Name="OWL_PostsMaster1" Relationship="Self.FK_OWL_PostsMaster_OWL_PostsMaster" FromRole="OWL_PostsMaster" ToRole="OWL_PostsMaster1" />
+          <NavigationProperty Name="OWL_PostsMaster2" Relationship="Self.FK_OWL_PostsMaster_OWL_PostsMaster" FromRole="OWL_PostsMaster1" ToRole="OWL_PostsMaster" />
+          <NavigationProperty Name="OWL_PostTypeMaster" Relationship="Self.FK_OWL_PostsMaster_OWL_PostsMaster1" FromRole="OWL_PostsMaster" ToRole="OWL_PostTypeMaster" />
+          <NavigationProperty Name="OWL_StatusListMaster" Relationship="Self.FK_OWL_PostsMaster_OWL_StatusListMaster" FromRole="OWL_PostsMaster" ToRole="OWL_StatusListMaster" />
+          <NavigationProperty Name="OWL_StatusListMaster1" Relationship="Self.FK_OWL_PostsMaster_OWL_StatusListMaster1" FromRole="OWL_PostsMaster" ToRole="OWL_StatusListMaster" />
+        </EntityType>
+        <EntityType Name="OWL_PostTypeMaster">
+          <Key>
+            <PropertyRef Name="PostTypeId" />
+          </Key>
+          <Property Name="PostTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PostType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsDel" Type="Boolean" />
+          <NavigationProperty Name="OWL_PostsMaster" Relationship="Self.FK_OWL_PostsMaster_OWL_PostsMaster1" FromRole="OWL_PostTypeMaster" ToRole="OWL_PostsMaster" />
+        </EntityType>
+        <EntityType Name="OWL_QualificationMaster">
+          <Key>
+            <PropertyRef Name="QualificationId" />
+          </Key>
+          <Property Name="QualificationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QualificationName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="OWL_CareersMaster" Relationship="Self.FK_OWL_CareersMaster_OWL_QualificationMaster" FromRole="OWL_QualificationMaster" ToRole="OWL_CareersMaster" />
+          <NavigationProperty Name="OWL_EmployeeMaster" Relationship="Self.FK_OWL_EmployeeMaster_OWL_QualificationMaster" FromRole="OWL_QualificationMaster" ToRole="OWL_EmployeeMaster" />
+          <NavigationProperty Name="OWL_JobsPostMaster" Relationship="Self.FK_OWL_JobsPostMaster_OWL_QualificationMaster" FromRole="OWL_QualificationMaster" ToRole="OWL_JobsPostMaster" />
+        </EntityType>
+        <EntityType Name="OWL_QuestionMaster">
+          <Key>
+            <PropertyRef Name="QuestionNo" />
+          </Key>
+          <Property Name="QuestionNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SectorType" Type="Int32" />
+          <Property Name="Question" Type="String" MaxLength="355" FixedLength="false" Unicode="false" />
+          <Property Name="Answer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreationDT" Type="DateTime" Precision="3" />
+          <Property Name="UpdationDT" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="IsDel" Type="Boolean" />
+          <NavigationProperty Name="OWL_EmployeeMaster" Relationship="Self.FK_OWL_QuestionMaster_OWL_EmployeeMaster" FromRole="OWL_QuestionMaster" ToRole="OWL_EmployeeMaster" />
+          <NavigationProperty Name="OWL_SectorTypeMaster" Relationship="Self.FK_OWL_QuestionMaster_OWL_SectorTypeMaster" FromRole="OWL_QuestionMaster" ToRole="OWL_SectorTypeMaster" />
+        </EntityType>
+        <EntityType Name="OWL_ResourceMaster">
+          <Key>
+            <PropertyRef Name="ResourceId" />
+          </Key>
+          <Property Name="ResourceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ResourceName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ResourceUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ResourceEmail" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="AuthorizedPerson" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MobileNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="IsDel" Type="Boolean" />
+          <NavigationProperty Name="OWL_ClientMaster" Relationship="Self.FK_OWL_ClientMaster_OWL_ResourceMaster" FromRole="OWL_ResourceMaster" ToRole="OWL_ClientMaster" />
+          <NavigationProperty Name="OWL_EmployeeMaster" Relationship="Self.FK_OWL_ResourceMaster_OWL_EmployeeMaster" FromRole="OWL_ResourceMaster" ToRole="OWL_EmployeeMaster" />
+        </EntityType>
+        <EntityType Name="OWL_SectorTypeMaster">
+          <Key>
+            <PropertyRef Name="SectorTypeId" />
+          </Key>
+          <Property Name="SectorTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SectorType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="OWL_BusinessPlanMaster" Relationship="Self.FK_OWL_BusinessPlanMaster_OWL_SectorTypeMaster" FromRole="OWL_SectorTypeMaster" ToRole="OWL_BusinessPlanMaster" />
+          <NavigationProperty Name="OWL_ClientMaster" Relationship="Self.FK_OWL_ClientMaster_OWL_SectorTypeMaster" FromRole="OWL_SectorTypeMaster" ToRole="OWL_ClientMaster" />
+          <NavigationProperty Name="OWL_QuestionMaster" Relationship="Self.FK_OWL_QuestionMaster_OWL_SectorTypeMaster" FromRole="OWL_SectorTypeMaster" ToRole="OWL_QuestionMaster" />
+          <NavigationProperty Name="OWL_TagsMaster" Relationship="Self.FK_OWL_TagsMaster_OWL_SectorTypeMaster" FromRole="OWL_SectorTypeMaster" ToRole="OWL_TagsMaster" />
+        </EntityType>
+        <EntityType Name="OWL_ServicesCategoryMaster">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsDel" Type="Boolean" />
+          <NavigationProperty Name="OWL_BusinessServicesMaster" Relationship="Self.FK_OWL_BusinessServicesMaster_OWL_ServicesCategoryMaster" FromRole="OWL_ServicesCategoryMaster" ToRole="OWL_BusinessServicesMaster" />
+        </EntityType>
+        <EntityType Name="OWL_StateMaster">
+          <Key>
+            <PropertyRef Name="StateId" />
+          </Key>
+          <Property Name="StateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StateName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RelatedCountryId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="OWL_CityMaster" Relationship="Self.FK__OWL_CityM__Relat__32E0915F" FromRole="OWL_StateMaster" ToRole="OWL_CityMaster" />
+          <NavigationProperty Name="OWL_ClientMaster" Relationship="Self.FK_OWL_ClientMaster_OWL_StateMaster" FromRole="OWL_StateMaster" ToRole="OWL_ClientMaster" />
+          <NavigationProperty Name="OWL_CountryMaster" Relationship="Self.FK__OWL_State__Relat__35BCFE0A" FromRole="OWL_StateMaster" ToRole="OWL_CountryMaster" />
+        </EntityType>
+        <EntityType Name="OWL_StatusListMaster">
+          <Key>
+            <PropertyRef Name="StatusId" />
+          </Key>
+          <Property Name="StatusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StatusValue" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsDel" Type="Boolean" />
+          <NavigationProperty Name="OWL_BusinessPlanMaster" Relationship="Self.FK_OWL_BusinessPlanMaster_OWL_StatusListMaster" FromRole="OWL_StatusListMaster" ToRole="OWL_BusinessPlanMaster" />
+          <NavigationProperty Name="OWL_CareersMaster" Relationship="Self.FK_OWL_CareersMaster_OWL_StatusListMaster" FromRole="OWL_StatusListMaster" ToRole="OWL_CareersMaster" />
+          <NavigationProperty Name="OWL_ClientMaster" Relationship="Self.FK_OWL_ClientMaster_OWL_CityMaster" FromRole="OWL_StatusListMaster" ToRole="OWL_ClientMaster" />
+          <NavigationProperty Name="OWL_JobsPostMaster" Relationship="Self.FK_OWL_JobsPostMaster_OWL_StatusListMaster" FromRole="OWL_StatusListMaster" ToRole="OWL_JobsPostMaster" />
+          <NavigationProperty Name="OWL_PostsMaster" Relationship="Self.FK_OWL_PostsMaster_OWL_StatusListMaster" FromRole="OWL_StatusListMaster" ToRole="OWL_PostsMaster" />
+          <NavigationProperty Name="OWL_PostsMaster1" Relationship="Self.FK_OWL_PostsMaster_OWL_StatusListMaster1" FromRole="OWL_StatusListMaster" ToRole="OWL_PostsMaster" />
+        </EntityType>
+        <EntityType Name="OWL_TagsMaster">
+          <Key>
+            <PropertyRef Name="TagId" />
+          </Key>
+          <Property Name="TagId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TagName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TagReleatedSector" Type="Int32" />
+          <Property Name="IsDel" Type="Boolean" />
+          <NavigationProperty Name="OWL_SectorTypeMaster" Relationship="Self.FK_OWL_TagsMaster_OWL_SectorTypeMaster" FromRole="OWL_TagsMaster" ToRole="OWL_SectorTypeMaster" />
+        </EntityType>
+        <EntityType Name="OWL_UserMaster">
+          <Key>
+            <PropertyRef Name="UserTypeId" />
+          </Key>
+          <Property Name="UserTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="OWL_EmployeeMaster" Relationship="Self.FK__OWL_Emplo__UserT__34C8D9D1" FromRole="OWL_UserMaster" ToRole="OWL_EmployeeMaster" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_OWL_BusinessPlanMaster_OWL_EmployeeMaster">
+          <End Role="OWL_EmployeeMaster" Type="Self.OWL_EmployeeMaster" Multiplicity="0..1" />
+          <End Role="OWL_BusinessPlanMaster" Type="Self.OWL_BusinessPlanMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_EmployeeMaster">
+              <PropertyRef Name="EmpEmail" />
+            </Principal>
+            <Dependent Role="OWL_BusinessPlanMaster">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_BusinessPlanMaster_OWL_SectorTypeMaster">
+          <End Role="OWL_SectorTypeMaster" Type="Self.OWL_SectorTypeMaster" Multiplicity="0..1" />
+          <End Role="OWL_BusinessPlanMaster" Type="Self.OWL_BusinessPlanMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_SectorTypeMaster">
+              <PropertyRef Name="SectorTypeId" />
+            </Principal>
+            <Dependent Role="OWL_BusinessPlanMaster">
+              <PropertyRef Name="SectorType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_BusinessPlanMaster_OWL_StatusListMaster">
+          <End Role="OWL_StatusListMaster" Type="Self.OWL_StatusListMaster" Multiplicity="0..1" />
+          <End Role="OWL_BusinessPlanMaster" Type="Self.OWL_BusinessPlanMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_StatusListMaster">
+              <PropertyRef Name="StatusId" />
+            </Principal>
+            <Dependent Role="OWL_BusinessPlanMaster">
+              <PropertyRef Name="PostStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_ClientMaster_OWL_BusinessPlanMaster">
+          <End Role="OWL_BusinessPlanMaster" Type="Self.OWL_BusinessPlanMaster" Multiplicity="0..1" />
+          <End Role="OWL_ClientMaster" Type="Self.OWL_ClientMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_BusinessPlanMaster">
+              <PropertyRef Name="PlanNo" />
+            </Principal>
+            <Dependent Role="OWL_ClientMaster">
+              <PropertyRef Name="BusinessPlan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_BusinessServicesMaster_OWL_ServicesCategoryMaster">
+          <End Role="OWL_ServicesCategoryMaster" Type="Self.OWL_ServicesCategoryMaster" Multiplicity="0..1" />
+          <End Role="OWL_BusinessServicesMaster" Type="Self.OWL_BusinessServicesMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_ServicesCategoryMaster">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="OWL_BusinessServicesMaster">
+              <PropertyRef Name="ServiceCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_CareersMaster_OWL_CareersMaster">
+          <End Role="OWL_CityMaster" Type="Self.OWL_CityMaster" Multiplicity="0..1" />
+          <End Role="OWL_CareersMaster" Type="Self.OWL_CareersMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_CityMaster">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="OWL_CareersMaster">
+              <PropertyRef Name="ApplicaintLocation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_CareersMaster_OWL_CityMaster">
+          <End Role="OWL_CityMaster" Type="Self.OWL_CityMaster" Multiplicity="0..1" />
+          <End Role="OWL_CareersMaster" Type="Self.OWL_CareersMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_CityMaster">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="OWL_CareersMaster">
+              <PropertyRef Name="ApplicaintPreferedLocation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_CareersMaster_OWL_DepartmentMaster">
+          <End Role="OWL_DepartmentMaster" Type="Self.OWL_DepartmentMaster" Multiplicity="0..1" />
+          <End Role="OWL_CareersMaster" Type="Self.OWL_CareersMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_DepartmentMaster">
+              <PropertyRef Name="DepartmentId" />
+            </Principal>
+            <Dependent Role="OWL_CareersMaster">
+              <PropertyRef Name="DepartmentName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_CareersMaster_OWL_DesignationMaster">
+          <End Role="OWL_DesignationMaster" Type="Self.OWL_DesignationMaster" Multiplicity="0..1" />
+          <End Role="OWL_CareersMaster" Type="Self.OWL_CareersMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_DesignationMaster">
+              <PropertyRef Name="DesignationId" />
+            </Principal>
+            <Dependent Role="OWL_CareersMaster">
+              <PropertyRef Name="DesignationName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_CareersMaster_OWL_QualificationMaster">
+          <End Role="OWL_QualificationMaster" Type="Self.OWL_QualificationMaster" Multiplicity="0..1" />
+          <End Role="OWL_CareersMaster" Type="Self.OWL_CareersMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_QualificationMaster">
+              <PropertyRef Name="QualificationId" />
+            </Principal>
+            <Dependent Role="OWL_CareersMaster">
+              <PropertyRef Name="Qualification" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_CareersMaster_OWL_StatusListMaster">
+          <End Role="OWL_StatusListMaster" Type="Self.OWL_StatusListMaster" Multiplicity="0..1" />
+          <End Role="OWL_CareersMaster" Type="Self.OWL_CareersMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_StatusListMaster">
+              <PropertyRef Name="StatusId" />
+            </Principal>
+            <Dependent Role="OWL_CareersMaster">
+              <PropertyRef Name="Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OWL_CityM__Relat__32E0915F">
+          <End Role="OWL_StateMaster" Type="Self.OWL_StateMaster" Multiplicity="1" />
+          <End Role="OWL_CityMaster" Type="Self.OWL_CityMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_StateMaster">
+              <PropertyRef Name="StateId" />
+            </Principal>
+            <Dependent Role="OWL_CityMaster">
+              <PropertyRef Name="RelatedStateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_EmployeeMaster_OWL_CityMaster">
+          <End Role="OWL_CityMaster" Type="Self.OWL_CityMaster" Multiplicity="0..1" />
+          <End Role="OWL_EmployeeMaster" Type="Self.OWL_EmployeeMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_CityMaster">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="OWL_EmployeeMaster">
+              <PropertyRef Name="City" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_JobsPostMaster_OWL_CityMaster">
+          <End Role="OWL_CityMaster" Type="Self.OWL_CityMaster" Multiplicity="0..1" />
+          <End Role="OWL_JobsPostMaster" Type="Self.OWL_JobsPostMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_CityMaster">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="OWL_JobsPostMaster">
+              <PropertyRef Name="JobLocation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_ClientMaster_OWL_CityMaster">
+          <End Role="OWL_StatusListMaster" Type="Self.OWL_StatusListMaster" Multiplicity="0..1" />
+          <End Role="OWL_ClientMaster" Type="Self.OWL_ClientMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_StatusListMaster">
+              <PropertyRef Name="StatusId" />
+            </Principal>
+            <Dependent Role="OWL_ClientMaster">
+              <PropertyRef Name="Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_ClientMaster_OWL_ClientMaster">
+          <End Role="OWL_ClientMaster" Type="Self.OWL_ClientMaster" Multiplicity="1" />
+          <End Role="OWL_ClientMaster1" Type="Self.OWL_ClientMaster" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_ClientMaster">
+              <PropertyRef Name="Email" />
+            </Principal>
+            <Dependent Role="OWL_ClientMaster1">
+              <PropertyRef Name="Email" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_ClientMaster_OWL_DesignationMaster">
+          <End Role="OWL_DesignationMaster" Type="Self.OWL_DesignationMaster" Multiplicity="0..1" />
+          <End Role="OWL_ClientMaster" Type="Self.OWL_ClientMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_DesignationMaster">
+              <PropertyRef Name="DesignationId" />
+            </Principal>
+            <Dependent Role="OWL_ClientMaster">
+              <PropertyRef Name="Designation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_ClientMaster_OWL_ResourceMaster">
+          <End Role="OWL_ResourceMaster" Type="Self.OWL_ResourceMaster" Multiplicity="0..1" />
+          <End Role="OWL_ClientMaster" Type="Self.OWL_ClientMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_ResourceMaster">
+              <PropertyRef Name="ResourceId" />
+            </Principal>
+            <Dependent Role="OWL_ClientMaster">
+              <PropertyRef Name="BelongResource" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_ClientMaster_OWL_SectorTypeMaster">
+          <End Role="OWL_SectorTypeMaster" Type="Self.OWL_SectorTypeMaster" Multiplicity="0..1" />
+          <End Role="OWL_ClientMaster" Type="Self.OWL_ClientMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_SectorTypeMaster">
+              <PropertyRef Name="SectorTypeId" />
+            </Principal>
+            <Dependent Role="OWL_ClientMaster">
+              <PropertyRef Name="SectorType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_ClientMaster_OWL_StateMaster">
+          <End Role="OWL_StateMaster" Type="Self.OWL_StateMaster" Multiplicity="0..1" />
+          <End Role="OWL_ClientMaster" Type="Self.OWL_ClientMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_StateMaster">
+              <PropertyRef Name="StateId" />
+            </Principal>
+            <Dependent Role="OWL_ClientMaster">
+              <PropertyRef Name="RelatedState" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OWL_State__Relat__35BCFE0A">
+          <End Role="OWL_CountryMaster" Type="Self.OWL_CountryMaster" Multiplicity="1" />
+          <End Role="OWL_StateMaster" Type="Self.OWL_StateMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_CountryMaster">
+              <PropertyRef Name="CountryId" />
+            </Principal>
+            <Dependent Role="OWL_StateMaster">
+              <PropertyRef Name="RelatedCountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_EmployeeMaster_OWL_DepartmentMaster">
+          <End Role="OWL_DepartmentMaster" Type="Self.OWL_DepartmentMaster" Multiplicity="0..1" />
+          <End Role="OWL_EmployeeMaster" Type="Self.OWL_EmployeeMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_DepartmentMaster">
+              <PropertyRef Name="DepartmentId" />
+            </Principal>
+            <Dependent Role="OWL_EmployeeMaster">
+              <PropertyRef Name="EmpDept" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_DocCategoryMaster_OWL_DocTypeMaster">
+          <End Role="OWL_DocTypeMaster" Type="Self.OWL_DocTypeMaster" Multiplicity="0..1" />
+          <End Role="OWL_DocCategoryMaster" Type="Self.OWL_DocCategoryMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_DocTypeMaster">
+              <PropertyRef Name="DocTypeNo" />
+            </Principal>
+            <Dependent Role="OWL_DocCategoryMaster">
+              <PropertyRef Name="RelatedDocType_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_DocumentMaster_OWL_DocCategoryMaster1">
+          <End Role="OWL_DocCategoryMaster" Type="Self.OWL_DocCategoryMaster" Multiplicity="0..1" />
+          <End Role="OWL_DocumentMaster" Type="Self.OWL_DocumentMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_DocCategoryMaster">
+              <PropertyRef Name="DocCategoryNo" />
+            </Principal>
+            <Dependent Role="OWL_DocumentMaster">
+              <PropertyRef Name="DocCategoryName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_DocumentMaster_OWL_EmployeeMaster1">
+          <End Role="OWL_EmployeeMaster" Type="Self.OWL_EmployeeMaster" Multiplicity="0..1" />
+          <End Role="OWL_DocumentMaster" Type="Self.OWL_DocumentMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_EmployeeMaster">
+              <PropertyRef Name="EmpEmail" />
+            </Principal>
+            <Dependent Role="OWL_DocumentMaster">
+              <PropertyRef Name="DocUploadedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_EmployeeDetail_OWL_EmployeeMaster">
+          <End Role="OWL_EmployeeMaster" Type="Self.OWL_EmployeeMaster" Multiplicity="1" />
+          <End Role="OWL_EmployeeDetail" Type="Self.OWL_EmployeeDetail" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_EmployeeMaster">
+              <PropertyRef Name="EmpEmail" />
+            </Principal>
+            <Dependent Role="OWL_EmployeeDetail">
+              <PropertyRef Name="EmpEmail" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OWL_Emplo__UserT__34C8D9D1">
+          <End Role="OWL_UserMaster" Type="Self.OWL_UserMaster" Multiplicity="0..1" />
+          <End Role="OWL_EmployeeMaster" Type="Self.OWL_EmployeeMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_UserMaster">
+              <PropertyRef Name="UserTypeId" />
+            </Principal>
+            <Dependent Role="OWL_EmployeeMaster">
+              <PropertyRef Name="UserType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_EmployeeMaster_OWL_QualificationMaster">
+          <End Role="OWL_QualificationMaster" Type="Self.OWL_QualificationMaster" Multiplicity="0..1" />
+          <End Role="OWL_EmployeeMaster" Type="Self.OWL_EmployeeMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_QualificationMaster">
+              <PropertyRef Name="QualificationId" />
+            </Principal>
+            <Dependent Role="OWL_EmployeeMaster">
+              <PropertyRef Name="Qualification" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_EnqueryMaster_OWL_EmployeeMaster">
+          <End Role="OWL_EmployeeMaster" Type="Self.OWL_EmployeeMaster" Multiplicity="0..1" />
+          <End Role="OWL_EnqueryMaster" Type="Self.OWL_EnqueryMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_EmployeeMaster">
+              <PropertyRef Name="EmpEmail" />
+            </Principal>
+            <Dependent Role="OWL_EnqueryMaster">
+              <PropertyRef Name="SubmittedByEmpId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_JobsPostMaster_OWL_EmployeeMaster">
+          <End Role="OWL_EmployeeMaster" Type="Self.OWL_EmployeeMaster" Multiplicity="0..1" />
+          <End Role="OWL_JobsPostMaster" Type="Self.OWL_JobsPostMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_EmployeeMaster">
+              <PropertyRef Name="EmpEmail" />
+            </Principal>
+            <Dependent Role="OWL_JobsPostMaster">
+              <PropertyRef Name="PublishedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_LoginMaster_OWL_EmployeeMaster">
+          <End Role="OWL_EmployeeMaster" Type="Self.OWL_EmployeeMaster" Multiplicity="1" />
+          <End Role="OWL_LoginMaster" Type="Self.OWL_LoginMaster" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_EmployeeMaster">
+              <PropertyRef Name="EmpEmail" />
+            </Principal>
+            <Dependent Role="OWL_LoginMaster">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_PostsMaster_OWL_EmployeeMaster">
+          <End Role="OWL_EmployeeMaster" Type="Self.OWL_EmployeeMaster" Multiplicity="0..1" />
+          <End Role="OWL_PostsMaster" Type="Self.OWL_PostsMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_EmployeeMaster">
+              <PropertyRef Name="EmpEmail" />
+            </Principal>
+            <Dependent Role="OWL_PostsMaster">
+              <PropertyRef Name="PostAuthor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_QuestionMaster_OWL_EmployeeMaster">
+          <End Role="OWL_EmployeeMaster" Type="Self.OWL_EmployeeMaster" Multiplicity="0..1" />
+          <End Role="OWL_QuestionMaster" Type="Self.OWL_QuestionMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_EmployeeMaster">
+              <PropertyRef Name="EmpEmail" />
+            </Principal>
+            <Dependent Role="OWL_QuestionMaster">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_ResourceMaster_OWL_EmployeeMaster">
+          <End Role="OWL_EmployeeMaster" Type="Self.OWL_EmployeeMaster" Multiplicity="0..1" />
+          <End Role="OWL_ResourceMaster" Type="Self.OWL_ResourceMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_EmployeeMaster">
+              <PropertyRef Name="EmpEmail" />
+            </Principal>
+            <Dependent Role="OWL_ResourceMaster">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_JobsPostMaster_OWL_JobModeMaster">
+          <End Role="OWL_JobModeMaster" Type="Self.OWL_JobModeMaster" Multiplicity="0..1" />
+          <End Role="OWL_JobsPostMaster" Type="Self.OWL_JobsPostMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_JobModeMaster">
+              <PropertyRef Name="ModeId" />
+            </Principal>
+            <Dependent Role="OWL_JobsPostMaster">
+              <PropertyRef Name="JobMode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_JobsPostMaster_OWL_JobTypeMaster">
+          <End Role="OWL_JobTypeMaster" Type="Self.OWL_JobTypeMaster" Multiplicity="0..1" />
+          <End Role="OWL_JobsPostMaster" Type="Self.OWL_JobsPostMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_JobTypeMaster">
+              <PropertyRef Name="JobTypeId" />
+            </Principal>
+            <Dependent Role="OWL_JobsPostMaster">
+              <PropertyRef Name="JobType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_JobsPostMaster_OWL_QualificationMaster">
+          <End Role="OWL_QualificationMaster" Type="Self.OWL_QualificationMaster" Multiplicity="0..1" />
+          <End Role="OWL_JobsPostMaster" Type="Self.OWL_JobsPostMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_QualificationMaster">
+              <PropertyRef Name="QualificationId" />
+            </Principal>
+            <Dependent Role="OWL_JobsPostMaster">
+              <PropertyRef Name="Qualification" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_JobsPostMaster_OWL_StatusListMaster">
+          <End Role="OWL_StatusListMaster" Type="Self.OWL_StatusListMaster" Multiplicity="0..1" />
+          <End Role="OWL_JobsPostMaster" Type="Self.OWL_JobsPostMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_StatusListMaster">
+              <PropertyRef Name="StatusId" />
+            </Principal>
+            <Dependent Role="OWL_JobsPostMaster">
+              <PropertyRef Name="Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_PostsMaster_OWL_PostsMaster">
+          <End Role="OWL_PostsMaster" Type="Self.OWL_PostsMaster" Multiplicity="0..1" />
+          <End Role="OWL_PostsMaster1" Type="Self.OWL_PostsMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_PostsMaster">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OWL_PostsMaster1">
+              <PropertyRef Name="PostParent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_PostsMaster_OWL_PostsMaster1">
+          <End Role="OWL_PostTypeMaster" Type="Self.OWL_PostTypeMaster" Multiplicity="0..1" />
+          <End Role="OWL_PostsMaster" Type="Self.OWL_PostsMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_PostTypeMaster">
+              <PropertyRef Name="PostTypeId" />
+            </Principal>
+            <Dependent Role="OWL_PostsMaster">
+              <PropertyRef Name="PostType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_PostsMaster_OWL_StatusListMaster">
+          <End Role="OWL_StatusListMaster" Type="Self.OWL_StatusListMaster" Multiplicity="0..1" />
+          <End Role="OWL_PostsMaster" Type="Self.OWL_PostsMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_StatusListMaster">
+              <PropertyRef Name="StatusId" />
+            </Principal>
+            <Dependent Role="OWL_PostsMaster">
+              <PropertyRef Name="PostStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_PostsMaster_OWL_StatusListMaster1">
+          <End Role="OWL_StatusListMaster" Type="Self.OWL_StatusListMaster" Multiplicity="0..1" />
+          <End Role="OWL_PostsMaster" Type="Self.OWL_PostsMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_StatusListMaster">
+              <PropertyRef Name="StatusId" />
+            </Principal>
+            <Dependent Role="OWL_PostsMaster">
+              <PropertyRef Name="CommentStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_QuestionMaster_OWL_SectorTypeMaster">
+          <End Role="OWL_SectorTypeMaster" Type="Self.OWL_SectorTypeMaster" Multiplicity="0..1" />
+          <End Role="OWL_QuestionMaster" Type="Self.OWL_QuestionMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_SectorTypeMaster">
+              <PropertyRef Name="SectorTypeId" />
+            </Principal>
+            <Dependent Role="OWL_QuestionMaster">
+              <PropertyRef Name="SectorType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OWL_TagsMaster_OWL_SectorTypeMaster">
+          <End Role="OWL_SectorTypeMaster" Type="Self.OWL_SectorTypeMaster" Multiplicity="0..1" />
+          <End Role="OWL_TagsMaster" Type="Self.OWL_TagsMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OWL_SectorTypeMaster">
+              <PropertyRef Name="SectorTypeId" />
+            </Principal>
+            <Dependent Role="OWL_TagsMaster">
+              <PropertyRef Name="TagReleatedSector" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="OswalNextGenEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="OWL_BusinessPlanMaster" EntityType="Self.OWL_BusinessPlanMaster" />
+          <EntitySet Name="OWL_BusinessServicesMaster" EntityType="Self.OWL_BusinessServicesMaster" />
+          <EntitySet Name="OWL_CareersMaster" EntityType="Self.OWL_CareersMaster" />
+          <EntitySet Name="OWL_CityMaster" EntityType="Self.OWL_CityMaster" />
+          <EntitySet Name="OWL_ClientMaster" EntityType="Self.OWL_ClientMaster" />
+          <EntitySet Name="OWL_CountryMaster" EntityType="Self.OWL_CountryMaster" />
+          <EntitySet Name="OWL_DepartmentMaster" EntityType="Self.OWL_DepartmentMaster" />
+          <EntitySet Name="OWL_DesignationMaster" EntityType="Self.OWL_DesignationMaster" />
+          <EntitySet Name="OWL_DocCategoryMaster" EntityType="Self.OWL_DocCategoryMaster" />
+          <EntitySet Name="OWL_DocTypeMaster" EntityType="Self.OWL_DocTypeMaster" />
+          <EntitySet Name="OWL_DocumentMaster" EntityType="Self.OWL_DocumentMaster" />
+          <EntitySet Name="OWL_EmployeeDetail" EntityType="Self.OWL_EmployeeDetail" />
+          <EntitySet Name="OWL_EmployeeMaster" EntityType="Self.OWL_EmployeeMaster" />
+          <EntitySet Name="OWL_EnqueryMaster" EntityType="Self.OWL_EnqueryMaster" />
+          <EntitySet Name="OWL_JobModeMaster" EntityType="Self.OWL_JobModeMaster" />
+          <EntitySet Name="OWL_JobsPostMaster" EntityType="Self.OWL_JobsPostMaster" />
+          <EntitySet Name="OWL_JobTypeMaster" EntityType="Self.OWL_JobTypeMaster" />
+          <EntitySet Name="OWL_LoginMaster" EntityType="Self.OWL_LoginMaster" />
+          <EntitySet Name="OWL_PostsMaster" EntityType="Self.OWL_PostsMaster" />
+          <EntitySet Name="OWL_PostTypeMaster" EntityType="Self.OWL_PostTypeMaster" />
+          <EntitySet Name="OWL_QualificationMaster" EntityType="Self.OWL_QualificationMaster" />
+          <EntitySet Name="OWL_QuestionMaster" EntityType="Self.OWL_QuestionMaster" />
+          <EntitySet Name="OWL_ResourceMaster" EntityType="Self.OWL_ResourceMaster" />
+          <EntitySet Name="OWL_SectorTypeMaster" EntityType="Self.OWL_SectorTypeMaster" />
+          <EntitySet Name="OWL_ServicesCategoryMaster" EntityType="Self.OWL_ServicesCategoryMaster" />
+          <EntitySet Name="OWL_StateMaster" EntityType="Self.OWL_StateMaster" />
+          <EntitySet Name="OWL_StatusListMaster" EntityType="Self.OWL_StatusListMaster" />
+          <EntitySet Name="OWL_TagsMaster" EntityType="Self.OWL_TagsMaster" />
+          <EntitySet Name="OWL_UserMaster" EntityType="Self.OWL_UserMaster" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <AssociationSet Name="FK_OWL_BusinessPlanMaster_OWL_EmployeeMaster" Association="Self.FK_OWL_BusinessPlanMaster_OWL_EmployeeMaster">
+            <End Role="OWL_EmployeeMaster" EntitySet="OWL_EmployeeMaster" />
+            <End Role="OWL_BusinessPlanMaster" EntitySet="OWL_BusinessPlanMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_BusinessPlanMaster_OWL_SectorTypeMaster" Association="Self.FK_OWL_BusinessPlanMaster_OWL_SectorTypeMaster">
+            <End Role="OWL_SectorTypeMaster" EntitySet="OWL_SectorTypeMaster" />
+            <End Role="OWL_BusinessPlanMaster" EntitySet="OWL_BusinessPlanMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_BusinessPlanMaster_OWL_StatusListMaster" Association="Self.FK_OWL_BusinessPlanMaster_OWL_StatusListMaster">
+            <End Role="OWL_StatusListMaster" EntitySet="OWL_StatusListMaster" />
+            <End Role="OWL_BusinessPlanMaster" EntitySet="OWL_BusinessPlanMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_ClientMaster_OWL_BusinessPlanMaster" Association="Self.FK_OWL_ClientMaster_OWL_BusinessPlanMaster">
+            <End Role="OWL_BusinessPlanMaster" EntitySet="OWL_BusinessPlanMaster" />
+            <End Role="OWL_ClientMaster" EntitySet="OWL_ClientMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_BusinessServicesMaster_OWL_ServicesCategoryMaster" Association="Self.FK_OWL_BusinessServicesMaster_OWL_ServicesCategoryMaster">
+            <End Role="OWL_ServicesCategoryMaster" EntitySet="OWL_ServicesCategoryMaster" />
+            <End Role="OWL_BusinessServicesMaster" EntitySet="OWL_BusinessServicesMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_CareersMaster_OWL_CareersMaster" Association="Self.FK_OWL_CareersMaster_OWL_CareersMaster">
+            <End Role="OWL_CityMaster" EntitySet="OWL_CityMaster" />
+            <End Role="OWL_CareersMaster" EntitySet="OWL_CareersMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_CareersMaster_OWL_CityMaster" Association="Self.FK_OWL_CareersMaster_OWL_CityMaster">
+            <End Role="OWL_CityMaster" EntitySet="OWL_CityMaster" />
+            <End Role="OWL_CareersMaster" EntitySet="OWL_CareersMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_CareersMaster_OWL_DepartmentMaster" Association="Self.FK_OWL_CareersMaster_OWL_DepartmentMaster">
+            <End Role="OWL_DepartmentMaster" EntitySet="OWL_DepartmentMaster" />
+            <End Role="OWL_CareersMaster" EntitySet="OWL_CareersMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_CareersMaster_OWL_DesignationMaster" Association="Self.FK_OWL_CareersMaster_OWL_DesignationMaster">
+            <End Role="OWL_DesignationMaster" EntitySet="OWL_DesignationMaster" />
+            <End Role="OWL_CareersMaster" EntitySet="OWL_CareersMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_CareersMaster_OWL_QualificationMaster" Association="Self.FK_OWL_CareersMaster_OWL_QualificationMaster">
+            <End Role="OWL_QualificationMaster" EntitySet="OWL_QualificationMaster" />
+            <End Role="OWL_CareersMaster" EntitySet="OWL_CareersMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_CareersMaster_OWL_StatusListMaster" Association="Self.FK_OWL_CareersMaster_OWL_StatusListMaster">
+            <End Role="OWL_StatusListMaster" EntitySet="OWL_StatusListMaster" />
+            <End Role="OWL_CareersMaster" EntitySet="OWL_CareersMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OWL_CityM__Relat__32E0915F" Association="Self.FK__OWL_CityM__Relat__32E0915F">
+            <End Role="OWL_StateMaster" EntitySet="OWL_StateMaster" />
+            <End Role="OWL_CityMaster" EntitySet="OWL_CityMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_EmployeeMaster_OWL_CityMaster" Association="Self.FK_OWL_EmployeeMaster_OWL_CityMaster">
+            <End Role="OWL_CityMaster" EntitySet="OWL_CityMaster" />
+            <End Role="OWL_EmployeeMaster" EntitySet="OWL_EmployeeMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_JobsPostMaster_OWL_CityMaster" Association="Self.FK_OWL_JobsPostMaster_OWL_CityMaster">
+            <End Role="OWL_CityMaster" EntitySet="OWL_CityMaster" />
+            <End Role="OWL_JobsPostMaster" EntitySet="OWL_JobsPostMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_ClientMaster_OWL_CityMaster" Association="Self.FK_OWL_ClientMaster_OWL_CityMaster">
+            <End Role="OWL_StatusListMaster" EntitySet="OWL_StatusListMaster" />
+            <End Role="OWL_ClientMaster" EntitySet="OWL_ClientMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_ClientMaster_OWL_ClientMaster" Association="Self.FK_OWL_ClientMaster_OWL_ClientMaster">
+            <End Role="OWL_ClientMaster" EntitySet="OWL_ClientMaster" />
+            <End Role="OWL_ClientMaster1" EntitySet="OWL_ClientMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_ClientMaster_OWL_DesignationMaster" Association="Self.FK_OWL_ClientMaster_OWL_DesignationMaster">
+            <End Role="OWL_DesignationMaster" EntitySet="OWL_DesignationMaster" />
+            <End Role="OWL_ClientMaster" EntitySet="OWL_ClientMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_ClientMaster_OWL_ResourceMaster" Association="Self.FK_OWL_ClientMaster_OWL_ResourceMaster">
+            <End Role="OWL_ResourceMaster" EntitySet="OWL_ResourceMaster" />
+            <End Role="OWL_ClientMaster" EntitySet="OWL_ClientMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_ClientMaster_OWL_SectorTypeMaster" Association="Self.FK_OWL_ClientMaster_OWL_SectorTypeMaster">
+            <End Role="OWL_SectorTypeMaster" EntitySet="OWL_SectorTypeMaster" />
+            <End Role="OWL_ClientMaster" EntitySet="OWL_ClientMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_ClientMaster_OWL_StateMaster" Association="Self.FK_OWL_ClientMaster_OWL_StateMaster">
+            <End Role="OWL_StateMaster" EntitySet="OWL_StateMaster" />
+            <End Role="OWL_ClientMaster" EntitySet="OWL_ClientMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OWL_State__Relat__35BCFE0A" Association="Self.FK__OWL_State__Relat__35BCFE0A">
+            <End Role="OWL_CountryMaster" EntitySet="OWL_CountryMaster" />
+            <End Role="OWL_StateMaster" EntitySet="OWL_StateMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_EmployeeMaster_OWL_DepartmentMaster" Association="Self.FK_OWL_EmployeeMaster_OWL_DepartmentMaster">
+            <End Role="OWL_DepartmentMaster" EntitySet="OWL_DepartmentMaster" />
+            <End Role="OWL_EmployeeMaster" EntitySet="OWL_EmployeeMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_DocCategoryMaster_OWL_DocTypeMaster" Association="Self.FK_OWL_DocCategoryMaster_OWL_DocTypeMaster">
+            <End Role="OWL_DocTypeMaster" EntitySet="OWL_DocTypeMaster" />
+            <End Role="OWL_DocCategoryMaster" EntitySet="OWL_DocCategoryMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_DocumentMaster_OWL_DocCategoryMaster1" Association="Self.FK_OWL_DocumentMaster_OWL_DocCategoryMaster1">
+            <End Role="OWL_DocCategoryMaster" EntitySet="OWL_DocCategoryMaster" />
+            <End Role="OWL_DocumentMaster" EntitySet="OWL_DocumentMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_DocumentMaster_OWL_EmployeeMaster1" Association="Self.FK_OWL_DocumentMaster_OWL_EmployeeMaster1">
+            <End Role="OWL_EmployeeMaster" EntitySet="OWL_EmployeeMaster" />
+            <End Role="OWL_DocumentMaster" EntitySet="OWL_DocumentMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_EmployeeDetail_OWL_EmployeeMaster" Association="Self.FK_OWL_EmployeeDetail_OWL_EmployeeMaster">
+            <End Role="OWL_EmployeeMaster" EntitySet="OWL_EmployeeMaster" />
+            <End Role="OWL_EmployeeDetail" EntitySet="OWL_EmployeeDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OWL_Emplo__UserT__34C8D9D1" Association="Self.FK__OWL_Emplo__UserT__34C8D9D1">
+            <End Role="OWL_UserMaster" EntitySet="OWL_UserMaster" />
+            <End Role="OWL_EmployeeMaster" EntitySet="OWL_EmployeeMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_EmployeeMaster_OWL_QualificationMaster" Association="Self.FK_OWL_EmployeeMaster_OWL_QualificationMaster">
+            <End Role="OWL_QualificationMaster" EntitySet="OWL_QualificationMaster" />
+            <End Role="OWL_EmployeeMaster" EntitySet="OWL_EmployeeMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_EnqueryMaster_OWL_EmployeeMaster" Association="Self.FK_OWL_EnqueryMaster_OWL_EmployeeMaster">
+            <End Role="OWL_EmployeeMaster" EntitySet="OWL_EmployeeMaster" />
+            <End Role="OWL_EnqueryMaster" EntitySet="OWL_EnqueryMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_JobsPostMaster_OWL_EmployeeMaster" Association="Self.FK_OWL_JobsPostMaster_OWL_EmployeeMaster">
+            <End Role="OWL_EmployeeMaster" EntitySet="OWL_EmployeeMaster" />
+            <End Role="OWL_JobsPostMaster" EntitySet="OWL_JobsPostMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_LoginMaster_OWL_EmployeeMaster" Association="Self.FK_OWL_LoginMaster_OWL_EmployeeMaster">
+            <End Role="OWL_EmployeeMaster" EntitySet="OWL_EmployeeMaster" />
+            <End Role="OWL_LoginMaster" EntitySet="OWL_LoginMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_PostsMaster_OWL_EmployeeMaster" Association="Self.FK_OWL_PostsMaster_OWL_EmployeeMaster">
+            <End Role="OWL_EmployeeMaster" EntitySet="OWL_EmployeeMaster" />
+            <End Role="OWL_PostsMaster" EntitySet="OWL_PostsMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_QuestionMaster_OWL_EmployeeMaster" Association="Self.FK_OWL_QuestionMaster_OWL_EmployeeMaster">
+            <End Role="OWL_EmployeeMaster" EntitySet="OWL_EmployeeMaster" />
+            <End Role="OWL_QuestionMaster" EntitySet="OWL_QuestionMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_ResourceMaster_OWL_EmployeeMaster" Association="Self.FK_OWL_ResourceMaster_OWL_EmployeeMaster">
+            <End Role="OWL_EmployeeMaster" EntitySet="OWL_EmployeeMaster" />
+            <End Role="OWL_ResourceMaster" EntitySet="OWL_ResourceMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_JobsPostMaster_OWL_JobModeMaster" Association="Self.FK_OWL_JobsPostMaster_OWL_JobModeMaster">
+            <End Role="OWL_JobModeMaster" EntitySet="OWL_JobModeMaster" />
+            <End Role="OWL_JobsPostMaster" EntitySet="OWL_JobsPostMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_JobsPostMaster_OWL_JobTypeMaster" Association="Self.FK_OWL_JobsPostMaster_OWL_JobTypeMaster">
+            <End Role="OWL_JobTypeMaster" EntitySet="OWL_JobTypeMaster" />
+            <End Role="OWL_JobsPostMaster" EntitySet="OWL_JobsPostMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_JobsPostMaster_OWL_QualificationMaster" Association="Self.FK_OWL_JobsPostMaster_OWL_QualificationMaster">
+            <End Role="OWL_QualificationMaster" EntitySet="OWL_QualificationMaster" />
+            <End Role="OWL_JobsPostMaster" EntitySet="OWL_JobsPostMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_JobsPostMaster_OWL_StatusListMaster" Association="Self.FK_OWL_JobsPostMaster_OWL_StatusListMaster">
+            <End Role="OWL_StatusListMaster" EntitySet="OWL_StatusListMaster" />
+            <End Role="OWL_JobsPostMaster" EntitySet="OWL_JobsPostMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_PostsMaster_OWL_PostsMaster" Association="Self.FK_OWL_PostsMaster_OWL_PostsMaster">
+            <End Role="OWL_PostsMaster" EntitySet="OWL_PostsMaster" />
+            <End Role="OWL_PostsMaster1" EntitySet="OWL_PostsMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_PostsMaster_OWL_PostsMaster1" Association="Self.FK_OWL_PostsMaster_OWL_PostsMaster1">
+            <End Role="OWL_PostTypeMaster" EntitySet="OWL_PostTypeMaster" />
+            <End Role="OWL_PostsMaster" EntitySet="OWL_PostsMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_PostsMaster_OWL_StatusListMaster" Association="Self.FK_OWL_PostsMaster_OWL_StatusListMaster">
+            <End Role="OWL_StatusListMaster" EntitySet="OWL_StatusListMaster" />
+            <End Role="OWL_PostsMaster" EntitySet="OWL_PostsMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_PostsMaster_OWL_StatusListMaster1" Association="Self.FK_OWL_PostsMaster_OWL_StatusListMaster1">
+            <End Role="OWL_StatusListMaster" EntitySet="OWL_StatusListMaster" />
+            <End Role="OWL_PostsMaster" EntitySet="OWL_PostsMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_QuestionMaster_OWL_SectorTypeMaster" Association="Self.FK_OWL_QuestionMaster_OWL_SectorTypeMaster">
+            <End Role="OWL_SectorTypeMaster" EntitySet="OWL_SectorTypeMaster" />
+            <End Role="OWL_QuestionMaster" EntitySet="OWL_QuestionMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OWL_TagsMaster_OWL_SectorTypeMaster" Association="Self.FK_OWL_TagsMaster_OWL_SectorTypeMaster">
+            <End Role="OWL_SectorTypeMaster" EntitySet="OWL_SectorTypeMaster" />
+            <End Role="OWL_TagsMaster" EntitySet="OWL_TagsMaster" />
+          </AssociationSet>
+          <FunctionImport Name="EmployeeMasterOperation">
+            <Parameter Name="EmpId" Mode="In" Type="Int32" />
+            <Parameter Name="UserType" Mode="In" Type="Int32" />
+            <Parameter Name="EmpName" Mode="In" Type="String" />
+            <Parameter Name="EmpEmail" Mode="In" Type="String" />
+            <Parameter Name="EmpDept" Mode="In" Type="Int32" />
+            <Parameter Name="Qualification" Mode="In" Type="Int32" />
+            <Parameter Name="City" Mode="In" Type="Int32" />
+            <Parameter Name="AddedOn" Mode="In" Type="DateTime" />
+            <Parameter Name="UpdatedOn" Mode="In" Type="DateTime" />
+            <Parameter Name="IsDel" Mode="In" Type="Boolean" />
+            <Parameter Name="Operation" Mode="In" Type="Int32" />
+            <Parameter Name="Response" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(OswalNextGenModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(OswalNextGenModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OswalNextGenModelStoreContainer" CdmEntityContainer="OswalNextGenEntities">
+          <EntitySetMapping Name="OWL_BusinessPlanMaster">
+            <EntityTypeMapping TypeName="OswalNextGenModel.OWL_BusinessPlanMaster">
+              <MappingFragment StoreEntitySet="OWL_BusinessPlanMaster">
+                <ScalarProperty Name="PlanNo" ColumnName="PlanNo" />
+                <ScalarProperty Name="PlanName" ColumnName="PlanName" />
+                <ScalarProperty Name="SectorType" ColumnName="SectorType" />
+                <ScalarProperty Name="Services" ColumnName="Services" />
+                <ScalarProperty Name="Advantage" ColumnName="Advantage" />
+                <ScalarProperty Name="AdditionalFeatuer" ColumnName="AdditionalFeatuer" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="CurrencyType" ColumnName="CurrencyType" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="PostStatus" ColumnName="PostStatus" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreationDT" ColumnName="CreationDT" />
+                <ScalarProperty Name="UpdatedON" ColumnName="UpdatedON" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OWL_BusinessServicesMaster">
+            <EntityTypeMapping TypeName="OswalNextGenModel.OWL_BusinessServicesMaster">
+              <MappingFragment StoreEntitySet="OWL_BusinessServicesMaster">
+                <ScalarProperty Name="ServiceNo" ColumnName="ServiceNo" />
+                <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
+                <ScalarProperty Name="ServiceCategory" ColumnName="ServiceCategory" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OWL_CareersMaster">
+            <EntityTypeMapping TypeName="OswalNextGenModel.OWL_CareersMaster">
+              <MappingFragment StoreEntitySet="OWL_CareersMaster">
+                <ScalarProperty Name="ApplicationNo" ColumnName="ApplicationNo" />
+                <ScalarProperty Name="ApplicaintName" ColumnName="ApplicaintName" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="ApplicaintEmail" ColumnName="ApplicaintEmail" />
+                <ScalarProperty Name="ApplicaintMobile" ColumnName="ApplicaintMobile" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="ApplicaintAddress" ColumnName="ApplicaintAddress" />
+                <ScalarProperty Name="ApplicaintLocation" ColumnName="ApplicaintLocation" />
+                <ScalarProperty Name="ApplicaintPreferedLocation" ColumnName="ApplicaintPreferedLocation" />
+                <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+                <ScalarProperty Name="DesignationName" ColumnName="DesignationName" />
+                <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+                <ScalarProperty Name="AttachmentFolderName" ColumnName="AttachmentFolderName" />
+                <ScalarProperty Name="AttachedResume" ColumnName="AttachedResume" />
+                <ScalarProperty Name="AttachmentExtension" ColumnName="AttachmentExtension" />
+                <ScalarProperty Name="BusinessName" ColumnName="BusinessName" />
+                <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OWL_CityMaster">
+            <EntityTypeMapping TypeName="OswalNextGenModel.OWL_CityMaster">
+              <MappingFragment StoreEntitySet="OWL_CityMaster">
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="RelatedStateId" ColumnName="RelatedStateId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OWL_ClientMaster">
+            <EntityTypeMapping TypeName="OswalNextGenModel.OWL_ClientMaster">
+              <MappingFragment StoreEntitySet="OWL_ClientMaster">
+                <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+                <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+                <ScalarProperty Name="BelongResource" ColumnName="BelongResource" />
+                <ScalarProperty Name="SectorType" ColumnName="SectorType" />
+                <ScalarProperty Name="AuthorizedPerson" ColumnName="AuthorizedPerson" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="RelatedState" ColumnName="RelatedState" />
+                <ScalarProperty Name="RelatedCity" ColumnName="RelatedCity" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="BusinessPlan" ColumnName="BusinessPlan" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OWL_CountryMaster">
+            <EntityTypeMapping TypeName="OswalNextGenModel.OWL_CountryMaster">
+              <MappingFragment StoreEntitySet="OWL_CountryMaster">
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OWL_DepartmentMaster">
+            <EntityTypeMapping TypeName="OswalNextGenModel.OWL_DepartmentMaster">
+              <MappingFragment StoreEntitySet="OWL_DepartmentMaster">
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OWL_DesignationMaster">
+            <EntityTypeMapping TypeName="OswalNextGenModel.OWL_DesignationMaster">
+              <MappingFragment StoreEntitySet="OWL_DesignationMaster">
+                <ScalarProperty Name="DesignationId" ColumnName="DesignationId" />
+                <ScalarProperty Name="DesignationName" ColumnName="DesignationName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OWL_DocCategoryMaster">
+            <EntityTypeMapping TypeName="OswalNextGenModel.OWL_DocCategoryMaster">
+              <MappingFragment StoreEntitySet="OWL_DocCategoryMaster">
+                <ScalarProperty Name="DocCategoryNo" ColumnName="DocCategoryNo" />
+                <ScalarProperty Name="DocCategoryName" ColumnName="DocCategoryName" />
+                <ScalarProperty Name="RelatedDocType_Id" ColumnName="RelatedDocType_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OWL_DocTypeMaster">
+            <EntityTypeMapping TypeName="OswalNextGenModel.OWL_DocTypeMaster">
+              <MappingFragment StoreEntitySet="OWL_DocTypeMaster">
+                <ScalarProperty Name="DocTypeNo" ColumnName="DocTypeNo" />
+                <ScalarProperty Name="DocType" ColumnName="DocType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OWL_DocumentMaster">
+            <EntityTypeMapping TypeName="OswalNextGenModel.OWL_DocumentMaster">
+              <MappingFragment StoreEntitySet="OWL_DocumentMaster">
+                <ScalarProperty Name="DocNo" ColumnName="DocNo" />
+                <ScalarProperty Name="DocTitle" ColumnName="DocTitle" />
+                <ScalarProperty Name="DocName" ColumnName="DocName" />
+                <ScalarProperty Name="DocUploadedBy" ColumnName="DocUploadedBy" />
+                <ScalarProperty Name="DocCategoryName" ColumnName="DocCategoryName" />
+                <ScalarProperty Name="DocRelatedYear" ColumnName="DocRelatedYear" />
+                <ScalarProperty Name="DocUploadedOn" ColumnName="DocUploadedOn" />
+                <ScalarProperty Name="DocUpdatedOn" ColumnName="DocUpdatedOn" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="FolderName" ColumnName="FolderName" />
+                <ScalarProperty Name="DocFileType" ColumnName="DocFileType" />
+                <ScalarProperty Name="DocFileSizeIn_KB" ColumnName="DocFileSizeIn_KB" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OWL_EmployeeDetail">
+            <EntityTypeMapping TypeName="OswalNextGenModel.OWL_EmployeeDetail">
+              <MappingFragment StoreEntitySet="OWL_EmployeeDetail">
+                <ScalarProperty Name="EmpEmail" ColumnName="EmpEmail" />
+                <ScalarProperty Name="ProfilePic" ColumnName="ProfilePic" />
+                <ScalarProperty Name="About" ColumnName="About" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="JobDesignation" ColumnName="JobDesignation" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="TwitterProfileUrl" ColumnName="TwitterProfileUrl" />
+                <ScalarProperty Name="FacebookProfileUrl" ColumnName="FacebookProfileUrl" />
+                <ScalarProperty Name="InstagramProfileUrl" ColumnName="InstagramProfileUrl" />
+                <ScalarProperty Name="LinkedinProfileUrl" ColumnName="LinkedinProfileUrl" />
+                <ScalarProperty Name="LinkType" ColumnName="LinkType" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OWL_EmployeeMaster">
+            <EntityTypeMapping TypeName="OswalNextGenModel.OWL_EmployeeMaster">
+              <MappingFragment StoreEntitySet="OWL_EmployeeMaster">
+                <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+                <ScalarProperty Name="EmpName" ColumnName="EmpName" />
+                <ScalarProperty Name="EmpEmail" ColumnName="EmpEmail" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="EmpDept" ColumnName="EmpDept" />
+                <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+                <ScalarProperty Name="AddedOn" ColumnName="AddedOn" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OWL_EnqueryMaster">
+            <EntityTypeMapping TypeName="OswalNextGenModel.OWL_EnqueryMaster">
+              <MappingFragment StoreEntitySet="OWL_EnqueryMaster">
+                <ScalarProperty Name="EnqId" ColumnName="EnqId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="SubmittedByEmpId" ColumnName="SubmittedByEmpId" />
+                <ScalarProperty Name="OrganizationName" ColumnName="OrganizationName" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="EnqDate" ColumnName="EnqDate" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OWL_JobModeMaster">
+            <EntityTypeMapping TypeName="OswalNextGenModel.OWL_JobModeMaster">
+              <MappingFragment StoreEntitySet="OWL_JobModeMaster">
+                <ScalarProperty Name="ModeId" ColumnName="ModeId" />
+                <ScalarProperty Name="JobMode" ColumnName="JobMode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OWL_JobsPostMaster">
+            <EntityTypeMapping TypeName="OswalNextGenModel.OWL_JobsPostMaster">
+              <MappingFragment StoreEntitySet="OWL_JobsPostMaster">
+                <ScalarProperty Name="JobId" ColumnName="JobId" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+                <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+                <ScalarProperty Name="KeySkills" ColumnName="KeySkills" />
+                <ScalarProperty Name="Exp_InYears" ColumnName="Exp_InYears" />
+                <ScalarProperty Name="Available_NoOfPost" ColumnName="Available_NoOfPost" />
+                <ScalarProperty Name="JobType" ColumnName="JobType" />
+                <ScalarProperty Name="JobMode" ColumnName="JobMode" />
+                <ScalarProperty Name="JobLocation" ColumnName="JobLocation" />
+                <ScalarProperty Name="PublishedBy" ColumnName="PublishedBy" />
+                <ScalarProperty Name="PublishedOn" ColumnName="PublishedOn" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OWL_JobTypeMaster">
+            <EntityTypeMapping TypeName="OswalNextGenModel.OWL_JobTypeMaster">
+              <MappingFragment StoreEntitySet="OWL_JobTypeMaster">
+                <ScalarProperty Name="JobTypeId" ColumnName="JobTypeId" />
+                <ScalarProperty Name="JobType" ColumnName="JobType" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OWL_LoginMaster">
+            <EntityTypeMapping TypeName="OswalNextGenModel.OWL_LoginMaster">
+              <MappingFragment StoreEntitySet="OWL_LoginMaster">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+                <ScalarProperty Name="UserStatus" ColumnName="UserStatus" />
+                <ScalarProperty Name="LoginCount" ColumnName="LoginCount" />
+                <ScalarProperty Name="LastLogin_DT" ColumnName="LastLogin_DT" />
+                <ScalarProperty Name="LastLogin_IP" ColumnName="LastLogin_IP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OWL_PostsMaster">
+            <EntityTypeMapping TypeName="OswalNextGenModel.OWL_PostsMaster">
+              <MappingFragment StoreEntitySet="OWL_PostsMaster">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PostAuthor" ColumnName="PostAuthor" />
+                <ScalarProperty Name="PostDate" ColumnName="PostDate" />
+                <ScalarProperty Name="PostContent" ColumnName="PostContent" />
+                <ScalarProperty Name="FeaturedImg" ColumnName="FeaturedImg" />
+                <ScalarProperty Name="ThumbImg" ColumnName="ThumbImg" />
+                <ScalarProperty Name="FileFolderName" ColumnName="FileFolderName" />
+                <ScalarProperty Name="PostTitle" ColumnName="PostTitle" />
+                <ScalarProperty Name="PostExcerpt" ColumnName="PostExcerpt" />
+                <ScalarProperty Name="BulletPoint" ColumnName="BulletPoint" />
+                <ScalarProperty Name="PostStatus" ColumnName="PostStatus" />
+                <ScalarProperty Name="CommentStatus" ColumnName="CommentStatus" />
+                <ScalarProperty Name="PostPassword" ColumnName="PostPassword" />
+                <ScalarProperty Name="PostName" ColumnName="PostName" />
+                <ScalarProperty Name="ToPingTags" ColumnName="ToPingTags" />
+                <ScalarProperty Name="Pinged" ColumnName="Pinged" />
+                <ScalarProperty Name="PostUpdatedOn" ColumnName="PostUpdatedOn" />
+                <ScalarProperty Name="PostContentFiltered" ColumnName="PostContentFiltered" />
+                <ScalarProperty Name="PostParent" ColumnName="PostParent" />
+                <ScalarProperty Name="Guid" ColumnName="Guid" />
+                <ScalarProperty Name="MenuOrder" ColumnName="MenuOrder" />
+                <ScalarProperty Name="PostType" ColumnName="PostType" />
+                <ScalarProperty Name="PostMimeType" ColumnName="PostMimeType" />
+                <ScalarProperty Name="CommentCount" ColumnName="CommentCount" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OWL_PostTypeMaster">
+            <EntityTypeMapping TypeName="OswalNextGenModel.OWL_PostTypeMaster">
+              <MappingFragment StoreEntitySet="OWL_PostTypeMaster">
+                <ScalarProperty Name="PostTypeId" ColumnName="PostTypeId" />
+                <ScalarProperty Name="PostType" ColumnName="PostType" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OWL_QualificationMaster">
+            <EntityTypeMapping TypeName="OswalNextGenModel.OWL_QualificationMaster">
+              <MappingFragment StoreEntitySet="OWL_QualificationMaster">
+                <ScalarProperty Name="QualificationId" ColumnName="QualificationId" />
+                <ScalarProperty Name="QualificationName" ColumnName="QualificationName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OWL_QuestionMaster">
+            <EntityTypeMapping TypeName="OswalNextGenModel.OWL_QuestionMaster">
+              <MappingFragment StoreEntitySet="OWL_QuestionMaster">
+                <ScalarProperty Name="QuestionNo" ColumnName="QuestionNo" />
+                <ScalarProperty Name="SectorType" ColumnName="SectorType" />
+                <ScalarProperty Name="Question" ColumnName="Question" />
+                <ScalarProperty Name="Answer" ColumnName="Answer" />
+                <ScalarProperty Name="CreationDT" ColumnName="CreationDT" />
+                <ScalarProperty Name="UpdationDT" ColumnName="UpdationDT" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OWL_ResourceMaster">
+            <EntityTypeMapping TypeName="OswalNextGenModel.OWL_ResourceMaster">
+              <MappingFragment StoreEntitySet="OWL_ResourceMaster">
+                <ScalarProperty Name="ResourceId" ColumnName="ResourceId" />
+                <ScalarProperty Name="ResourceName" ColumnName="ResourceName" />
+                <ScalarProperty Name="ResourceUrl" ColumnName="ResourceUrl" />
+                <ScalarProperty Name="ResourceEmail" ColumnName="ResourceEmail" />
+                <ScalarProperty Name="AuthorizedPerson" ColumnName="AuthorizedPerson" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OWL_SectorTypeMaster">
+            <EntityTypeMapping TypeName="OswalNextGenModel.OWL_SectorTypeMaster">
+              <MappingFragment StoreEntitySet="OWL_SectorTypeMaster">
+                <ScalarProperty Name="SectorTypeId" ColumnName="SectorTypeId" />
+                <ScalarProperty Name="SectorType" ColumnName="SectorType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OWL_ServicesCategoryMaster">
+            <EntityTypeMapping TypeName="OswalNextGenModel.OWL_ServicesCategoryMaster">
+              <MappingFragment StoreEntitySet="OWL_ServicesCategoryMaster">
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OWL_StateMaster">
+            <EntityTypeMapping TypeName="OswalNextGenModel.OWL_StateMaster">
+              <MappingFragment StoreEntitySet="OWL_StateMaster">
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="RelatedCountryId" ColumnName="RelatedCountryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OWL_StatusListMaster">
+            <EntityTypeMapping TypeName="OswalNextGenModel.OWL_StatusListMaster">
+              <MappingFragment StoreEntitySet="OWL_StatusListMaster">
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="StatusValue" ColumnName="StatusValue" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OWL_TagsMaster">
+            <EntityTypeMapping TypeName="OswalNextGenModel.OWL_TagsMaster">
+              <MappingFragment StoreEntitySet="OWL_TagsMaster">
+                <ScalarProperty Name="TagId" ColumnName="TagId" />
+                <ScalarProperty Name="TagName" ColumnName="TagName" />
+                <ScalarProperty Name="TagReleatedSector" ColumnName="TagReleatedSector" />
+                <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OWL_UserMaster">
+            <EntityTypeMapping TypeName="OswalNextGenModel.OWL_UserMaster">
+              <MappingFragment StoreEntitySet="OWL_UserMaster">
+                <ScalarProperty Name="UserTypeId" ColumnName="UserTypeId" />
+                <ScalarProperty Name="UserTypeName" ColumnName="UserTypeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="OswalNextGenModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="EmployeeMasterOperation" FunctionName="OswalNextGenModel.Store.EmployeeMasterOperation" />
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="OswalNextGenModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="OswalNextGenModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="OswalNextGenModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="OswalNextGenModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="OswalNextGenModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="OswalNextGenModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="OswalNextGenModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="OswalNextGenModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="OswalNextGenModel.Store.sp_upgraddiagrams" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

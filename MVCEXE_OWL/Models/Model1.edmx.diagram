@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="97b0e62ff91b466ea3af692aeb8d8d5b" Name="Diagram1">
+        <EntityTypeShape EntityType="OswalNextGenModel.OWL_BusinessPlanMaster" Width="1.5" PointX="8.25" PointY="25.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OswalNextGenModel.OWL_BusinessServicesMaster" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OswalNextGenModel.OWL_CareersMaster" Width="1.5" PointX="3" PointY="25.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OswalNextGenModel.OWL_CityMaster" Width="1.5" PointX="0.75" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OswalNextGenModel.OWL_ClientMaster" Width="1.5" PointX="10.5" PointY="41.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OswalNextGenModel.OWL_CountryMaster" Width="1.5" PointX="1.5" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OswalNextGenModel.OWL_DepartmentMaster" Width="1.5" PointX="0.75" PointY="30.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OswalNextGenModel.OWL_DesignationMaster" Width="1.5" PointX="0.75" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OswalNextGenModel.OWL_DocCategoryMaster" Width="1.5" PointX="9" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OswalNextGenModel.OWL_DocTypeMaster" Width="1.5" PointX="6.75" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OswalNextGenModel.OWL_DocumentMaster" Width="1.5" PointX="11.25" PointY="26.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OswalNextGenModel.OWL_EmployeeDetail" Width="1.5" PointX="8.25" PointY="30.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OswalNextGenModel.OWL_EmployeeMaster" Width="1.5" PointX="6" PointY="25.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OswalNextGenModel.OWL_EnqueryMaster" Width="1.5" PointX="8.25" PointY="35.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OswalNextGenModel.OWL_JobModeMaster" Width="1.5" PointX="9" PointY="20.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OswalNextGenModel.OWL_JobsPostMaster" Width="1.5" PointX="11.25" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OswalNextGenModel.OWL_JobTypeMaster" Width="1.5" PointX="9" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OswalNextGenModel.OWL_LoginMaster" Width="1.5" PointX="8.25" PointY="45" IsExpanded="true" />
+        <EntityTypeShape EntityType="OswalNextGenModel.OWL_PostsMaster" Width="1.5" PointX="14.25" PointY="24.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OswalNextGenModel.OWL_PostTypeMaster" Width="1.5" PointX="12" PointY="36.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OswalNextGenModel.OWL_QualificationMaster" Width="1.5" PointX="0.75" PointY="27.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OswalNextGenModel.OWL_QuestionMaster" Width="1.5" PointX="11.25" PointY="32" IsExpanded="true" />
+        <EntityTypeShape EntityType="OswalNextGenModel.OWL_ResourceMaster" Width="1.5" PointX="8.25" PointY="59.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OswalNextGenModel.OWL_SectorTypeMaster" Width="1.5" PointX="6" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OswalNextGenModel.OWL_ServicesCategoryMaster" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="OswalNextGenModel.OWL_StateMaster" Width="1.5" PointX="1.5" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OswalNextGenModel.OWL_StatusListMaster" Width="1.5" PointX="0.75" PointY="35.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OswalNextGenModel.OWL_TagsMaster" Width="1.5" PointX="8.25" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OswalNextGenModel.OWL_UserMaster" Width="1.5" PointX="3.75" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OswalNextGenModel.sysdiagram" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="OswalNextGenModel.FK_OWL_BusinessPlanMaster_OWL_EmployeeMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="OswalNextGenModel.FK_OWL_BusinessPlanMaster_OWL_SectorTypeMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="OswalNextGenModel.FK_OWL_BusinessPlanMaster_OWL_StatusListMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="OswalNextGenModel.FK_OWL_ClientMaster_OWL_BusinessPlanMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="OswalNextGenModel.FK_OWL_BusinessServicesMaster_OWL_ServicesCategoryMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="OswalNextGenModel.FK_OWL_CareersMaster_OWL_CareersMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="OswalNextGenModel.FK_OWL_CareersMaster_OWL_CityMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="OswalNextGenModel.FK_OWL_CareersMaster_OWL_DepartmentMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="OswalNextGenModel.FK_OWL_CareersMaster_OWL_DesignationMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="OswalNextGenModel.FK_OWL_CareersMaster_OWL_QualificationMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="OswalNextGenModel.FK_OWL_CareersMaster_OWL_StatusListMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="OswalNextGenModel.FK__OWL_CityM__Relat__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="OswalNextGenModel.FK_OWL_EmployeeMaster_OWL_CityMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="OswalNextGenModel.FK_OWL_JobsPostMaster_OWL_CityMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="OswalNextGenModel.FK_OWL_ClientMaster_OWL_CityMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="OswalNextGenModel.FK_OWL_ClientMaster_OWL_ClientMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="OswalNextGenModel.FK_OWL_ClientMaster_OWL_DesignationMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="OswalNextGenModel.FK_OWL_ClientMaster_OWL_ResourceMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="OswalNextGenModel.FK_OWL_ClientMaster_OWL_SectorTypeMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="OswalNextGenModel.FK_OWL_ClientMaster_OWL_StateMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="OswalNextGenModel.FK__OWL_State__Relat__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="OswalNextGenModel.FK_OWL_EmployeeMaster_OWL_DepartmentMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="OswalNextGenModel.FK_OWL_DocCategoryMaster_OWL_DocTypeMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="OswalNextGenModel.FK_OWL_DocumentMaster_OWL_DocCategoryMaster1" ManuallyRouted="false" />
+        <AssociationConnector Association="OswalNextGenModel.FK_OWL_DocumentMaster_OWL_EmployeeMaster1" ManuallyRouted="false" />
+        <AssociationConnector Association="OswalNextGenModel.FK_OWL_EmployeeDetail_OWL_EmployeeMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="OswalNextGenModel.FK__OWL_Emplo__UserT__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="OswalNextGenModel.FK_OWL_EmployeeMaster_OWL_QualificationMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="OswalNextGenModel.FK_OWL_EnqueryMaster_OWL_EmployeeMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="OswalNextGenModel.FK_OWL_JobsPostMaster_OWL_EmployeeMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="OswalNextGenModel.FK_OWL_LoginMaster_OWL_EmployeeMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="OswalNextGenModel.FK_OWL_PostsMaster_OWL_EmployeeMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="OswalNextGenModel.FK_OWL_QuestionMaster_OWL_EmployeeMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="OswalNextGenModel.FK_OWL_ResourceMaster_OWL_EmployeeMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="OswalNextGenModel.FK_OWL_JobsPostMaster_OWL_JobModeMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="OswalNextGenModel.FK_OWL_JobsPostMaster_OWL_JobTypeMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="OswalNextGenModel.FK_OWL_JobsPostMaster_OWL_QualificationMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="OswalNextGenModel.FK_OWL_JobsPostMaster_OWL_StatusListMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="OswalNextGenModel.FK_OWL_PostsMaster_OWL_PostsMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="OswalNextGenModel.FK_OWL_PostsMaster_OWL_PostsMaster1" ManuallyRouted="false" />
+        <AssociationConnector Association="OswalNextGenModel.FK_OWL_PostsMaster_OWL_StatusListMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="OswalNextGenModel.FK_OWL_PostsMaster_OWL_StatusListMaster1" ManuallyRouted="false" />
+        <AssociationConnector Association="OswalNextGenModel.FK_OWL_QuestionMaster_OWL_SectorTypeMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="OswalNextGenModel.FK_OWL_TagsMaster_OWL_SectorTypeMaster" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,164 @@
+﻿@{
+    ViewBag.Title = "Registration";
+    Layout = "~/Views/Shared/GeneralLayoutView.cshtml";
+}
+
+<style>
+input {
+    margin-bottom:4px;
+}
+
+select {
+margin-bottom: 4px;
+}
+#dvform {
+        padding: 4px;
+        background: white;
+        margin-bottom: 10px;
+    }
+
+</style>
+<div class="row gx-lg-0 gy-4" style="background-image: url('/Content/Images/Normal/bgtheme3.jpg'); background-size: cover; " >
+    <div class="col-lg-2"></div>
+    <div class="col-lg-4" style="margin-bottom:10px;">
+        <img src="~/Content/Images/Normal/regformImg.jpg" height="100%" width="100%" />
+    </div>
+    <div class="col-lg-4" id="dvform">
+        
+            
+            @using (Html.BeginForm("Registration", "Home", FormMethod.Post, new { enctype = "multipart/form-data", @class = "php-email-form" }))
+            {
+                <fieldset> 
+                    <legend> <h3 class="text-center">Registration Form </h3></legend>
+            <!--<form action="/Enquery/Home" method="post" role="form" class="php-email-form">-->
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        @Html.DropDownList("UserType", null, "Who You Are", new { @class = "form-control" })
+                    </div>
+                    <div class="col-md-6 form-group mt-3 mt-md-0">
+                        @Html.TextBox("EmpName", null, new { @class = "form-control", placeholder = "Your Name*" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        @Html.TextBox("EmpEmail", null, new { @class = "form-control", placeholder = "Your Email*" })
+
+                    </div>
+                    <div class="col-md-6 form-group">Gender:
+                        <span class="form-control h5">
+                            @Html.RadioButton("Gender", "Male", true, new { style = "width:20px;height:15px;" }) Male
+                            @Html.RadioButton("Gender", "Female", false, new { style = "width:20px;height:15px;" }) Female
+                        </span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 form-group mt-3 mt-md-0">
+                        @Html.DropDownList("EmpDept", null, "Select Your Department", new { @class = "form-control" })
+
+                    </div>
+                    <div class="col-md-6 form-group">
+                        @Html.DropDownList("Qualification", null, "Select Your Qualification", new { @class = "form-control" })
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 form-group mt-3 mt-md-0">
+                        @Html.DropDownList("City", null, "Select Your City", new { @class = "form-control" })
+
+                    </div>
+                    <div class="col-md-6 form-group">
+                        @Html.Password("UserPassword", null, new { @class = "form-control", placeholder = "Enter Your Password*" })
+                    </div>
+                   
+                </div>
+                <div class="row">
+                    <div class="col-md-6 form-group mt-3 mt-md-0">
+                        @Html.Password("UserConfPassword", null, new { @class = "form-control", placeholder = "Confirm Password" })
+
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <span class="form-control">
+                            <img id="Imgcaptcha" name="Imgcaptcha" src="~/Content/@ViewBag.Img" height="35px" />
+                            <img src="~/Content/Images/Icons/reloadimg.png" id="ImgRefresh" width="30px" height="30px" style="cursor:pointer;" title="Refresh Code" />
+                        </span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 form-group mt-3 mt-md-0">
+                         @Html.TextBox("CaptchaCode", null, new { @class = "form-control", placeholder = "Enter Captcha*" })
+                    </div>
+                </div>
+                <div class="my-3">
+                    <!--<div class="loading">Loading</div>-->
+                    <!-- <div class="error-message"></div>-->
+                    <!--<div class="sent-message">Your message has been sent. Thank you!  </div>-->
+                </div>
+                <div class="text-center "><button type="submit" class="btn btn-primary rounded-pill" id="">Register</button></div><br />
+
+                <div class="row">
+                    <p class="text-center">Already have account:&nbsp;<a href="/Home/Login">Login&nbsp;</a><b>OR</b> Register by below : <p>
+                        <div class="col-md-6 form-group">
+                            <button type="submit" id="" class="form-control btn btn-danger rounded-pill">Google</button>
+                        </div>
+                        <div class="col-md-6 form-group mt-3 mt-md-0">
+                            <button type="submit" id="" class="form-control btn btn-primary rounded-pill">Facebook</button>
+                        </div>
+                </div>
+            <!--</form>-->
+                @*<p>@ViewBag.Message</p>*@
+              </fieldset>
+                
+            }
+
+        
+    </div>
+    <div class="col-lg-2"></div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+       /* $("#Related_City_Id").change(function () {
+            var cid = $(this).val();
+            $.getJSON("/General/GetAreaUsingAJAX", { CityId: cid }, function (data) {
+                var items = "<option value=''>Select Area</option>";
+                $.each(data, function (index,area) {
+                    items = items + "<option value='" + area.Area_Id + "'>" + area.Area_Name + "</option>";
+                });
+                $("#Related_Area_Id").html(items);
+            });
+        });
+        */
+        //to refresh captcha code
+        $("#ImgRefresh").click(function () {
+            $.getJSON("/Home/GetNewCaptchaImage", null, function (data) {
+               $("#Imgcaptcha").attr("src", data);
+                
+            });
+        });
+        if ('@ViewBag.Message' != '') {
+            var msg = '@ViewBag.Message';
+            var x = msg.indexOf('success');
+            if (x >= 0)
+            {
+                //start: to clear controls
+                $("#UserType").val("");
+                $("#EmpName").val("");
+                $("#EmpEmail").val("");
+                $("#Gender").val("");
+                $("#EmpDept").val("");
+                $("#Qualification").val("");
+                $("#City").val("");
+                $("#CaptchaCode").val("");
+                
+            }
+            //end to clear controls
+            var cls = x >= 0 ? 'bg-success' : 'bg-danger';
+            var str = " <p id='pmsg' class='"+cls+" text-white text-center' style='min-height:40px; font-size: 18px;'><i class='fa fa-circle-info text-warning'></i>@ViewBag.Message</p>";
+            $("#dvform h3").before(str);
+            setInterval(function () {
+                $("#pmsg").fadeOut(2000);
+            },5000);
+        }
+    });
+</script>

@@ -1,0 +1,113 @@
+﻿@{
+    ViewBag.Title = "ShowReceivedJobApplication";
+    Layout = "~/Views/Shared/SubAdminLayoutView.cshtml";
+}
+
+@using MVCEXE_OWL.Models
+@model IEnumerable<OWL_CareersMaster>
+<style>
+    .ExtraDtlSec{
+        display:none;
+    }
+
+</style>
+
+@Html.Partial("_AdminBreadcrumbsPartialView")
+
+<section class="section">
+    <div class="row">
+        <div class="row">
+            <div class="col-lg-12 " style="text-align:right;">
+                Data :  <button class="btn btn-success text-white" id="CReportEx" style="">Export in Excel</button>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"> Jobs Application </h5>
+
+                    <!-- Table with hoverable rows -->
+                    <table class="table table-hover" id="yourHtmTable">
+                        <thead>
+                            <tr>
+                                <th scope="col">S.No</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Email-Id</th>
+                                <th scope="col">Mobile</th>
+                                <th scope="col">Designation</th>
+                                <th scope="col">AttachedResume</th>
+                                <th scope="col">Action </th>
+                                <th scope="col">Remark</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                int x = 1;
+                                foreach (OWL_CareersMaster cm in Model)
+                                {
+                                    <tr>
+                                        <th scope="row"> @x </th>
+                                        <td>@cm.ApplicaintName</td>
+                                        <td>@cm.ApplicaintEmail</td>
+                                        <td>@cm.ApplicaintMobile</td>
+                                        <td>@cm.OWL_DesignationMaster.DesignationName</td>
+                                        <td>
+                                            <embed src="~/Content/CareersApplicationResumes/@cm.AttachedResume" height="10%" width="100%" /><br/>
+                                            <!--<iframe src="~/Content/CareersApplicationResumes/@cm.AttachedResume" style="width:20%;height:20%;border: none;"></iframe>-->
+                                            <a href="/SubAdmin/Download?foldername=@cm.AttachmentFolderName&filename=@cm.AttachedResume" class="text-white" style="color:green;text-decoration:none;"><button type='button' class='btn btn-primary form-control'><i class='bi bi-save'></i></button></a>
+                                            @* @Html.ActionLink("D", "Download", new { FolderName = cm.AttachmentFolderName, FileName = cm.AttachedResume, @class = "text-white", style = "text-color:green;text-decoration:none;" }) *@
+                                        </td>
+                                        <td>
+                                            <button type='button' class='btn btn-primary BtnMoreDetail' title="Show More" data-id="" value="@cm.ApplicationNo"><i class='bi bi-info-square'></i>  </button>
+                                            <a href="/SubAdmin/DeleteJobApplication?ApplicationNo=@cm.ApplicationNo" id="@cm.ApplicationNo" style="color:white;text-decoration:none;"> <button type='button' class='btn btn-danger' title="Delete"><i class='bi bi-backspace'></i> </button></a>
+                                        </td>
+                                        <td><textarea name="Remark" placeholder="write your comment here.." class="form-control" rows="2" ></textarea></td>
+                                    </tr>
+                                <tr>
+                                    <td colspan="8" class="ExtraDtlSec" data-id="@cm.ApplicationNo" style="display: ">
+                                        <p class="">
+                                            <b>Gender:</b>@cm.Gender <b>DOB:</b>@cm.DOB <b>CurrentLocation:</b>@cm.OWL_CityMaster.CityName
+                                            <b>PreferedLocation:</b>@cm.OWL_CityMaster.CityName <b>Qualification:</b>@cm.OWL_QualificationMaster.QualificationName <b>Address:</b>@cm.ApplicaintAddress
+                                            <b>Status:</b><span class="bg-primary rounded-pill" style="padding:2px">@cm.OWL_StatusListMaster.StatusValue</span>
+                                        </p>
+                                    </td>
+                                </tr>
+                                    x++;
+                                }
+                            }
+                        </tbody>
+                    </table>
+                    <!-- End Table with hoverable rows -->
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<script>
+    $(document).ready(function () {
+        $(".BtnMoreDetail").click(function () {
+            var rowNo = $(this).val();
+            //alert(rowNo);
+            var rowData = $(".ExtraDtlSec").attr('data-id');
+            //alert(rowData);
+            if(rowNo == rowData)
+            {
+                //alert("okay");
+                $(".ExtraDtlSec").toggle();
+            }
+        });
+
+        /* The code for download the data in excelSheet */
+        $("#CReportEx").click(function () {
+            $("#yourHtmTable").table2excel({
+                exclude: ".excludeThisClass",
+                name: "Worksheet Name",
+                filename: "jobApplicationSheet.xls", // do include extension
+                preserveColors: false // set to true if you want background colors and font colors preserved
+            });
+        });
+    });
+</script>

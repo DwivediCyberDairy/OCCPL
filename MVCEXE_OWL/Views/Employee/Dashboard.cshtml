@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/EmployeeLayoutView.cshtml";
+}
+
+    @Html.Partial("_AdminBreadcrumbsPartialView")
+
+<section class="section">
+    <p>
+       Employee Quick Step Points
+    </p>
+
+    <div class="iconslist">
+
+        <div class="icon">
+            <i class="bi bi-person-fill-gear"></i>
+            <div class="label">Attendence Management</div>
+        </div>
+        <div class="icon">
+            <i class="bi bi-chat-dots-fill"></i>
+            <div class="label">Received Tasks </div>
+        </div>
+        <div class="icon">
+            <i class="bi bi-grid-3x2-gap"></i>
+            <div class="label">Ticket Desk</div>
+        </div>
+        <div class="icon">
+            <i class="bi bi-receipt-cutoff"></i>
+            <div class="label">Review Request</div>
+        </div>
+        <div class="icon">
+            <i class="bi bi-person-badge-fill"></i>
+            <div class="label">Contact </div>
+        </div>
+        <div class="icon">
+            <i class="bi bi-cash-coin"></i>
+            <div class="label">Salary Details</div>
+        </div>        
+        <div class="icon">
+            <i class="bi bi-sunset"></i>
+            <div class="label">Leave Management</div>
+        </div> 
+        <div class="icon">
+            <i class="bi bi-calendar-event"></i>
+            <div class="label">Holiday Calender</div>
+        </div>        
+        <a href="/Employee/UserProfile">
+            <div class="icon">
+                <i class="bi bi-person-check-fill"></i>
+                <div class="label">Profile Management</div>
+            </div>
+        </a>
+        <div class="icon">
+            <i class="bi bi-bank"></i>
+            <div class="label">Legal Doc. Management</div>
+        </div>
+        <div class="icon">
+            <i class="bi bi-bell"></i>
+            <div class="label">Notification</div>
+        </div>
+        <a href="/Employee/UserProfile">
+            <div class="icon">
+                <i class="bi bi-person-fill-gear"></i>
+                <div class="label">Change Password</div>
+            </div>
+        </a>
+ 
+    </div>
+
+</section>

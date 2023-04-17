@@ -1,0 +1,893 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/GeneralLayoutView.cshtml";
+}
+
+@using MVCEXE_OWL.Models
+@model IEnumerable<OWL_QuestionMaster>
+
+  <!-- ======= Hero Section ======= -->
+<section id="hero" class="hero">
+    <div class="container position-relative">
+        <div class="row gy-5" data-aos="fade-in">
+            <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center text-center text-lg-start">
+                <h2>Welcome to <span>Oswal&reg;</span></h2>
+                <p>Oswal Computers & Consultants Pvt. Ltd (OCCPL) has a long standing of 41 years.</p>
+                <div class="d-flex justify-content-center justify-content-lg-start">
+                    <a href="#about" class="btn-get-started">Get Started</a>
+                    <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
+                </div>
+            </div>
+            <div class="col-lg-6 order-1 order-lg-2">
+                <img src="~/Content/assets/img/hero-img.svg" class="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="100">
+            </div>
+        </div>
+    </div>
+
+    <div class="icon-boxes position-relative">
+        <div class="container position-relative">
+            <div class="row gy-4 mt-5">
+
+                <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon-box">
+                        <div class="icon"><i class="bi bi-easel"></i></div>
+                        <h4 class="title"><a href="" class="stretched-link">Vision</a></h4>
+                    </div>
+                </div>
+                <!--End Icon Box -->
+
+                <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="icon-box">
+                        <div class="icon"><i class="bi bi-person-dash"></i></div>
+                        <h4 class="title"><a href="" class="stretched-link">Team</a></h4>
+                    </div>
+                </div>
+                <!--End Icon Box -->
+
+                <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="icon-box">
+                        <div class="icon"><i class="bi bi-file-arrow-down-fill"></i></div>
+                        <h4 class="title"><a href="" class="stretched-link">Annual Returns</a></h4>
+                    </div>
+                </div>
+                <!--End Icon Box -->
+
+                <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="icon-box">
+                        <div class="icon"><i class="bi bi-building-dash"></i></div>
+                        <h4 class="title"><a href="" class="stretched-link">Resource Center</a></h4>
+                    </div>
+                </div>
+                <!--End Icon Box -->
+
+            </div>
+        </div>
+    </div>
+
+    </div>
+</section>
+<!-- End Hero Section -->
+<main id="main">
+
+    <!-- ======= About Us Section ======= -->
+    <section id="about" class="about">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-header">
+                <h2>About Us</h2>
+                <p>Oswal Computers & Consultants Pvt. Ltd (OCCPL) has a long standing of 50 years</p>
+            </div>
+
+            <div class="row gy-4">
+                <div class="col-lg-6">
+                    <h3>Our Company</h3>
+                    <img src="~/Content/assets/img/oswalBuilding.jpg" class="img-fluid rounded-4 mb-4" alt="">
+                    <p>Oswal Computers & Consultants Pvt. Ltd (OCCPL) has a long standing of 41 years. The Company has a strong client base amongst government, Urban Local bodies and other autonomous public organizations. OCCPL's major strength has been its ability to understand the needs & mind set ofpublic functionaries and suggest suitable changes by re-engineering in their daily working and add many features &tools in easy to understand user friendly Systems. Established in the year 1980 as a data processing unit, we expanded our horizons to serve our clients with system consultancy, hardware & software support, network services, website design & data processing activities.</p>
+                    <p>OCCPL has number of in-house professionals having computer and commercial background with a total of nearly 700 members. These experienced and dedicated professionals are Chartered Accountants, Company Secretaries, Management Consultants and Software developers</p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="content ps-0 ps-lg-5">
+                        <p class="fst-italic">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                            magna aliqua.
+                        </p>
+                        <ul>
+                            <li><i class="bi bi-check-circle-fill"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+                        </ul>
+                        <p>
+                            Today new technologies & processes are shaping the way virtually for every business house, industry & government. At OCCPL, we continue to develop innovative products and provide services to help our clients save valuable time&make proper use of most of their bottom line.
+                        </p>
+
+                        <div class="position-relative mt-4">
+                            <img src="~/Content/assets/img/about-2.jpg" class="img-fluid rounded-4" alt="">
+                            <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section><!-- End About Us Section -->
+    <!-- ======= Clients Section ======= -->
+    <section id="clients" class="clients">
+        <div class="container" data-aos="zoom-out">
+
+            <div class="clients-slider swiper">
+                <div class="swiper-wrapper align-items-center">
+                    <div class="swiper-slide"><img src="~/Content/assets/img/clients/clint_jodhpur.png" class="img-fluid" alt=""></div>
+                    <div class="swiper-slide"><img src="~/Content/assets/img/clients/clint_jaipur.png" class="img-fluid" alt=""></div>
+                    <div class="swiper-slide"><img src="~/Content/assets/img/clients/clint_bikaner.png" class="img-fluid" alt=""></div>
+                    <div class="swiper-slide"><img src="~/Content/assets/img/clients/clint_ajmer.jfif" class="img-fluid" alt=""></div>
+                    <div class="swiper-slide"><img src="~/Content/assets/img/clients/clint_kota.jfif" class="img-fluid" alt=""></div>
+                    <div class="swiper-slide"><img src="~/Content/assets/img/clients/clint_udaipur.jfif" class="img-fluid" alt=""></div>
+                   
+                    <!--<div class="swiper-slide"><img src="~/Content/assets/img/clients/client-1.png" class="img-fluid" alt=""></div>
+                    <div class="swiper-slide"><img src="~/Content/assets/img/clients/client-2.png" class="img-fluid" alt=""></div>
+                    <div class="swiper-slide"><img src="~/Content/assets/img/clients/client-3.png" class="img-fluid" alt=""></div>
+                    <div class="swiper-slide"><img src="~/Content/assets/img/clients/client-4.png" class="img-fluid" alt=""></div>
+                    <div class="swiper-slide"><img src="~/Content/assets/img/clients/client-5.png" class="img-fluid" alt=""></div>
+                    <div class="swiper-slide"><img src="~/Content/assets/img/clients/client-6.png" class="img-fluid" alt=""></div>
+                    <div class="swiper-slide"><img src="~/Content/assets/img/clients/client-7.png" class="img-fluid" alt=""></div>
+                    <div class="swiper-slide"><img src="~/Content/assets/img/clients/client-8.png" class="img-fluid" alt=""></div>
+                        -->
+                </div>
+            </div>
+
+        </div>
+    </section><!-- End Clients Section -->
+    <!-- ======= Stats Counter Section ======= -->
+    <section id="stats-counter" class="stats-counter">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row gy-4 align-items-center">
+
+                <div class="col-lg-6">
+                    <img src="~/Content/assets/img/stats-img.svg" alt="" class="img-fluid">
+                </div>
+
+                <div class="col-lg-6">
+
+                    <div class="stats-item d-flex align-items-center">
+                        <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
+                        <p><strong>Happy Clients</strong> consequuntur quae diredo para mesta</p>
+                    </div><!-- End Stats Item -->
+
+                    <div class="stats-item d-flex align-items-center">
+                        <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
+                        <p><strong>Projects</strong> adipisci atque cum quia aut</p>
+                    </div><!-- End Stats Item -->
+
+                    <div class="stats-item d-flex align-items-center">
+                        <span data-purecounter-start="0" data-purecounter-end="453" data-purecounter-duration="1" class="purecounter"></span>
+                        <p><strong>Hours Of Support</strong> aut commodi quaerat</p>
+                    </div><!-- End Stats Item -->
+
+                </div>
+
+            </div>
+
+        </div>
+    </section><!-- End Stats Counter Section -->
+    <!-- ======= Call To Action Section ======= -->
+    <section id="call-to-action" class="call-to-action">
+        <div class="container text-center" data-aos="zoom-out">
+            <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a>
+            <h3>Call To Action</h3>
+            <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <a class="cta-btn" href="#">Call To Action</a>
+        </div>
+    </section><!-- End Call To Action Section -->
+    <!-- ======= Our Services Section ======= -->
+    <section id="services" class="services sections-bg">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-header">
+                <h2>Our Services</h2>
+                <p>Aperiam dolorum et et wuia molestias qui eveniet numquam nihil porro incidunt dolores placeat sunt id nobis omnis tiledo stran delop</p>
+            </div>
+
+            <div class="row gy-4" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item  position-relative">
+                        <div class="icon">
+                            <i class="bi bi-activity"></i>
+                        </div>
+                        <h3>e-Governance</h3>
+                        <p>Electronic governance or e-governance is the application of information and communication technology (ICT) for delivering government services, exchange of information communication transactions</p>
+                        <a href="/home/services" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div><!-- End Service Item -->
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item position-relative">
+                        <div class="icon">
+                            <i class="bi bi-clipboard-data-fill"></i>
+                        </div>
+                        <h3>Academic Solutions</h3>
+                        <p>We have been in the field of University Result Processing for a period of more than 35 years. This has been our flagship business. We provide end to end service from pre-examination, conduct of examination to post-examination.</p>
+                        <a href="/home/services" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div><!-- End Service Item -->
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item position-relative">
+                        <div class="icon">
+                            <i class="bi bi-card-image"></i>
+                        </div>
+                        <h3>Aadhaar</h3>
+                        <p>Aadhaar is a 12 digit individual identification number issued by the Unique Identification Authority of India on behalf of the Government of India.This number will serve as a proof of identity and address, anywhere in India.</p>
+                        <a href="/home/services" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div><!-- End Service Item -->
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item position-relative">
+                        <div class="icon">
+                            <i class="bi bi-bounding-box-circles"></i>
+                        </div>
+                        <h3>Financial Inclusion</h3>
+                        <p>Financial inclusion is delivery of banking services at an affordable cost ('no frills' accounts,) to the vast sections of disadvantaged and low income group.</p>
+                        <a href="/home/services" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div><!-- End Service Item -->
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item position-relative">
+                        <div class="icon">
+                            <i class="bi bi-tablet"></i>
+                        </div>
+                        <h3>e-Mitra</h3>
+                        <p>E-Mitra is an ambitious E-governance initiative of Government of Rajasthan (GoR) which is being implemented in all 33 Districts of the state using Public-Private Partnership (PPP)</p>
+                        <a href="/home/services" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div><!-- End Service Item -->
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item position-relative">
+                        <div class="icon">
+                            <i class="bi bi-app-indicator"></i>
+                        </div>
+                        <h3>Application Development</h3>
+                        <p>integration of various stand-alone systems and services between government-to-customer (G2C), government-to-business (G2B), government-to-government (G2G) as well as back office processes and interactions within the entire government framework.</p>
+                        <a href="/home/services" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div><!-- End Service Item -->
+
+            </div>
+
+        </div>
+    </section><!-- End Our Services Section -->
+    <!-- ======= Testimonials Section ======= -->
+    <section id="testimonials" class="testimonials">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-header">
+                <h2>Testimonials</h2>
+                <p>Voluptatem quibusdam ut ullam perferendis repellat non ut consequuntur est eveniet deleniti fignissimos eos quam</p>
+            </div>
+
+            <div class="slides-3 swiper" data-aos="fade-up" data-aos-delay="100">
+                <div class="swiper-wrapper">
+
+                    <div class="swiper-slide">
+                        <div class="testimonial-wrap">
+                            <div class="testimonial-item">
+                                <div class="d-flex align-items-center">
+                                    <img src="~/Content/assets/img/testimonials/testimonials-1.jpg" class="testimonial-img flex-shrink-0" alt="">
+                                    <div>
+                                        <h3>Rajesh Saxena</h3>
+                                        <h4>Ceo &amp; Founder</h4>
+                                        <div class="stars">
+                                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p>
+                                    <i class="bi bi-quote quote-icon-left"></i>
+                                    Good working environment vast area to learn and improve our-self in IT, Administration, Management and Accounting fields. I am working with Oswal since 1981.
+                                    <i class="bi bi-quote quote-icon-right"></i>
+                                </p>
+                            </div>
+                        </div>
+                    </div><!-- End testimonial item -->
+
+                    <div class="swiper-slide">
+                        <div class="testimonial-wrap">
+                            <div class="testimonial-item">
+                                <div class="d-flex align-items-center">
+                                    <img src="~/Content/assets/img/testimonials/testimonials-2.jpg" class="testimonial-img flex-shrink-0" alt="">
+                                    <div>
+                                        <h3>Subhasmita Misra</h3>
+                                        <h4>Human Resorce</h4>
+                                        <div class="stars">
+                                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p>
+                                    <i class="bi bi-quote quote-icon-left"></i>
+                                    Employee friendly, good working environment.
+                                    <i class="bi bi-quote quote-icon-right"></i>
+                                </p>
+                            </div>
+                        </div>
+                    </div><!-- End testimonial item -->
+
+                    <div class="swiper-slide">
+                        <div class="testimonial-wrap">
+                            <div class="testimonial-item">
+                                <div class="d-flex align-items-center">
+                                    <img src="~/Content/assets/img/testimonials/testimonials-3.jpg" class="testimonial-img flex-shrink-0" alt="">
+                                    <div>
+                                        <h3>Pratik Gehlot</h3>
+                                        <h4>Associate </h4>
+                                        <div class="stars">
+                                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p>
+                                    <i class="bi bi-quote quote-icon-left"></i>
+                                    Single company with multiple Works like SOFTWARE DEVELOPMENT AND ACCOUNTING AND MANY MORE..  OTHER SERVICES ARE PROVIDED BY THE OSWAL
+                                    <i class="bi bi-quote quote-icon-right"></i>
+                                </p>
+                            </div>
+                        </div>
+                    </div><!-- End testimonial item -->
+
+                    <div class="swiper-slide">
+                        <div class="testimonial-wrap">
+                            <div class="testimonial-item">
+                                <div class="d-flex align-items-center">
+                                    <img src="~/Content/assets/img/testimonials/testimonials-4.jpg" class="testimonial-img flex-shrink-0" alt="">
+                                    <div>
+                                        <h3>Rashmi Ranjan Mallick</h3>
+                                        <h4>Freelancer</h4>
+                                        <div class="stars">
+                                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p>
+                                    <i class="bi bi-quote quote-icon-left"></i>
+                                    I ordered two copies of Aadhar card printed in PVC. They have processed and dispatched it within 1 day. I liked the speed of service.
+                                    <i class="bi bi-quote quote-icon-right"></i>
+                                </p>
+                            </div>
+                        </div>
+                    </div><!-- End testimonial item -->
+
+                    <div class="swiper-slide">
+                        <div class="testimonial-wrap">
+                            <div class="testimonial-item">
+                                <div class="d-flex align-items-center">
+                                    <img src="~/Content/assets/img/testimonials/testimonials-5.jpg" class="testimonial-img flex-shrink-0" alt="">
+                                    <div>
+                                        <h3>Suresh Chary</h3>
+                                        <h4>Entrepreneur</h4>
+                                        <div class="stars">
+                                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p>
+                                    <i class="bi bi-quote quote-icon-left"></i>
+                                    I have applied for Aadhar PVC i got with in 4 days such a great quality  card they provided  good service   fantastic 😀😁😊
+                                    <i class="bi bi-quote quote-icon-right"></i>
+                                </p>
+                            </div>
+                        </div>
+                    </div><!-- End testimonial item -->
+
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+        </div>
+    </section><!-- End Testimonials Section -->
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio sections-bg">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-header">
+                <h2>Portfolio</h2>
+                <p>An ISO 9001:2008 Certified Company</p>
+            </div>
+
+            <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry" data-portfolio-sort="original-order" data-aos="fade-up" data-aos-delay="100">
+
+                <div>
+                    <ul class="portfolio-flters">
+                        <li data-filter="*" class="filter-active">All</li>
+                        <li data-filter=".filter-software">Software </li>
+                        <li data-filter=".filter-cscServices">CSC-Services </li>
+                        <li data-filter=".filter-educational">Educational </li>
+                        <li data-filter=".filter-managementoperational">Management-Operational </li>
+                  
+                        <li data-filter=".filter-app">App</li>
+                        <!--<li data-filter=".filter-product">Product</li>
+                        <li data-filter=".filter-branding">Branding</li>
+                        -->
+                    <li data-filter=".filter-books">Books</li>
+                    </ul><!-- End Portfolio Filters -->
+                </div>
+
+                <div class="row gy-4 portfolio-container">
+
+                    <div class="col-xl-4 col-md-6 portfolio-item filter-software">
+                        <div class="portfolio-wrap">
+                            <a href="~/Content/assets/img/portfolio/software_SS_Dewas.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="~/Content/assets/img/portfolio/software_SS_Dewas.png" class="img-fluid" alt=""></a>
+                            <div class="portfolio-info">
+                                <h4><a href="portfolio-details.html" title="More Details">Software 1</a></h4>
+                                <p>Lorem ipsum, dolor sit amet consectetur</p>
+                            </div>
+                        </div>
+                    </div><!-- End Portfolio Item -->
+                    <div class="col-xl-4 col-md-6 portfolio-item filter-software">
+                        <div class="portfolio-wrap">
+                            <a href="~/Content/assets/img/portfolio/software_SS_Dungarpur.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="~/Content/assets/img/portfolio/software_SS_Dungarpur.png" class="img-fluid" alt=""></a>
+                            <div class="portfolio-info">
+                                <h4><a href="portfolio-details.html" title="More Details">Software 2</a></h4>
+                                <p>Lorem ipsum, dolor sit amet consectetur</p>
+                            </div>
+                        </div>
+                    </div><!-- End Portfolio Item -->
+                    <div class="col-xl-4 col-md-6 portfolio-item filter-software">
+                        <div class="portfolio-wrap">
+                            <a href="~/Content/assets/img/portfolio/software_SS_Udaipur.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="~/Content/assets/img/portfolio/software_SS_Udaipur.png" class="img-fluid" alt=""></a>
+                            <div class="portfolio-info">
+                                <h4><a href="portfolio-details.html" title="More Details">Software 3</a></h4>
+                                <p>Lorem ipsum, dolor sit amet consectetur</p>
+                            </div>
+                        </div>
+                    </div><!-- End Portfolio Item -->
+
+                    <div class="col-xl-4 col-md-6 portfolio-item filter-cscServices">
+                        <div class="portfolio-wrap">
+                            <a href="~/Content/assets/img/portfolio/cscServices_SS_Jaipur.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="~/Content/assets/img/portfolio/cscServices_SS_Jaipur.png" class="img-fluid" alt=""></a>
+                            <div class="portfolio-info">
+                                <h4><a href="portfolio-details.html" title="More Details">CSCServices 1</a></h4>
+                                <p>Lorem ipsum, dolor sit amet consectetur</p>
+                            </div>
+                        </div>
+                    </div><!-- End Portfolio Item -->
+                    <div class="col-xl-4 col-md-6 portfolio-item filter-cscServices">
+                        <div class="portfolio-wrap">
+                            <a href="~/Content/assets/img/portfolio/cscServices_SS_Kota.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="~/Content/assets/img/portfolio/cscServices_SS_Kota.png" class="img-fluid" alt=""></a>
+                            <div class="portfolio-info">
+                                <h4><a href="portfolio-details.html" title="More Details">CSCServices 2</a></h4>
+                                <p>Lorem ipsum, dolor sit amet consectetur</p>
+                            </div>
+                        </div>
+                    </div><!-- End Portfolio Item -->
+
+                    <div class="col-xl-4 col-md-6 portfolio-item filter-educational">
+                        <div class="portfolio-wrap">
+                            <a href="~/Content/assets/img/portfolio/educational_SS_Barkatullah.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="~/Content/assets/img/portfolio/educational_SS_Barkatullah.png" class="img-fluid" alt=""></a>
+                            <div class="portfolio-info">
+                                <h4><a href="portfolio-details.html" title="More Details">Educatiomal 1</a></h4>
+                                <p>Lorem ipsum, dolor sit amet consectetur</p>
+                            </div>
+                        </div>
+                    </div><!-- End Portfolio Item -->
+
+                    <div class="col-xl-4 col-md-6 portfolio-item filter-managementoperational">
+                        <div class="portfolio-wrap">
+                            <a href="~/Content/assets/img/portfolio/managementoperational_SS_Ajmer.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="~/Content/assets/img/portfolio/managementoperational_SS_Ajmer.png" class="img-fluid" alt=""></a>
+                            <div class="portfolio-info">
+                                <h4><a href="portfolio-details.html" title="More Details">Management Operational 1</a></h4>
+                                <p>Lorem ipsum, dolor sit amet consectetur</p>
+                            </div>
+                        </div>
+                    </div><!-- End Portfolio Item -->
+                    <div class="col-xl-4 col-md-6 portfolio-item filter-managementoperational">
+                        <div class="portfolio-wrap">
+                            <a href="~/Content/assets/img/portfolio/managementoperational_SS_Balotra.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="~/Content/assets/img/portfolio/managementoperational_SS_Balotra.png" class="img-fluid" alt=""></a>
+                            <div class="portfolio-info">
+                                <h4><a href="portfolio-details.html" title="More Details">Management Operational 2</a></h4>
+                                <p>Lorem ipsum, dolor sit amet consectetur</p>
+                            </div>
+                        </div>
+                    </div><!-- End Portfolio Item -->
+                    <div class="col-xl-4 col-md-6 portfolio-item filter-managementoperational">
+                        <div class="portfolio-wrap">
+                            <a href="~/Content/assets/img/portfolio/managementoperational_SS_Bharatpur.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="~/Content/assets/img/portfolio/managementoperational_SS_Bharatpur.png" class="img-fluid" alt=""></a>
+                            <div class="portfolio-info">
+                                <h4><a href="portfolio-details.html" title="More Details">Management Operational 3</a></h4>
+                                <p>Lorem ipsum, dolor sit amet consectetur</p>
+                            </div>
+                        </div>
+                    </div><!-- End Portfolio Item -->
+                    <div class="col-xl-4 col-md-6 portfolio-item filter-managementoperational">
+                        <div class="portfolio-wrap">
+                            <a href="~/Content/assets/img/portfolio/managementoperational_SS_Bikaner.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="~/Content/assets/img/portfolio/managementoperational_SS_Bikaner.png" class="img-fluid" alt=""></a>
+                            <div class="portfolio-info">
+                                <h4><a href="portfolio-details.html" title="More Details">Management Operational 4</a></h4>
+                                <p>Lorem ipsum, dolor sit amet consectetur</p>
+                            </div>
+                        </div>
+                    </div><!-- End Portfolio Item -->
+                    <div class="col-xl-4 col-md-6 portfolio-item filter-managementoperational">
+                        <div class="portfolio-wrap">
+                            <a href="~/Content/assets/img/portfolio/managementoperational_SS_Ganganagar.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="~/Content/assets/img/portfolio/managementoperational_SS_Ganganagar.png" class="img-fluid" alt=""></a>
+                            <div class="portfolio-info">
+                                <h4><a href="portfolio-details.html" title="More Details">Management Operational 5</a></h4>
+                                <p>Lorem ipsum, dolor sit amet consectetur</p>
+                            </div>
+                        </div>
+                    </div><!-- End Portfolio Item -->
+                    <div class="col-xl-4 col-md-6 portfolio-item filter-managementoperational">
+                        <div class="portfolio-wrap">
+                            <a href="~/Content/assets/img/portfolio/managementoperational_SS_Jodhpur.png" data-gallery="portfolio-gallery-app" class="glightbox"><img src="~/Content/assets/img/portfolio/managementoperational_SS_Jodhpur.png" class="img-fluid" alt=""></a>
+                            <div class="portfolio-info">
+                                <h4><a href="portfolio-details.html" title="More Details">Management Operational 6</a></h4>
+                                <p>Lorem ipsum, dolor sit amet consectetur</p>
+                            </div>
+                        </div>
+                    </div><!-- End Portfolio Item -->
+                   
+                      <div class="col-xl-4 col-md-6 portfolio-item filter-app">
+                        <div class="portfolio-wrap">
+                            <a href="~/Content/assets/img/portfolio/app-1.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="~/Content/assets/img/portfolio/app-1.jpg" class="img-fluid" alt=""></a>
+                            <div class="portfolio-info">
+                                <h4><a href="portfolio-details.html" title="More Details">App 1</a></h4>
+                                <p>Lorem ipsum, dolor sit amet consectetur</p>
+                            </div>
+                        </div>
+                    </div><!-- End Portfolio Item -->
+
+
+                    <div class="col-xl-4 col-md-6 portfolio-item filter-books">
+                        <div class="portfolio-wrap">
+                            <a href="~/Content/assets/img/portfolio/books-1.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="~/Content/assets/img/portfolio/books-1.jpg" class="img-fluid" alt=""></a>
+                            <div class="portfolio-info">
+                                <h4><a href="portfolio-details.html" title="More Details">Books 1</a></h4>
+                                <p>Lorem ipsum, dolor sit amet consectetur</p>
+                            </div>
+                        </div>
+                    </div><!-- End Portfolio Item -->
+
+                    <div class="col-xl-4 col-md-6 portfolio-item filter-app">
+                        <div class="portfolio-wrap">
+                            <a href="~/Content/assets/img/portfolio/app-2.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="~/Content/assets/img/portfolio/app-2.jpg" class="img-fluid" alt=""></a>
+                            <div class="portfolio-info">
+                                <h4><a href="portfolio-details.html" title="More Details">App 2</a></h4>
+                                <p>Lorem ipsum, dolor sit amet consectetur</p>
+                            </div>
+                        </div>
+                    </div><!-- End Portfolio Item -->
+
+                
+                    <div class="col-xl-4 col-md-6 portfolio-item filter-books">
+                        <div class="portfolio-wrap">
+                            <a href="~/Content/assets/img/portfolio/books-2.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="~/Content/assets/img/portfolio/books-2.jpg" class="img-fluid" alt=""></a>
+                            <div class="portfolio-info">
+                                <h4><a href="portfolio-details.html" title="More Details">Books 2</a></h4>
+                                <p>Lorem ipsum, dolor sit amet consectetur</p>
+                            </div>
+                        </div>
+                    </div><!-- End Portfolio Item -->
+
+                    <div class="col-xl-4 col-md-6 portfolio-item filter-app">
+                        <div class="portfolio-wrap">
+                            <a href="~/Content/assets/img/portfolio/app-3.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="~/Content/assets/img/portfolio/app-3.jpg" class="img-fluid" alt=""></a>
+                            <div class="portfolio-info">
+                                <h4><a href="portfolio-details.html" title="More Details">App 3</a></h4>
+                                <p>Lorem ipsum, dolor sit amet consectetur</p>
+                            </div>
+                        </div>
+                    </div><!-- End Portfolio Item -->
+
+                  
+
+                    <div class="col-xl-4 col-md-6 portfolio-item filter-books">
+                        <div class="portfolio-wrap">
+                            <a href="~/Content/assets/img/portfolio/books-3.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="~/Content/assets/img/portfolio/books-3.jpg" class="img-fluid" alt=""></a>
+                            <div class="portfolio-info">
+                                <h4><a href="portfolio-details.html" title="More Details">Books 3</a></h4>
+                                <p>Lorem ipsum, dolor sit amet consectetur</p>
+                            </div>
+                        </div>
+                    </div><!-- End Portfolio Item -->
+
+                </div><!-- End Portfolio Container -->
+
+            </div>
+
+        </div>
+    </section><!-- End Portfolio Section -->
+    <!-- ======= Our Team Section ======= -->
+    <section id="team" class="team">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-header">
+                <h2>Our Team</h2>
+                <p>Nulla dolorum nulla nesciunt rerum facere sed ut inventore quam porro nihil id ratione ea sunt quis dolorem dolore earum</p>
+            </div>
+
+            <div class="row gy-4">
+
+                <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+                    <div class="member">
+                        <img src="~/Content/assets/img/team/team-1.jpg" class="img-fluid" alt="">
+                        <h4>KUSHAL KUMAR KHABYA</h4>
+                        <span>Director MD  </span>
+                        <div class="social">
+                            <a href=""><i class="bi bi-twitter"></i></a>
+                            <a href=""><i class="bi bi-facebook"></i></a>
+                            <a href=""><i class="bi bi-instagram"></i></a>
+                            <a href=""><i class="bi bi-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div><!-- End Team Member -->
+
+                <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
+                    <div class="member">
+                        <img src="~/Content/assets/img/team/OswalTeam_BhagatSingh.jfif" class="img-fluid" alt="">
+                        <h4>Bhagat Singh </h4>
+                        <span>Management</span>
+                        <div class="social">
+                            <a href=""><i class="bi bi-twitter"></i></a>
+                            <a href=""><i class="bi bi-facebook"></i></a>
+                            <a href=""><i class="bi bi-instagram"></i></a>
+                            <a href=""><i class="bi bi-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div><!-- End Team Member -->
+
+                <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
+                    <div class="member">
+                        <img src="~/Content/assets/img/team/team-3.jpg" class="img-fluid" alt="">
+                        <h4>Harsh Nagori</h4>
+                        <span>CEO </span>
+                        <div class="social">
+                            <a href=""><i class="bi bi-twitter"></i></a>
+                            <a href=""><i class="bi bi-facebook"></i></a>
+                            <a href=""><i class="bi bi-instagram"></i></a>
+                            <a href=""><i class="bi bi-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div><!-- End Team Member -->
+
+                <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
+                    <div class="member">
+                        <img src="~/Content/assets/img/team/PramodDwivedi.jpeg" class="img-fluid" alt="">
+                        <h4>Pramod Dwivedi</h4>
+                        <span>Software </span>
+                        <div class="social">
+                            <a href=""><i class="bi bi-twitter"></i></a>
+                            <a href=""><i class="bi bi-facebook"></i></a>
+                            <a href=""><i class="bi bi-instagram"></i></a>
+                            <a href=""><i class="bi bi-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div><!-- End Team Member -->
+
+            </div>
+
+        </div>
+    </section><!-- End Our Team Section -->
+    <!-- ======= Pricing Section ======= -->
+    <section id="pricing" class="pricing sections-bg">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-header">
+                <h2>Pricing</h2>
+                <p>Aperiam dolorum et et wuia molestias qui eveniet numquam nihil porro incidunt dolores placeat sunt id nobis omnis tiledo stran delop</p>
+            </div>
+
+            <div class="row g-4 py-lg-5" data-aos="zoom-out" data-aos-delay="100">
+
+                <div class="col-lg-4">
+                    <div class="pricing-item">
+                        <h3>eStartup</h3>
+                        <div class="icon">
+                            <i class="bi bi-box"></i>
+                        </div>
+                        <h4><sup>$</sup>100<span> / month</span></h4>
+                        <ul>
+                            <li><i class="bi bi-check"></i> Quam adipiscing vitae proin</li>
+                            <li><i class="bi bi-check"></i> Nec feugiat nisl pretium</li>
+                            <li><i class="bi bi-check"></i> Nulla at volutpat diam uteera</li>
+                            <li class="na"><i class="bi bi-x"></i> <span>Pharetra massa massa ultricies</span></li>
+                            <li class="na"><i class="bi bi-x"></i> <span>Massa ultricies mi quis hendrerit</span></li>
+                        </ul>
+                        <div class="text-center"><a href="#" class="buy-btn">Buy Now</a></div>
+                    </div>
+                </div><!-- End Pricing Item -->
+
+                <div class="col-lg-4">
+                    <div class="pricing-item featured">
+                        <h3>Business Plan</h3>
+                        <div class="icon">
+                            <i class="bi bi-airplane"></i>
+                        </div>
+
+                        <h4><sup>$</sup>299<span> / month</span></h4>
+                        <ul>
+                            <li><i class="bi bi-check"></i> Quam adipiscing vitae proin</li>
+                            <li><i class="bi bi-check"></i> Nec feugiat nisl pretium</li>
+                            <li><i class="bi bi-check"></i> Nulla at volutpat diam uteera</li>
+                            <li><i class="bi bi-check"></i> Pharetra massa massa ultricies</li>
+                            <li><i class="bi bi-check"></i> Massa ultricies mi quis hendrerit</li>
+                        </ul>
+                        <div class="text-center"><a href="#" class="buy-btn">Buy Now</a></div>
+                    </div>
+                </div><!-- End Pricing Item -->
+
+                <div class="col-lg-4">
+                    <div class="pricing-item">
+                        <h3>Enterprices Plan</h3>
+                        <div class="icon">
+                            <i class="bi bi-send"></i>
+                        </div>
+                        <h4><sup>$</sup>449<span> / month</span></h4>
+                        <ul>
+                            <li><i class="bi bi-check"></i> Quam adipiscing vitae proin</li>
+                            <li><i class="bi bi-check"></i> Nec feugiat nisl pretium</li>
+                            <li><i class="bi bi-check"></i> Nulla at volutpat diam uteera</li>
+                            <li><i class="bi bi-check"></i> Pharetra massa massa ultricies</li>
+                            <li><i class="bi bi-check"></i> Massa ultricies mi quis hendrerit</li>
+                        </ul>
+                        <div class="text-center"><a href="#" class="buy-btn">Buy Now</a></div>
+                    </div>
+                </div><!-- End Pricing Item -->
+
+            </div>
+
+        </div>
+    </section><!-- End Pricing Section -->
+
+    <!-- ======= Frequently Asked Questions Section ======= -->
+    <section id="faq" class="faq">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row gy-4">
+                <div class="col-lg-4">
+                    <div class="content px-xl-5">
+                        <h3>Frequently Asked <strong>Questions</strong></h3>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                @foreach(OWL_QuestionMaster faqQsm in Model)
+                 {
+                  @Html.Partial("_FreqAskQuestionPartialView", faqQsm)
+                 }
+                </div>
+            </div>
+
+        </div>
+    </section><!-- End Frequently Asked Questions Section -->
+
+    <!-- ======= Recent Blog Posts Section ======= -->
+    <section id="recent-posts" class="recent-posts sections-bg">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-header">
+                <h2>Recent Blog Posts</h2>
+                <p>Consequatur libero assumenda est voluptatem est quidem illum et officia imilique qui vel architecto accusamus fugit aut qui distinctio</p>
+            </div>
+
+            <div class="row gy-4">
+
+                <div class="col-xl-4 col-md-6">
+                    <article>
+
+                        <div class="post-img">
+                            <img src="~/Content/assets/img/blog/blog-1.jpg" alt="" class="img-fluid">
+                        </div>
+
+                        <p class="post-category">Politics</p>
+
+                        <h2 class="title">
+                            <a href="blog-details.html">Dolorum optio tempore voluptas dignissimos</a>
+                        </h2>
+
+                        <div class="d-flex align-items-center">
+                            <img src="~/Content/assets/img/blog/blog-author.jpg" alt="" class="img-fluid post-author-img flex-shrink-0">
+                            <div class="post-meta">
+                                <p class="post-author">Maria Doe</p>
+                                <p class="post-date">
+                                    <time datetime="2022-01-01">Jan 1, 2023</time>
+                                </p>
+                            </div>
+                        </div>
+
+                    </article>
+                </div><!-- End post list item -->
+
+                <div class="col-xl-4 col-md-6">
+                    <article>
+
+                        <div class="post-img">
+                            <img src="~/Content/assets/img/blog/blog-2.jpg" alt="" class="img-fluid">
+                        </div>
+
+                        <p class="post-category">Sports</p>
+
+                        <h2 class="title">
+                            <a href="blog-details.html">Nisi magni odit consequatur autem nulla dolorem</a>
+                        </h2>
+
+                        <div class="d-flex align-items-center">
+                            <img src="~/Content/assets/img/blog/blog-author-2.jpg" alt="" class="img-fluid post-author-img flex-shrink-0">
+                            <div class="post-meta">
+                                <p class="post-author">Allisa Mayer</p>
+                                <p class="post-date">
+                                    <time datetime="2022-01-01">Jun 5, 2022</time>
+                                </p>
+                            </div>
+                        </div>
+
+                    </article>
+                </div><!-- End post list item -->
+
+                <div class="col-xl-4 col-md-6">
+                    <article>
+
+                        <div class="post-img">
+                            <img src="~/Content/assets/img/blog/blog-3.jpg" alt="" class="img-fluid">
+                        </div>
+
+                        <p class="post-category">Entertainment</p>
+
+                        <h2 class="title">
+                            <a href="blog-details.html">Possimus soluta ut id suscipit ea ut in quo quia et soluta</a>
+                        </h2>
+
+                        <div class="d-flex align-items-center">
+                            <img src="~/Content/assets/img/blog/blog-author-3.jpg" alt="" class="img-fluid post-author-img flex-shrink-0">
+                            <div class="post-meta">
+                                <p class="post-author">Mark Dower</p>
+                                <p class="post-date">
+                                    <time datetime="2022-01-01">Jun 22, 2022</time>
+                                </p>
+                            </div>
+                        </div>
+
+                    </article>
+                </div><!-- End post list item -->
+
+            </div><!-- End recent posts list -->
+
+        </div>
+    </section><!-- End Recent Blog Posts Section -->
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-header">
+                <h2>Contact</h2>
+                <p>We are with you always, Whatever way you are..</p>
+            </div>
+            <div class="row gx-lg-0 gy-4">
+                <div class="col-lg-12">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3679.3280749493597!2d75.86574331443727!3d22.753202932052453!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3963029c8772bdbd%3A0xf5117d10890d47d1!2sOswal%20Computers%20%26%20Consultants%20Pvt.%20Ltd.!5e0!3m2!1sen!2sin!4v1677318189915!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+               
+             <div class="row gx-lg-0 gy-4">
+
+                    <div class="col-lg-4">
+
+                        @Html.Partial("_InfoEnqueryPartialView")
+
+                    </div>
+
+                    <div class="col-lg-8">
+                        @Html.Partial("_EnqueryFormPartialView")
+
+                    </div><!-- End Contact Form -->
+
+                </div>
+
+            </div>
+    </section><!-- End Contact Section -->
+
+</main><!-- End #main -->

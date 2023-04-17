@@ -1,0 +1,345 @@
+﻿
+@{
+    ViewBag.Title = "FreqAskQuestion";
+    Layout = "~/Views/Shared/SubAdminLayoutView.cshtml";
+}
+@using MVCEXE_OWL.Models
+@model IEnumerable<OWL_QuestionMaster>
+
+@Html.Partial("_AdminBreadcrumbsPartialView")
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body" id="Resform">
+                    @using (Html.BeginForm("FreqAskQuestion", "SubAdmin", FormMethod.Post, new { }))
+                    {
+                    <!--<form action="/SubAdmin/AddNewJobPost" method="post">-->
+                        <div class="row">
+                            <div id='pmsg' class='alert alert-info alert-dismissible fade show' role='alert'>@ViewBag.Message<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>
+                            <h3 class="card-title text-center "><u>Frequentely Asked Question Manager</u></h3>
+                            <div class="col-lg-12">
+                                <label class="card-title"> QuestionType </label>
+                                @Html.DropDownList("SectorType", null, "--Select Type --", new { @class = "form-control" })
+                                <!--<input type="text" placeholder="QuestionType" name="QuestionType" id="QuestionType" class="form-control" required />-->
+                            </div>
+                            <div class="col-lg-12">
+                                <label class="card-title"> Question </label>
+                                <input type="text" placeholder="Question" name="Question" id="Question" class="form-control" required />
+                            </div>
+                            <div class="col-lg-12">
+                                <label class="card-title">Question Answer </label>
+                                <textarea placeholder="Write Answer here... " name="Answer" id="Answer" class="form-control" required ></textarea>
+                            </div>
+                            <div class="col-lg-12">
+                                <span class="form-control text-center border-0">
+                                    <button class="btn btn-primary rounded-pill" type="submit">Add</button>
+                                    <button class="btn btn-danger  rounded-pill" type="reset">Reset</button>
+                                </span>
+                            </div>
+                        </div>
+                        /**--</form>--**/
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--List of Resource Section start here-->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"><u>Questions List</u></h5>
+                    <div id='pmsg' class='alert alert-info alert-dismissible fade show' role='alert'>@TempData["Message"] <br>@ViewBag.Message<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>
+                    <!--Bordered Tabs Justified-->
+                    <div class="col-lg-4">
+                        <ul class="nav nav-tabs nav-tabs-bordered d-flex" id="borderedTabJustified" role="tablist">
+                            <li class="nav-item flex-fill" role="presentation">
+                                <button class="nav-link w-100 active" id="all-tab" data-bs-toggle="tab" data-bs-target="#bordered-justified-all" type="button" role="tab" aria-controls="all" aria-selected="true">
+                                    @{  int All = 0; foreach (OWL_QuestionMaster faq in Model)
+                                      { All++; }  <span>All(@All)</span> }
+                                </button>
+                            </li>
+                            <li class="nav-item flex-fill" role="presentation">
+                                <button class="nav-link w-100" id="published-tab" data-bs-toggle="tab" data-bs-target="#bordered-justified-published" type="button" role="tab" aria-controls="published" aria-selected="false">
+                                    @{  int Pub = 0; foreach (OWL_QuestionMaster faq in Model)
+                                      {
+                                          if (faq.IsDel == false)
+                                          { Pub++; }
+                                      }  <span>Published(@Pub)</span> }
+                                </button>
+                            </li>
+                            <li class="nav-item flex-fill" role="presentation">
+                                <button class="nav-link w-100" id="trash-tab" data-bs-toggle="tab" data-bs-target="#bordered-justified-trash" type="button" role="tab" aria-controls="trash" aria-selected="false">
+                                    @{  int trash = 0; foreach (OWL_QuestionMaster faq in Model)
+                                      {
+                                          if (faq.IsDel == true)
+                                          { trash++; }
+                                      }  <span>Trash(@trash)</span> }
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-content pt-2" id="borderedTabJustifiedContent">
+                        <div class="tab-pane fade show active" id="bordered-justified-all" role="tabpanel" aria-labelledby="all-tab">
+                            <!--Table with hoverable rows-->
+                            <table class="table table-hover" id="">
+                                <thead>
+                                    <tr>
+                                        <th scope="col"><input type="checkbox" /></th>
+                                        <th scope="col"> QuestionNo</th>
+                                        <th scope="col">QuestionType </th>
+                                        <th scope="col">Question </th>
+                                        <th scope="col">Answer </th>
+                                        <th scope="col">Creation </th>
+                                        <th scope="col">CreatedBy </th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @{
+                                        //int x = 1;
+                                        foreach (OWL_QuestionMaster faq in Model)
+                                        {
+                                            <tr>
+                                                <td scope="row"> <input type="checkbox" value="@faq.QuestionNo" /></td>
+                                                <td>@faq.QuestionNo</td>
+                                                <td>@faq.SectorType</td>
+                                                <td>@faq.Question</td>
+                                                <td>@faq.Answer</td>
+                                                <td>@faq.CreationDT</td>
+                                                <td>
+                                                    <img src="~/Content/User_Profile_Pics/@faq.OWL_EmployeeMaster.OWL_EmployeeDetail.ProfilePic" height="40px" style="border-radius:50%" /><br />
+                                                    <p>@faq.OWL_EmployeeMaster.EmpName</p>
+                                                
+                                                </td>
+                                                <td>
+                                                    <button type='button' class='btn btn-secondary view_detail' data-resid="@faq.QuestionNo" title='Edit' data-bs-toggle="modal" data-bs-target="#editresource"><i class='bi bi-pencil-square'></i></button>
+                                                    <a href="/SubAdmin/DeleteFreqAskQuestion?QuestionNo=@faq.QuestionNo" class="text-white" style="color:green;text-decoration:none;"> <button type='button' class='btn btn-danger' title='Delete'><i class='bi bi-backspace'></i></button></a>
+                                                    
+                                                </td>
+                                            </tr>
+                                            //x++;
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                            <!-- End Table with hoverable rows -->
+                        </div>
+
+                        <div class="tab-pane fade" id="bordered-justified-published" role="tabpanel" aria-labelledby="published-tab">
+                            <!--Table with hoverable rows-->
+                            <table class="table table-hover" id="">
+                                <thead>
+                                    <tr>
+                                        <th scope="col"><input type="checkbox" /></th>
+                                        <th scope="col"> QuestionNo</th>
+                                        <th scope="col">QuestionType </th>
+                                        <th scope="col">Question </th>
+                                        <th scope="col">Answer </th>
+                                        <th scope="col">Creation </th>
+                                        <th scope="col">CreatedBy </th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        //int x = 1;
+                                        foreach (OWL_QuestionMaster faq in Model)
+                                        {
+                                            if (faq.IsDel == false)
+                                            {
+                                                <tr>
+                                                    <td scope="row"> <input type="checkbox" value="@faq.QuestionNo" /></td>
+                                                    <td>@faq.QuestionNo</td>
+                                                    <td>@faq.SectorType</td>
+                                                    <td>@faq.Question</td>
+                                                    <td>@faq.Answer</td>
+                                                    <td>@faq.CreationDT</td>
+                                                    <td>
+                                                        <img src="~/Content/User_Profile_Pics/@faq.OWL_EmployeeMaster.OWL_EmployeeDetail.ProfilePic" height="40px" style="border-radius:50%" /><br />
+                                                        <p>@faq.OWL_EmployeeMaster.EmpName</p>
+                                                    </td>
+                                                    <td>
+                                                        <button type='button' class='btn btn-secondary view_detail' data-resid="@faq.QuestionNo" title='Edit' data-bs-toggle="modal" data-bs-target="#editresource"><i class='bi bi-pencil-square'></i></button>
+                                                        <a href="/SubAdmin/DeleteFreqAskQuestion?QuestionNo=@faq.QuestionNo" class="text-white" style="color:green;text-decoration:none;"> <button type='button' class='btn btn-danger' title='Delete'><i class='bi bi-backspace'></i></button></a>
+                                                    </td>
+                                                </tr>
+                                            }
+
+                                            //x++;
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                            <!-- End Table with hoverable rows -->
+                        </div>
+                        <div class="tab-pane fade" id="bordered-justified-trash" role="tabpanel" aria-labelledby="trash-tab">
+                            <!--Table with hoverable rows-->
+                            <table class="table table-hover" id="">
+                                <thead>
+                                    <tr>
+                                        <th scope="col"><input type="checkbox" /></th>
+                                        <th scope="col">QuestionNo</th>
+                                        <th scope="col">QuestionType </th>
+                                        <th scope="col">Question </th>
+                                        <th scope="col">Answer </th>
+                                        <th scope="col">Creation</th>
+                                        <th scope="col">CreatedBy </th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        //int x = 1;
+                                        foreach (OWL_QuestionMaster faq in Model)
+                                        {
+                                            if (faq.IsDel == true)
+                                            {
+                                                <tr>
+                                                    <td scope="row"> <input type="checkbox" value="@faq.QuestionNo" /></td>
+                                                    <td>@faq.QuestionNo</td>
+                                                    <td>@faq.SectorType</td>
+                                                    <td>@faq.Question</td>
+                                                    <td>@faq.Answer</td>
+                                                    <td>@faq.CreationDT</td>
+                                                    <td>
+                                                        <img src="~/Content/User_Profile_Pics/@faq.OWL_EmployeeMaster.OWL_EmployeeDetail.ProfilePic" height="40px" style="border-radius:50%" /><br />
+                                                        <p>@faq.OWL_EmployeeMaster.EmpName</p>
+                                                    </td>
+                                                    <td>
+                                                        <button type='button' class='btn btn-secondary view_detail' data-resid="@faq.QuestionNo" title='Edit' data-bs-toggle="modal" data-bs-target="#editresource"><i class='bi bi-pencil-square'></i></button>
+                                                        <a href="/SubAdmin/RestoreFreqAskQuestion?QuestionNo=@faq.QuestionNo" class="text-white" style="color:green;text-decoration:none;"><button type='button' class='btn btn-warning' title='Restore'><i class='bi bi-valentine'></i></button></a>
+                                                    </td>
+                                                </tr>
+                                            }
+
+                                            //x++;
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                            <!-- End Table with hoverable rows -->
+                        </div>
+                    </div><!-- End Bordered Tabs Justified -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--List of Resource Section End here-->
+    <!-- Edit record modal start here-->
+    <!-- Disabled Backdrop Modal -->
+    <div class="modal fade" id="editresource" tabindex="-1" data-bs-backdrop="false">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit FreqAskQuestion</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    @using (Html.BeginForm("EditFreqAskQuestion", "SubAdmin", FormMethod.Post, new { }))
+                    {
+                    <!--<form action="/SubAdmin/AddNewJobPost" method="post">-->
+                        <div class="row">
+                            <div id='pmsg' class='alert alert-info alert-dismissible fade show' role='alert'>@TempData["Message"]<br>@ViewBag.Message<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>
+                            <input type="hidden" name="QuestionNo" id="MdQuestionNo" value="" />
+                            <div class="col-lg-12">
+                                <label class="card-title"> QuestionType </label>
+                                @Html.DropDownList("SectorType", null, "--Select Type --", new { @class = "form-control", id = "MdSectorType" })
+                               <!-- <input type="text" placeholder="QuestionType" name="QuestionType" id="MdQuestionType" class="form-control" required />-->
+                            </div>
+                            <div class="col-lg-12">
+                                <label class="card-title"> Question </label>
+                               <input type="text" placeholder="Question" name="Question" id="MdQuestion" class="form-control" required />
+                            </div>
+                            <div class="col-lg-12">
+                                <label class="card-title">Question Answer </label>
+                                <textarea placeholder="Write Answer here... " name="Answer" id="MdAnswer" class="form-control" required></textarea>
+                            </div>
+
+
+                            <div class="col-lg-12">
+                                <a href="#" class="text-white" id="UpdateQuesBtn" style="color:green;text-decoration:none;"> <button type="submit" class="btn btn-primary rounded-pill" id="UpdateQuesBtn" name="UpdateQuesBtn">Save</button></a>
+                                <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                        /**--</form>--**/
+                    }
+
+
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div><!-- End Disabled Backdrop Modal-->
+  
+    <!-- Edit record modal end here-->
+
+
+</section>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        /* Message formatting Start */
+        if ('@ViewBag.Message' != '') {
+            var msg = ViewBag.Message;
+            var x = msg.indexOf('success');
+            if (x >= 0) {
+                //start: to clear controls
+                $("#SectorType").val("");
+                $("#Question").val("");
+                $("#Answer").val("");
+            }
+            var cls = x >= 0 ? 'bg-success' : 'bg-danger';
+            var str = "<div id='pmsg' class='" + cls + "+ " + +"alert alert-info alert-dismissible fade show' role='alert'>@ViewBag.Message<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
+            $("#Resform h3").before(str);
+            setInterval(function() {
+                $("#pmsg").fadeOut(2000);
+            }, 5000);
+        }
+        /* Message Formatting End */
+       // $(function () {
+            //Take the data from the TR during the event button
+        //$('table').on('click', 'button.view_detail', function (ele) {
+        $('.view_detail').click(function (ele) {
+                ele.preventDefault();
+                //the <tr> variable is use to set the parentNode from "ele
+                var tr = ele.target.parentNode.parentNode;
+                //I get the value from the cells (td) using the parentNode (var tr)
+                var ChkBoxId = tr.cells[0].textContent;
+              
+                var QuestionNo = tr.cells[1].textContent;
+           
+                var SectorType = tr.cells[2].textContent;
+                
+                var Question = tr.cells[3].textContent;
+                
+                var Answer = tr.cells[4].textContent;
+              
+                
+                //Prefill the fields with the gathered information
+            //$('h5.modal-title').html('Edit Admin Data: ' + firstName);
+                $('#MdQuestionNo').val(QuestionNo)
+                $('#MdSectorType').val(SectorType)
+                $('#MdQuestion').val(Question);
+                $('#MdAnswer').val(Answer);
+                
+                //$("#editLevel").val(level).attr('selected', 'selected');
+
+                //If you need to update the form data and change the button link
+               // $("form#ModalForm").attr('action', '/SubAdmin/EditResource/' + id);
+                //$("a#UpdateResBtn").attr('href', '/SubAdmin/EditResource/' + id);
+            });
+        //});
+
+    });
+</script>
+
+

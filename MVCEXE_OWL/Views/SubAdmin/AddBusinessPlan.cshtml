@@ -1,0 +1,124 @@
+﻿@using MVCEXE_OWL.Models;
+
+ @*  @model IEnumerable<OWL_ServicesCategoryMaster> *@
+@model IEnumerable<OWL_BusinessServicesMaster>
+
+
+@{
+    ViewBag.Title = "AddBusinessPlan";
+    Layout = "~/Views/Shared/SubAdminLayoutView.cshtml";
+}
+
+
+@Html.Partial("_AdminBreadcrumbsPartialView")
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+            <p>@ViewBag.Message</p>
+
+            @using (Html.BeginForm("AddBusinessPlan", "SubAdmin", FormMethod.Post, new { enctype = "" }))
+            {
+                <div class="row">
+                    <div class="col-lg-9">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title" style="">Editer</h5>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <label class="card-title"> Plan Name </label>
+                                        <input type="text" placeholder="Plan Name" name="PlanName" id="PlanName" class="form-control" required />
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <label class="card-title">Sector Type </label>
+                                        @Html.DropDownList("SectorType", null, "--Sector Type--", new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <label class="card-title">Services</label>
+                                        @{ 
+                                          
+                                        foreach (OWL_BusinessServicesMaster BSrvM in Model)
+                                        {
+                                           <div class="row" style="margin-bottom:10px">   
+                                                 <div class="col-lg-3">                                                    
+                                                    <span class="form-control">
+                                                       <input type="checkbox" name="@BSrvM.OWL_ServicesCategoryMaster.Category" id="@BSrvM.OWL_ServicesCategoryMaster.Category" value="@BSrvM.OWL_ServicesCategoryMaster.CategoryId" />@BSrvM.OWL_ServicesCategoryMaster.Category                                                    
+                                                     </span> 
+                                                 </div>
+                                                 <div class="col-lg-9">
+                                                     <span class="form-control"> 
+                                                           <input type="checkbox" name="@BSrvM.ServiceName" id="@BSrvM.ServiceName" value="@BSrvM.ServiceName" />@BSrvM.ServiceName   
+                                                     </span>
+                                                 </div>   
+                                            </div>  
+                                           }
+                                              
+                                          } 
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <label class="card-title">Advantage  </label>
+                                        <input type="text" name="Advantage" id="Advantage" class="form-control" placeholder="Enter multiple beetween (|) Seperator ">
+                                    </div>
+                                 </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <label class="card-title">Additional Featuer  </label>
+                                        <input type="text" name="AdditionalFeatuer" id="AdditionalFeatuer" class="form-control" placeholder="Enter multiple beetween (|) Seperator ">
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                       <div class="col-lg-4">
+                                            <label class="card-title">Cost  </label>
+                                            <input type="number" name="Cost" id="Cost" placeholder="1000.00" class="form-control" />
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <label class="card-title">CurrencyType  </label>
+                                            <select name="CurrencyType" id="CurrencyType" class="form-control">
+                                                <option value="INR">Rupees</option>
+                                                <option value="USD">Doller</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <label class="card-title">Duration  </label>
+                                            <input type="text" name="Duration" id="Duration" class="form-control" placeholder="No. of Month" />
+                                        </div>
+                                    </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <label class="card-title"> Status  </label>
+                                        @Html.DropDownList("PostStatus", null, "-- Status --", new { @class="form-control" } )
+                                    </div>
+                                 </div>
+                              </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <span class="form-control text-center border-0">
+                                    <button class="btn btn-primary rounded-pill" type="submit">Save</button>
+                                    <button class="btn btn-danger  rounded-pill" type="reset">Reset</button>
+                                </span>
+                               
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>
+
+
+<script>
+
+    $(document).ready(function () {
+        
+    });
+</script>

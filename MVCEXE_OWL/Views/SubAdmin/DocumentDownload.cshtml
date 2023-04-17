@@ -1,0 +1,127 @@
+﻿@{
+    ViewBag.Title = "DocumentDownload";
+    Layout = "~/Views/Shared/SubAdminLayoutView.cshtml";
+}
+@using MVCEXE_OWL.Models
+@model IEnumerable<OWL_DocumentMaster>
+
+@Html.Partial("_AdminBreadcrumbsPartialView")
+
+<section class="section">
+    <div class="row">
+        <div class="row">
+            <div class="col-lg-12 " style="text-align:right;">
+               Data :  <button class="btn btn-success text-white" id="CReportEx" style="">Export in Excel</button>
+            </div>
+        </div>
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Most recent reachable document here </h5>
+
+                        <!-- Table with hoverable rows -->
+                        <table class="table table-hover" id="yourHtmTable">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Sno</th>
+                                    <!-- <th scope="col">Doc.No</th>-->
+                                    <th scope="col">Thumb</th>
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Category</th>
+                                    <th scope="col">Desciption</th>
+                                    <th scope="col">FileType</th>
+                                    <th scope="col">Size</th>
+                                    <th scope="col">UploadedBy</th>
+                                    <th scope="col">UploadedOn</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    int x = 1;
+                                    foreach (OWL_DocumentMaster dm in Model)
+                                    {
+                                        <tr>
+                                            <th scope="row"> @x </th>
+                                            <!-- <th>@dm.DocNo</th>-->
+                                            <td>
+                                                <embed src="~/Content/Admin_Uploaded_Document/@dm.DocName" height="10%" width="100%" style="border-radius:5%" />
+                                                @*<img src="~/Content/Admin_Uploaded_Document/@dm.DocName" height="40px" style="border-radius:50%" />
+                                                 <span>@dm.OWL_EmployeeMaster.EmpName</span>   This is Navigation property of EntityFramework*@
+                                            </td>
+                                            <td>@dm.DocTitle</td>
+                                            <td>@dm.OWL_DocCategoryMaster.DocCategoryName</td>
+                                            <td>@dm.Description</td>
+                                            <td>@dm.DocFileType</td>
+                                            <td>@dm.DocFileSizeIn_KB</td>
+                                            <td>@dm.OWL_EmployeeMaster.EmpName</td>
+                                            <td>@dm.DocUploadedOn</td>
+                                            <td>
+                                                <a href="/SubAdmin/Download?FolderName=@dm.FolderName&FileName=@dm.DocName" class="text-white" style="color:white;text-decoration:none;"><button type='button' class='btn btn-success'><i class='bi bi-save'></i> </button></a>
+                                                @* @Html.ActionLink(" ", "Download", new { FolderName = dm.FolderName, FileName = dm.DocName, @class = "text-white", style = "text-color:white;text-decoration:none;" }) *@
+                                            </td>
+                                        </tr>
+                                        x++;
+                                    }
+                                }
+
+
+                                <!--<tr>
+                <th scope="row">1</th>
+                <td>Brandon Jacob</td>
+                <td>Designer</td>
+                <td>28</td>
+                <td>2016-05-25</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Bridie Kessler</td>
+                <td>Developer</td>
+                <td>35</td>
+                <td>2014-12-05</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Ashleigh Langosh</td>
+                <td>Finance</td>
+                <td>45</td>
+                <td>2011-08-12</td>
+            </tr>
+            <tr>
+                <th scope="row">4</th>
+                <td>Angus Grady</td>
+                <td>HR</td>
+                <td>34</td>
+                <td>2012-06-11</td>
+            </tr>
+            <tr>
+                <th scope="row">5</th>
+                <td>Raheem Lehner</td>
+                <td>Dynamic Division Officer</td>
+                <td>47</td>
+                <td>2011-04-19</td>
+            </tr>
+            -->
+                            </tbody>
+                        </table>
+                        <!-- End Table with hoverable rows -->
+
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+</section>
+
+<script>
+    $(document).ready(function () {
+        $("#CReportEx").click(function () {
+            $("#yourHtmTable").table2excel({
+                exclude: ".excludeThisClass",
+                name: "Worksheet Name",
+                filename: "SomeFile.xls", // do include extension
+                preserveColors: false // set to true if you want background colors and font colors preserved
+            });
+        });
+    });
+</script>

@@ -1,0 +1,142 @@
+﻿@{
+    ViewBag.Title = "DocumentUpload";
+    Layout = "~/Views/Shared/SubAdminLayoutView.cshtml";
+}
+
+@Html.Partial("_AdminBreadcrumbsPartialView")
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12 " style="text-align:right;" >
+            <button class="btn btn-primary " style=""><a href="/SubAdmin/DocumentDownload" class="text-bg-info">Show Document List</a></button>
+        </div>
+      </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Document & File Uploading </h5>
+                    <!--<p>For custom Bootstrap form validation messages, you’ll need to add the <code>novalidate</code> boolean attribute to your <code>&lt;form&gt;</code>. This disables the browser default feedback tooltips, but still provides access to the form validation APIs in JavaScript. </p>-->
+                    <p>There business related any kind of <code>document</code> we can upload and <code>&lt;manage&gt;</code>. it's helpful to avoiding delay and dublicacy of doc. / files  </p>
+                    <!-- Custom Styled Validation -->
+                    <form action="/SubAdmin/DocumentUpload" method="post" enctype="multipart/form-data" class="row g-3 needs-validation" novalidate>
+                        <div class="col-md-12">
+                            <label for="validationCustom01" class="form-label">Document Title</label>
+                            <input type="text" class="form-control" id="DocTitle" name="DocTitle" required>
+                            <div class="invalid-feedback">
+                                Enter the title of File
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="DocCategoryName" class="form-label">Document Category</label>
+                            <!--<select name="DocCategoryName" class="form-select" id="validationCustom04"></select>-->
+                            @Html.DropDownList("DocCategoryName", null, "--Please Choose Category--", new { @class = "form-select" })
+                            <div class="invalid-feedback">
+                                Please select a valid Category.
+                            </div>
+                        </div>
+
+                        <div class="col-md-6" id="DocRelatedYearSec" style="display:none;">
+                            <label for="DocRelatedYear" class="form-label">Document Category</label>
+                            <select name="DocRelatedYear" class="form-select" id="DocRelatedYear">
+                            </select>
+                            @* @Html.DropDownList("DocRelatedYear", null, "--Please Choose Year--", new { @class = "form-select" }) *@
+
+                            <div class="invalid-feedback">
+                                Please select a valid Year.
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="DocName" class="form-label">Upload File</label>
+                            <input type="file" name="DocName" id="DocName" class="form-control" required />
+                            <div class="invalid-feedback">
+                                Please choose a File.
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="Description" class="form-label">File Discription</label>
+                            <!--<input type="text" class="form-control" id="validationCustom03" required>-->
+                            <textarea rows="4" name="Description" id="Description" class="form-control" required></textarea>
+                            <div class="invalid-feedback">
+                                Please provide some detail about the file .
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                                <label class="form-check-label" for="invalidCheck">
+                                    Agree to terms and conditions
+                                </label>
+                                <div class="invalid-feedback">
+                                    You must agree before submitting.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-primary" type="submit">Upload File</button>
+                        </div>
+                    </form><!-- End Custom Styled Validation -->
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<script>
+    $(document).ready(function () {
+        
+        /* Set the annual Doc Related Year */
+        let dateDropdown = document.getElementById("DocRelatedYear");
+
+        let currentYear = new Date().getFullYear();
+        let earliestYear = 2000;
+
+        while (currentYear >= earliestYear) {
+            let dateOption = document.createElement('option');
+            dateOption.text = currentYear;
+            dateOption.value = currentYear;
+            dateDropdown.add(dateOption);
+            currentYear -= 1;
+        }
+
+        /* setting annual years desplay property */
+        $("#DocCategoryName").change(function () {
+            //var cateVal = $(this).text();
+            var cateVal = $("#DocCategoryName option:selected");
+            if (cateVal.text().toLowerCase() == "annual return" || cateVal.text().toLowerCase() == "annualreturn")
+            {
+                $("#DocRelatedYearSec").css("display", "block"); 
+            } else {
+                $("#DocRelatedYearSec").css("display", "none");
+            }
+        });
+
+
+    if ('@ViewBag.Message' != '') {
+        var msg = '@ViewBag.Message';
+        alert(msg);
+        var x = msg.indexOf('success');
+        if (x >= 0) {
+            //start: to clear controls
+            $("#DocTitle").val("");
+            $("#DocName").val("");
+            $("#Description").html("");
+            //$("form")
+        }
+        //end to clear controls
+        var cls = x >= 0 ? 'bg-success' : 'bg-danger';
+        var str = " <p id='pmsg' class='" + cls + "text-black text-center' style='min-height:40px; font-size: 18px;'><i class='fa fa-circle-info text-warning'></i>@ViewBag.Message</p>";
+        $(".card-body h5").before(str);
+        setInterval(function () {
+            $("#pmsg").fadeOut(2000);
+        }, 5000);
+    }
+
+    });
+</script>

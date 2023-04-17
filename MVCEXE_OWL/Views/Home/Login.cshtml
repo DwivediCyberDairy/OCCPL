@@ -1,0 +1,104 @@
+﻿@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/GeneralLayoutView.cshtml";
+}
+
+<style>
+    input {
+        margin-bottom: 4px;
+    }
+
+    select {
+        margin-bottom: 4px;
+    }
+
+    #dvform {
+        padding: 4px;
+        background: white;
+        margin-bottom: 10px;
+        border-radius: 5% ;
+    }
+
+</style>
+
+<div class="row gx-lg-0 gy-4" style="background-image: url('/Content/Images/Normal/bgtheme.jpg'); background-size: cover; ">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-4" style="margin-bottom:10px; ">
+        <img src="~/Content/Images/Normal/logformImg.jpg" height="100%" width="100%" style="border-radius: 5% ;" />
+    </div>
+    <div class="col-lg-4" id="dvform">
+
+
+        @using (Html.BeginForm("Login", "Home", FormMethod.Post, new { enctype = "multipart/form-data", @class = "php-email-form" }))
+        {
+            <fieldset>
+                
+               <h3 class="text-center">Login Form </h3>
+                <!--<form action="/Enquery/Home" method="post" role="form" class="php-email-form">-->
+                <div class="row">
+                    <div class="col-md-12 form-group">
+                        @Html.DropDownList("UserType", null, "Who You Are", new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 form-group">
+                        @Html.TextBox("UserId", null, new { @class = "form-control", placeholder = "Your Email*" })
+                    </div> 
+                </div>
+             
+                <div class="row">
+                    
+                    <div class="col-md-12 form-group">
+                        @Html.Password("UserPassword", null, new { @class = "form-control", placeholder = "Enter Your Password*" })
+                    </div>
+
+                </div>
+                <div class="my-3">
+                    <!--<div class="loading">Loading</div>-->
+                    <!-- <div class="error-message"></div>-->
+                    <!--<div class="sent-message">Your message has been sent. Thank you!  </div>-->
+                </div>
+                <div class="text-center "><button type="submit" class="btn btn-primary rounded-pill" id="">Login</button></div><br />
+
+                <div class="row">
+                    <p class="text-center">You haven't account:&nbsp;<a href="/Home/Registration">Register&nbsp;</a><b>OR</b> Join by below : <p>
+                        <div class="col-md-6 form-group">
+                            <button type="submit" id="" class="form-control btn btn-danger rounded-pill">Google</button>
+                        </div>
+                        <div class="col-md-6 form-group mt-3 mt-md-0">
+                            <button type="submit" id="" class="form-control btn btn-primary rounded-pill">Facebook</button>
+                        </div>
+                </div>
+                <!--</form>-->
+                @* <p>@ViewBag.Message</p> *@
+            </fieldset>
+        }
+
+
+    </div>
+    <div class="col-lg-2"></div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        if ('@ViewBag.Message' != '') {
+            var msg = '@ViewBag.Message';
+            var x = msg.indexOf('success');
+            if (x >= 0) {
+                //start: to clear controls
+                $("#UserType").val("");
+                $("#UserId").val("");
+                $("#UserPassword").val("");
+             
+            }
+            //end to clear controls
+            var cls = x >= 0 ? 'bg-success' : 'bg-danger';
+            var str = " <p id='pmsg' class='" + cls + " text-white text-center' style='min-height:40px; font-size: 18px;'><i class='fa fa-circle-info text-warning'></i>@ViewBag.Message</p>";
+            $("#dvform h3").before(str);
+            setInterval(function () {
+                $("#pmsg").fadeOut(2000);
+            }, 5000);
+        }
+    });
+</script>

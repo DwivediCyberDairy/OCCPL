@@ -1,0 +1,102 @@
+﻿
+   @* @using (Html.BeginForm("Enquery", "Home", FormMethod.Post, new { enctype = "multipart/form-data", @class = "php-email-form" }))
+    {
+*@
+    <div class="php-email-form">
+    <!--<form action="/Enquery/Home" method="post" role="form" class="php-email-form">-->
+        <p>@ViewBag.Message</p>
+        <h3>Fill Enquiry Form</h3>
+    <div class="row">
+        <div class="col-md-6 form-group">
+            <input type="text" name="Name" class="form-control" id="Name" placeholder="Your Name" required>
+        </div>
+        <div class="col-md-6 form-group mt-3 mt-md-0">
+            <input type="email" class="form-control" name="Email" id="Email" placeholder="Your Email" required>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 form-group">
+            <input type="text" name="MobileNo" class="form-control" id="MobileNo" placeholder="Your Mobie No" required>
+        </div>
+        <div class="col-md-6 form-group mt-3 mt-md-0">
+            <input type="text" class="form-control" name="OrganizationName" id="OrganizationName" placeholder="Your Organization Name" required>
+        </div>
+    </div>
+    <div class="form-group mt-3">
+        <input type="text" class="form-control" name="Subject" id="Subject" placeholder="Subject" required>
+    </div>
+    <div class="form-group mt-3">
+        <textarea class="form-control" name="Message" id="Message" rows="7" placeholder="Message" required></textarea>
+    </div>
+    <div class="my-3">
+        <!--<div class="loading">Loading</div>-->
+        <!-- <div class="error-message"></div>-->
+
+        <div class="sent-message">Your message has been sent. Thank you!  </div>
+    </div>
+    <div class="text-center"><button type="submit" id="BtnEnquerySave" class="btn btn-primary rounded-pill">Send Message</button></div>
+
+    <!--</form>-->
+    
+</div>
+
+    @* } *@
+ 
+<!-- End Contact Form -->
+ 
+<script>
+    $(document).ready(function () {
+        //alert("okay");
+        $("#BtnEnquerySave").click(function(event) {
+            event.preventDefault();
+            //alert("CKbtN");
+            var ename, eemail, emobile, eorg, esub, emsg;
+            ename = $("#Name").val();
+            eemail = $("#Email").val();
+            emobile = $("#MobileNo").val();
+            eorg = $("#OrganizationName").val();
+            esub = $("#Subject").val();
+            emsg = $("#Message").val();
+            response = '';
+           
+            objData = { Name: ename, MobileNo: emobile, Email: eemail, OrganizationName: eorg, Subject: esub, Message: emsg };
+            if (ename != '' && eemail != '' && esub != '') {
+                $.getJSON("/Home/SaveEnquiryByAjax/", objData, function(data) {
+                    
+                    if (data != '') {
+                        var msg = data;
+                        var x = msg.indexOf('success');
+                        if (x >= 0) {
+                            //start: to clear controls
+                            $("#Name").val("");
+                            $("#Email").val("");
+                            $("#MobileNo").val("");
+                            $("#OrganizationName").val("");
+                            $("#Subject").val("");
+                            $("#Message").val("");
+                        }
+                    }
+                    response = data;
+                    //event.preventDefault();
+                }); response = data;
+            } else { response = "Required details are blank" }
+
+            /* Message formatting Start */
+            if (response != '') {
+                var msg = response;
+                var x = msg.indexOf('success');            
+                var cls = x >= 0 ? 'bg-success' : 'bg-warning';
+                var icls = x >= 0 ? 'bi bi-check-circle me-1' : 'bi bi-exclamation-triangle me-1';
+                var str = " <p id='pmsg' class='" + cls +" "+"  text-white text-center' style='min-height:40px; font-size: 18px;'><i class='" + icls + "text-dark'></i>"+response+"</p>";
+                $(".php-email-form h3").before(str);
+                setInterval(function () {
+                    $("#pmsg").fadeOut(2000);
+                }, 5000);
+            }
+            /* Message Formatting End */
+
+        });
+
+    });
+
+    </script>

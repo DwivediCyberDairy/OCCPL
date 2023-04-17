@@ -1,0 +1,424 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OswalNextGenModelStoreContainer" CdmEntityContainer="OswalNextGenEntities">
+    <EntitySetMapping Name="OWL_BusinessPlanMaster">
+      <EntityTypeMapping TypeName="OswalNextGenModel.OWL_BusinessPlanMaster">
+        <MappingFragment StoreEntitySet="OWL_BusinessPlanMaster">
+          <ScalarProperty Name="PlanNo" ColumnName="PlanNo" />
+          <ScalarProperty Name="PlanName" ColumnName="PlanName" />
+          <ScalarProperty Name="SectorType" ColumnName="SectorType" />
+          <ScalarProperty Name="Services" ColumnName="Services" />
+          <ScalarProperty Name="Advantage" ColumnName="Advantage" />
+          <ScalarProperty Name="AdditionalFeatuer" ColumnName="AdditionalFeatuer" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="CurrencyType" ColumnName="CurrencyType" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="PostStatus" ColumnName="PostStatus" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreationDT" ColumnName="CreationDT" />
+          <ScalarProperty Name="UpdatedON" ColumnName="UpdatedON" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OWL_BusinessServicesMaster">
+      <EntityTypeMapping TypeName="OswalNextGenModel.OWL_BusinessServicesMaster">
+        <MappingFragment StoreEntitySet="OWL_BusinessServicesMaster">
+          <ScalarProperty Name="ServiceNo" ColumnName="ServiceNo" />
+          <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
+          <ScalarProperty Name="ServiceCategory" ColumnName="ServiceCategory" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OWL_CareersMaster">
+      <EntityTypeMapping TypeName="OswalNextGenModel.OWL_CareersMaster">
+        <MappingFragment StoreEntitySet="OWL_CareersMaster">
+          <ScalarProperty Name="ApplicationNo" ColumnName="ApplicationNo" />
+          <ScalarProperty Name="ApplicaintName" ColumnName="ApplicaintName" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="ApplicaintEmail" ColumnName="ApplicaintEmail" />
+          <ScalarProperty Name="ApplicaintMobile" ColumnName="ApplicaintMobile" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="ApplicaintAddress" ColumnName="ApplicaintAddress" />
+          <ScalarProperty Name="ApplicaintLocation" ColumnName="ApplicaintLocation" />
+          <ScalarProperty Name="ApplicaintPreferedLocation" ColumnName="ApplicaintPreferedLocation" />
+          <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+          <ScalarProperty Name="DesignationName" ColumnName="DesignationName" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="AttachmentFolderName" ColumnName="AttachmentFolderName" />
+          <ScalarProperty Name="AttachedResume" ColumnName="AttachedResume" />
+          <ScalarProperty Name="AttachmentExtension" ColumnName="AttachmentExtension" />
+          <ScalarProperty Name="BusinessName" ColumnName="BusinessName" />
+          <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OWL_CityMaster">
+      <EntityTypeMapping TypeName="OswalNextGenModel.OWL_CityMaster">
+        <MappingFragment StoreEntitySet="OWL_CityMaster">
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="CityName" ColumnName="CityName" />
+          <ScalarProperty Name="RelatedStateId" ColumnName="RelatedStateId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OWL_ClientMaster">
+      <EntityTypeMapping TypeName="OswalNextGenModel.OWL_ClientMaster">
+        <MappingFragment StoreEntitySet="OWL_ClientMaster">
+          <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+          <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+          <ScalarProperty Name="BelongResource" ColumnName="BelongResource" />
+          <ScalarProperty Name="SectorType" ColumnName="SectorType" />
+          <ScalarProperty Name="AuthorizedPerson" ColumnName="AuthorizedPerson" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="RelatedState" ColumnName="RelatedState" />
+          <ScalarProperty Name="RelatedCity" ColumnName="RelatedCity" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="BusinessPlan" ColumnName="BusinessPlan" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OWL_CountryMaster">
+      <EntityTypeMapping TypeName="OswalNextGenModel.OWL_CountryMaster">
+        <MappingFragment StoreEntitySet="OWL_CountryMaster">
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OWL_DepartmentMaster">
+      <EntityTypeMapping TypeName="OswalNextGenModel.OWL_DepartmentMaster">
+        <MappingFragment StoreEntitySet="OWL_DepartmentMaster">
+          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OWL_DesignationMaster">
+      <EntityTypeMapping TypeName="OswalNextGenModel.OWL_DesignationMaster">
+        <MappingFragment StoreEntitySet="OWL_DesignationMaster">
+          <ScalarProperty Name="DesignationId" ColumnName="DesignationId" />
+          <ScalarProperty Name="DesignationName" ColumnName="DesignationName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OWL_DocCategoryMaster">
+      <EntityTypeMapping TypeName="OswalNextGenModel.OWL_DocCategoryMaster">
+        <MappingFragment StoreEntitySet="OWL_DocCategoryMaster">
+          <ScalarProperty Name="DocCategoryNo" ColumnName="DocCategoryNo" />
+          <ScalarProperty Name="DocCategoryName" ColumnName="DocCategoryName" />
+          <ScalarProperty Name="RelatedDocType_Id" ColumnName="RelatedDocType_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OWL_DocTypeMaster">
+      <EntityTypeMapping TypeName="OswalNextGenModel.OWL_DocTypeMaster">
+        <MappingFragment StoreEntitySet="OWL_DocTypeMaster">
+          <ScalarProperty Name="DocTypeNo" ColumnName="DocTypeNo" />
+          <ScalarProperty Name="DocType" ColumnName="DocType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OWL_DocumentMaster">
+      <EntityTypeMapping TypeName="OswalNextGenModel.OWL_DocumentMaster">
+        <MappingFragment StoreEntitySet="OWL_DocumentMaster">
+          <ScalarProperty Name="DocNo" ColumnName="DocNo" />
+          <ScalarProperty Name="DocTitle" ColumnName="DocTitle" />
+          <ScalarProperty Name="DocName" ColumnName="DocName" />
+          <ScalarProperty Name="DocUploadedBy" ColumnName="DocUploadedBy" />
+          <ScalarProperty Name="DocCategoryName" ColumnName="DocCategoryName" />
+          <ScalarProperty Name="DocRelatedYear" ColumnName="DocRelatedYear" />
+          <ScalarProperty Name="DocUploadedOn" ColumnName="DocUploadedOn" />
+          <ScalarProperty Name="DocUpdatedOn" ColumnName="DocUpdatedOn" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="FolderName" ColumnName="FolderName" />
+          <ScalarProperty Name="DocFileType" ColumnName="DocFileType" />
+          <ScalarProperty Name="DocFileSizeIn_KB" ColumnName="DocFileSizeIn_KB" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OWL_EmployeeDetail">
+      <EntityTypeMapping TypeName="OswalNextGenModel.OWL_EmployeeDetail">
+        <MappingFragment StoreEntitySet="OWL_EmployeeDetail">
+          <ScalarProperty Name="EmpEmail" ColumnName="EmpEmail" />
+          <ScalarProperty Name="ProfilePic" ColumnName="ProfilePic" />
+          <ScalarProperty Name="About" ColumnName="About" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="JobDesignation" ColumnName="JobDesignation" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="TwitterProfileUrl" ColumnName="TwitterProfileUrl" />
+          <ScalarProperty Name="FacebookProfileUrl" ColumnName="FacebookProfileUrl" />
+          <ScalarProperty Name="InstagramProfileUrl" ColumnName="InstagramProfileUrl" />
+          <ScalarProperty Name="LinkedinProfileUrl" ColumnName="LinkedinProfileUrl" />
+          <ScalarProperty Name="LinkType" ColumnName="LinkType" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OWL_EmployeeMaster">
+      <EntityTypeMapping TypeName="OswalNextGenModel.OWL_EmployeeMaster">
+        <MappingFragment StoreEntitySet="OWL_EmployeeMaster">
+          <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+          <ScalarProperty Name="EmpName" ColumnName="EmpName" />
+          <ScalarProperty Name="EmpEmail" ColumnName="EmpEmail" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="EmpDept" ColumnName="EmpDept" />
+          <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="AddedOn" ColumnName="AddedOn" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OWL_EnqueryMaster">
+      <EntityTypeMapping TypeName="OswalNextGenModel.OWL_EnqueryMaster">
+        <MappingFragment StoreEntitySet="OWL_EnqueryMaster">
+          <ScalarProperty Name="EnqId" ColumnName="EnqId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="SubmittedByEmpId" ColumnName="SubmittedByEmpId" />
+          <ScalarProperty Name="OrganizationName" ColumnName="OrganizationName" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="EnqDate" ColumnName="EnqDate" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OWL_JobModeMaster">
+      <EntityTypeMapping TypeName="OswalNextGenModel.OWL_JobModeMaster">
+        <MappingFragment StoreEntitySet="OWL_JobModeMaster">
+          <ScalarProperty Name="ModeId" ColumnName="ModeId" />
+          <ScalarProperty Name="JobMode" ColumnName="JobMode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OWL_JobsPostMaster">
+      <EntityTypeMapping TypeName="OswalNextGenModel.OWL_JobsPostMaster">
+        <MappingFragment StoreEntitySet="OWL_JobsPostMaster">
+          <ScalarProperty Name="JobId" ColumnName="JobId" />
+          <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+          <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+          <ScalarProperty Name="KeySkills" ColumnName="KeySkills" />
+          <ScalarProperty Name="Exp_InYears" ColumnName="Exp_InYears" />
+          <ScalarProperty Name="Available_NoOfPost" ColumnName="Available_NoOfPost" />
+          <ScalarProperty Name="JobType" ColumnName="JobType" />
+          <ScalarProperty Name="JobMode" ColumnName="JobMode" />
+          <ScalarProperty Name="JobLocation" ColumnName="JobLocation" />
+          <ScalarProperty Name="PublishedBy" ColumnName="PublishedBy" />
+          <ScalarProperty Name="PublishedOn" ColumnName="PublishedOn" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OWL_JobTypeMaster">
+      <EntityTypeMapping TypeName="OswalNextGenModel.OWL_JobTypeMaster">
+        <MappingFragment StoreEntitySet="OWL_JobTypeMaster">
+          <ScalarProperty Name="JobTypeId" ColumnName="JobTypeId" />
+          <ScalarProperty Name="JobType" ColumnName="JobType" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OWL_LoginMaster">
+      <EntityTypeMapping TypeName="OswalNextGenModel.OWL_LoginMaster">
+        <MappingFragment StoreEntitySet="OWL_LoginMaster">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+          <ScalarProperty Name="UserStatus" ColumnName="UserStatus" />
+          <ScalarProperty Name="LoginCount" ColumnName="LoginCount" />
+          <ScalarProperty Name="LastLogin_DT" ColumnName="LastLogin_DT" />
+          <ScalarProperty Name="LastLogin_IP" ColumnName="LastLogin_IP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OWL_PostsMaster">
+      <EntityTypeMapping TypeName="OswalNextGenModel.OWL_PostsMaster">
+        <MappingFragment StoreEntitySet="OWL_PostsMaster">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PostAuthor" ColumnName="PostAuthor" />
+          <ScalarProperty Name="PostDate" ColumnName="PostDate" />
+          <ScalarProperty Name="PostContent" ColumnName="PostContent" />
+          <ScalarProperty Name="FeaturedImg" ColumnName="FeaturedImg" />
+          <ScalarProperty Name="ThumbImg" ColumnName="ThumbImg" />
+          <ScalarProperty Name="FileFolderName" ColumnName="FileFolderName" />
+          <ScalarProperty Name="PostTitle" ColumnName="PostTitle" />
+          <ScalarProperty Name="PostExcerpt" ColumnName="PostExcerpt" />
+          <ScalarProperty Name="BulletPoint" ColumnName="BulletPoint" />
+          <ScalarProperty Name="PostStatus" ColumnName="PostStatus" />
+          <ScalarProperty Name="CommentStatus" ColumnName="CommentStatus" />
+          <ScalarProperty Name="PostPassword" ColumnName="PostPassword" />
+          <ScalarProperty Name="PostName" ColumnName="PostName" />
+          <ScalarProperty Name="ToPingTags" ColumnName="ToPingTags" />
+          <ScalarProperty Name="Pinged" ColumnName="Pinged" />
+          <ScalarProperty Name="PostUpdatedOn" ColumnName="PostUpdatedOn" />
+          <ScalarProperty Name="PostContentFiltered" ColumnName="PostContentFiltered" />
+          <ScalarProperty Name="PostParent" ColumnName="PostParent" />
+          <ScalarProperty Name="Guid" ColumnName="Guid" />
+          <ScalarProperty Name="MenuOrder" ColumnName="MenuOrder" />
+          <ScalarProperty Name="PostType" ColumnName="PostType" />
+          <ScalarProperty Name="PostMimeType" ColumnName="PostMimeType" />
+          <ScalarProperty Name="CommentCount" ColumnName="CommentCount" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OWL_PostTypeMaster">
+      <EntityTypeMapping TypeName="OswalNextGenModel.OWL_PostTypeMaster">
+        <MappingFragment StoreEntitySet="OWL_PostTypeMaster">
+          <ScalarProperty Name="PostTypeId" ColumnName="PostTypeId" />
+          <ScalarProperty Name="PostType" ColumnName="PostType" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OWL_QualificationMaster">
+      <EntityTypeMapping TypeName="OswalNextGenModel.OWL_QualificationMaster">
+        <MappingFragment StoreEntitySet="OWL_QualificationMaster">
+          <ScalarProperty Name="QualificationId" ColumnName="QualificationId" />
+          <ScalarProperty Name="QualificationName" ColumnName="QualificationName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OWL_QuestionMaster">
+      <EntityTypeMapping TypeName="OswalNextGenModel.OWL_QuestionMaster">
+        <MappingFragment StoreEntitySet="OWL_QuestionMaster">
+          <ScalarProperty Name="QuestionNo" ColumnName="QuestionNo" />
+          <ScalarProperty Name="SectorType" ColumnName="SectorType" />
+          <ScalarProperty Name="Question" ColumnName="Question" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="CreationDT" ColumnName="CreationDT" />
+          <ScalarProperty Name="UpdationDT" ColumnName="UpdationDT" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OWL_ResourceMaster">
+      <EntityTypeMapping TypeName="OswalNextGenModel.OWL_ResourceMaster">
+        <MappingFragment StoreEntitySet="OWL_ResourceMaster">
+          <ScalarProperty Name="ResourceId" ColumnName="ResourceId" />
+          <ScalarProperty Name="ResourceName" ColumnName="ResourceName" />
+          <ScalarProperty Name="ResourceUrl" ColumnName="ResourceUrl" />
+          <ScalarProperty Name="ResourceEmail" ColumnName="ResourceEmail" />
+          <ScalarProperty Name="AuthorizedPerson" ColumnName="AuthorizedPerson" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OWL_SectorTypeMaster">
+      <EntityTypeMapping TypeName="OswalNextGenModel.OWL_SectorTypeMaster">
+        <MappingFragment StoreEntitySet="OWL_SectorTypeMaster">
+          <ScalarProperty Name="SectorTypeId" ColumnName="SectorTypeId" />
+          <ScalarProperty Name="SectorType" ColumnName="SectorType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OWL_ServicesCategoryMaster">
+      <EntityTypeMapping TypeName="OswalNextGenModel.OWL_ServicesCategoryMaster">
+        <MappingFragment StoreEntitySet="OWL_ServicesCategoryMaster">
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OWL_StateMaster">
+      <EntityTypeMapping TypeName="OswalNextGenModel.OWL_StateMaster">
+        <MappingFragment StoreEntitySet="OWL_StateMaster">
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+          <ScalarProperty Name="StateName" ColumnName="StateName" />
+          <ScalarProperty Name="RelatedCountryId" ColumnName="RelatedCountryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OWL_StatusListMaster">
+      <EntityTypeMapping TypeName="OswalNextGenModel.OWL_StatusListMaster">
+        <MappingFragment StoreEntitySet="OWL_StatusListMaster">
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="StatusValue" ColumnName="StatusValue" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OWL_TagsMaster">
+      <EntityTypeMapping TypeName="OswalNextGenModel.OWL_TagsMaster">
+        <MappingFragment StoreEntitySet="OWL_TagsMaster">
+          <ScalarProperty Name="TagId" ColumnName="TagId" />
+          <ScalarProperty Name="TagName" ColumnName="TagName" />
+          <ScalarProperty Name="TagReleatedSector" ColumnName="TagReleatedSector" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OWL_UserMaster">
+      <EntityTypeMapping TypeName="OswalNextGenModel.OWL_UserMaster">
+        <MappingFragment StoreEntitySet="OWL_UserMaster">
+          <ScalarProperty Name="UserTypeId" ColumnName="UserTypeId" />
+          <ScalarProperty Name="UserTypeName" ColumnName="UserTypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="OswalNextGenModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="EmployeeMasterOperation" FunctionName="OswalNextGenModel.Store.EmployeeMasterOperation" />
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="OswalNextGenModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="OswalNextGenModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="OswalNextGenModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="OswalNextGenModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OswalNextGenModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="OswalNextGenModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OswalNextGenModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="OswalNextGenModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="OswalNextGenModel.Store.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>

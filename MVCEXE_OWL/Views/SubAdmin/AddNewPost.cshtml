@@ -1,0 +1,107 @@
+﻿@{
+    ViewBag.Title = "AddNewPost";
+    Layout = "~/Views/Shared/SubAdminLayoutView.cshtml";
+}
+
+
+@Html.Partial("_AdminBreadcrumbsPartialView")
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+           <p>@ViewBag.Message</p>
+            
+    @using (Html.BeginForm("AddNewPost", "SubAdmin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+    <div class="row">
+        <div class="col-lg-9">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title" style="">Code Editer</h5>
+                    <label class="card-title"> Title  </label>
+                    <input type="text" placeholder="Enter Title Here" name="PostTitle" id="PostTitle" class="form-control" required /><br />
+                    <!-- Quill Editor Full -->
+                    <!--<div class="quill-editor-full">-->
+                    <textarea class="quill-editor-full form-control" name="PostContent" rows="4"> Write here.. </textarea>
+                    <!--</div>-->
+                    <!-- End Quill Editor Full -->
+                    <label class="card-title">Bullet Point </label>
+                    <input type="text" placeholder="Bullet Point Speration between by ( | ) Here" name="BulletPoint" class="form-control" />
+                    <label class="card-title">Comment Status</label>
+                    <span class="form-control">
+                        <input type="radio" name="CommentStatus" value="1" />Active
+                        <input type="radio" name="CommentStatus" value="5" /> Close
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="card">
+                <div class="card-body">
+                    <span class="form-control text-center border-0">
+                        <button class="btn btn-primary rounded-pill" type="submit">Save</button>
+                        <button class="btn btn-danger  rounded-pill" type="reset">Reset</button>
+                    </span>
+                    <label class="card-title">Status  </label>
+                    @Html.DropDownList("PostStatus", null, "--Mark Status--", new { @class = "form-control" })
+                    <label class="card-title">if you need to Apply</label>
+                    <input type="password" name="PostPassword" class="form-control" placeholder="post password" />
+                    <label class="card-title">Category  </label>
+                    @Html.DropDownList("PostType", null, "--Post Type--", new { @class = "form-control" })
+                    <label class="card-title">Author </label>
+                    @Html.DropDownList("PostAuthor", null, "--Select Author--", new { @class = "form-control" })
+                    <!-- Preview Field Start-->
+                    <label class="card-title">Featured Image </label>
+                    <input id="FeaturedImg" type="file" name="FeaturedImg" class="receiveFile form-control" data-dataid="FImg" accept="image/png, image/gif, image/jpeg,
+					image/tiff,image/bmp,image/jpg,image/WDP" /> <!--onchange="PreviewImageFeaturedImg();"-->
+                    <img id="uploadFeaturedImg" src="" class="setFile form-control" />
+
+                    <label class="card-title">Thumb Image </label>
+                    <input id="ThumbImg" type="file" name="ThumbImg" class="receiveFile form-control" data-dataid="TImg" accept="image/png, image/gif, image/jpeg,
+					image/tiff,image/bmp,image/jpg,image/WDP" />  <!-- onchange="PreviewImageFeaturedImg();"-->
+                    <img id="uploadThumbImg" src="" class="setFile form-control" />
+                    <!-- Preview Field End-->
+
+                    <label class="card-title">Excerpt </label>
+                    <textarea name="PostExcerpt" class="form-control" rows="4"></textarea>
+                    <label class="card-title"> Parent  </label>
+                    @Html.DropDownList("PostParent", null, "--Parent--", new { @class = "form-control" })
+                    <label class="card-title"> Menu Order </label>
+                    <input type="number" name="MenuOrder" class="form-control" />
+                    <label class="card-title">ToPing Tags </label>
+                    <!-- <textarea name="ToPingTags" class="form-control" rows="2"></textarea>--> <!--Checkbox our multioptionselectionList-->
+                    @Html.DropDownList("ToPingTags", null, "--ToPing Tags--", new { @class = "form-select multiple" })
+                    <label class="card-title">Pinged Tags </label>
+                    <textarea name="Pinged" class="form-control" rows="2"></textarea>
+                    <label class="card-title">URL</label>
+                    <input type="url" name="Url" class="form-control" placeholder="http://...." />
+
+                </div>
+            </div>
+        </div>
+    </div>
+}
+           
+       </div>
+    </div>
+</section>
+
+
+<script>
+
+    $(document).ready(function () {
+        var oFReader = new FileReader();
+        /*--=== File Review Section Start ===--*/ 
+        $(".receiveFile").change(function () {
+            var oFReader = new FileReader();
+            var op = $(this).attr("data-dataid");
+            oFReader.readAsDataURL(this.files[0]);
+            oFReader.onload = function (oFREvent) {
+                if (op == "FImg")
+                    document.getElementById("uploadFeaturedImg").src = oFREvent.target.result;
+                if(op == "TImg")
+                    document.getElementById("uploadThumbImg").src = oFREvent.target.result;
+            };
+        });/*--=== File Review Section End ===--*/
+    });
+</script>

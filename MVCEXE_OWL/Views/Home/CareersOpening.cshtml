@@ -1,0 +1,242 @@
+﻿@{
+    ViewBag.Title = "CareersOpening";
+    Layout = "~/Views/Shared/GeneralLayoutView.cshtml";
+}
+<style>
+    .form-control{margin-bottom:6px;}
+</style>
+
+@using MVCEXE_OWL.Models
+@model IEnumerable<OWL_JobsPostMaster>
+
+    <!-- ======= Portfolio Section ======= -->
+<section id="portfolio" class="portfolio sections-bg">
+    <div class="container" data-aos="fade-up">
+        <div class="section-header">
+            <h2>Careers</h2>
+            <p>OCC has a perfect blend of IT Professionals, Domain Experts & Visualisers</p>
+        </div>
+
+        <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry" data-portfolio-sort="original-order" data-aos="fade-up" data-aos-delay="100">
+            <div>
+                <ul class="portfolio-flters">
+                    <li data-filter="*" class="filter-active">All</li>
+                @{
+                    foreach (OWL_JobsPostMaster jpm in Model)
+                    {
+                    <li data-filter=".@jpm.JobTitle">@jpm.JobTitle</li>
+                    }
+                }
+                    
+                    <!--<li data-filter=".dot-net-developer">.Net Developer</li>
+                    <li data-filter=".district-manager">District Manager</li>
+                    <li data-filter=".marathi-telecaller">Marathi Telecaller</li>
+                    <li data-filter=".devs-engineer">Dev's Engineer</li>-->
+                </ul><!-- End Portfolio Filters -->
+            </div>
+
+            <div class="row gy-4 portfolio-container">
+                        @{
+                            //int x = 1;
+                            foreach (OWL_JobsPostMaster jpm in Model)
+                            { 
+                              <div class="col-xl-4 col-md-6 portfolio-item @jpm.JobTitle">
+                                <div class="portfolio-wrap">
+                                    <!-- <a href="assets/img/portfolio/app-1.jpg" data-gallery="portfolio-gallery-app" class="glightbox"><img src="assets/img/portfolio/app-1.jpg" class="img-fluid" alt=""></a>-->
+                                    <div class="portfolio-info">
+                                    <h4><a href="portfolio-details.html" title="More Details">Title- @jpm.JobTitle </a></h4>
+                                    <p><b>Qualification:</b> @jpm.OWL_QualificationMaster.QualificationName</p>
+                                    <p><b>Proficiency:</b> @jpm.KeySkills</p>
+                                    <p><b>Experience:</b> @jpm.Exp_InYears - Year</p>
+                                    <p><b>Available Posts:</b> @jpm.Available_NoOfPost</p>
+                                    <p><b>Location:</b> @jpm.OWL_CityMaster.CityName</p>
+                                   </div>
+                                  </div>
+                                </div><!-- End Portfolio Item -->
+                                }
+                            }
+            </div><!-- End Portfolio Container -->
+        </div><hr/>
+
+        <!--Resume Uploading  section start here -->
+      @*  @using (Html.BeginForm("CareersOpening", "Home", FormMethod.Post, new { enctype = "multipart/form-data", @class = "php-email-form" }))
+    {  *@   
+    <div class="php-email-form">
+    <h3 class="text-center">Upload Resume</h3>
+    <div class="row">
+        <div class="col-md-6 form-group ">
+            <label for="ApplicaintName" class="form-label">Name </label>
+            <input type="text" name="ApplicaintName" class="form-control" id="ApplicaintName" placeholder="Your Name" required>
+        </div>
+        <div class="col-md-6 form-group mt-3 mt-md-0">
+            <label for="ApplicaintEmail" class="form-label">Email </label>
+            <input type="email" class="form-control" name="ApplicaintEmail" id="ApplicaintEmail" placeholder="Your Email" required>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 form-group">
+            <label for="Gender" class="form-label">Gender</label>
+            <span class="form-control">
+                <input type="radio" name="Gender" id="Gender" checked value="Male">Male
+                <input type="radio" name="Gender" id="Gender" value="Female">Male
+            </span>
+        </div>
+        <div class="col-md-6 form-group mt-3 mt-md-0">
+            <label for="ApplicaintMobile" class="form-label">Mobile </label>
+            <input type="text" class="form-control" name="ApplicaintMobile" id="ApplicaintMobile" placeholder="Your Mobile  " required>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 form-group">
+            <label for="DOB" class="form-label">DOB </label>
+            <input type="date" name="DOB" class="form-control" id="DOB" placeholder="Your DOB" required>
+        </div>
+        <div class="col-md-6 form-group mt-3 mt-md-0">
+            <label for="ApplicaintAddress" class="form-label">Address </label>
+            <input type="text" class="form-control" name="ApplicaintAddress" id="ApplicaintAddress" placeholder="Full Address " required>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 form-group">
+            <label for="ApplicaintLocation" class="form-label">Current Location </label>
+            <!--<select name="ApplicaintLocation" class="form-control form-select" id="ApplicaintLocation"></select>-->
+            @Html.DropDownList("City", null, "--Select City--", new { @class = "form-control form-select", id = "ApplicaintLocation" })
+        </div>
+        <div class="col-md-6 form-group mt-3 mt-md-0">
+            <label for="ApplicaintPreferedLocation" class="form-label"> Prefered Location </label>
+            @Html.DropDownList("City", null, "--Prefered City--", new { @class = "form-control form-select", id = "ApplicaintPreferedLocation" })
+            <!--<select class="form-control form-select" name="ApplicaintPreferedLocation" id="ApplicaintPreferedLocation"></select>-->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 form-group">
+            <label for="Qualification" class="form-label">Qualification</label>
+            @Html.DropDownList("Qualification", null, "--Your Qualification--", new { @class = "form-control form-select", id = "Qualification" })
+            <!--<select name="Qualification" class="form-control form-select" id="Qualification"></select>-->
+        </div>
+        <div class="col-md-6 form-group mt-3 mt-md-0">
+            <label for="DesignationName" class="form-label">Designation</label>
+            @Html.DropDownList("DesignationName", null, "--Belong Designation--", new { @class = "form-control form-select", id = "DesignationName" })
+            <!--<select class="form-control form-select" name="DesignationName" id="DesignationName"></select>-->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 form-group">
+            <label for="DepartmentName" class="form-label">Department</label>
+            @Html.DropDownList("EmpDept", null, "--Belong Department--", new { @class = "form-control form-select", id = "DepartmentName" })
+            <!--<select name="DepartmentName" class="form-control form-select" id="DepartmentName"></select>-->
+        </div>
+        <div class="col-md-6 form-group mt-3 mt-md-0">
+            <label for="AttachedResume" class="form-label">Attached Resume</label>
+            <input type="file" class="form-control form-select" name="AttachedResume" id="AttachedResume" />
+        </div>
+    </div>
+    <div class="my-3">
+        <!--<div class="loading">Loading</div>
+        <div class="error-message"></div>
+
+        <div class="sent-message">Your message has been sent. Thank you!  </div> -->
+    </div>
+    <div class="text-center">
+        <button type="submit" id="BtnJobResumeSave" class="btn btn-primary rounded-pill">Submit </button>
+        <button type="reset" id="" class="btn btn-danger rounded-pill">Reset </button>
+    </div>
+    
+</div>
+         @* } *@ 
+
+        <!--Resume Uploading  section End here -->
+
+    </div>
+
+</section><!-- End Portfolio Section -->
+
+<script>
+    $(document).ready(function(){  
+        $('#BtnJobResumeSave').click(function () {
+  
+            // Checking whether FormData is available in browser  
+            if (window.FormData !== undefined) {  
+                var AppliName = $("#ApplicaintName").val();
+                var AppliEmail = $("#ApplicaintEmail").val();
+                var Gen = $("#Gender").val();
+                var AppliMob = $("#ApplicaintMobile").val();
+                var Dob = $("#DOB").val();
+                var AppliAdd = $("#ApplicaintAddress").val();
+                var AppliLoc = $("#ApplicaintLocation").val();
+                var AppliPfdLoc = $("#ApplicaintPreferedLocation").val();
+                var Qualif = $("#Qualification").val();
+                var DesigName = $("#DesignationName").val();
+                var DeptName = $("#DepartmentName").val();
+                var fileUpload = $("#AttachedResume").get(0);  
+                var files = fileUpload.files;                
+                // Create FormData object  
+                var fileData = new FormData();  
+  
+                // Looping over all files and add it to FormData object  
+                for (var i = 0; i < files.length; i++) {  
+                    fileData.append(files[i].name, files[i]);  
+                }  
+              
+                // Adding one more key to FormData object  
+                fileData.append('ApplicaintName', AppliName);
+                fileData.append('ApplicaintEmail', AppliEmail);
+                fileData.append('Gender', Gen);
+                fileData.append('ApplicaintMobile', AppliMob);
+                fileData.append('DOB', Dob);
+                fileData.append('ApplicaintAddress', AppliAdd);
+                fileData.append('ApplicaintLocation', AppliLoc);
+                fileData.append('ApplicaintPreferedLocation', AppliPfdLoc);
+                fileData.append('Qualification', Qualif);
+                fileData.append('DesignationName', DesigName);
+                fileData.append('DepartmentName', DeptName);
+                
+                $.ajax({  
+                    url: '/Home/CareersOpening',
+                    type: "POST",  
+                    contentType: false, // Not to set any content header  
+                    processData: false, // Not to process data  
+                    data: fileData,  
+                    success: function (result) {
+                        /* Message formatting Start */
+                        if (result != '') {
+                            var msg = result;
+                            var x = msg.indexOf('Success');
+                            if (x >= 0) {
+                                //start: to clear controls
+                                $("#ApplicaintName").val("");
+                                $("#ApplicaintEmail").val("");
+                                $("#Gender").val("");
+                                $("#ApplicaintMobile").val("");
+                                $("#DOB").val("");
+                                $("#ApplicaintAddress").val("");
+                                $("#ApplicaintLocation").val("");
+                                $("#ApplicaintPreferedLocation").val("");
+                                $("#Qualification").val("");
+                                $("#DesignationName").val("");
+                                $("#DepartmentName").val("");
+                       
+                            }
+                            //end to clear controls
+                            //var cls = x >= 0 ? 'bg-success' : 'bg-danger';
+                            //var icls = x >= 0 ? 'bi bi-check-circle me-1' : 'bi bi-exclamation-triangle me-1';
+                            var str = " <div id='pmsg' class='alert alert-info alert-dismissible fade show' role='alert'>" + result + "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
+
+                            $(".php-email-form h3").before(str);
+                            setInterval(function () {
+                                $("#pmsg").fadeOut(2000);
+                            }, 5000);
+                        }
+                        /* Message Formatting End */
+                    },  
+                    error: function (err) {  
+                        alert(err.statusText);  
+                    }  
+                });  
+            } else {  
+                alert("FormData is not supported.");  
+            }  
+        });  
+    });  
+
+</script>
